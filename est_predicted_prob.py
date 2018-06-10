@@ -22,6 +22,6 @@ def ll(beta, y, x):
 
 
 def predicted_probability(y, x):
-    guess = np.zeros((5, 1))
+    guess = np.zeros((x.shape[1], 1))
     betahat = fmin(ll, x0=guess, args=(y, x))
     return norm.cdf(np.matmul(x, betahat))
