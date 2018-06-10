@@ -47,11 +47,7 @@ for count in range(Respondents):
         yy,
         xx
     )
-    import ipdb
-    ipdb.set_trace()
     predprob = newprob
 
-import ipdb
-ipdb.set_trace()
 pyplot.scatter(trueprob, predprob)
 pyplot.show()
