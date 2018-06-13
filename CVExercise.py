@@ -37,8 +37,8 @@ def main():
     predprob[:] = np.nan
 
     for count in range(Respondents):
-        yy = y[count]
-        xx = x
+        yy = y
+        xx = x[:]
         newprob = predicted_probability(
             yy,
             xx
