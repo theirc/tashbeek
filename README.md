@@ -1,4 +1,6 @@
-# Match Algo
+# Tashbeek
+
+The matching algorithm for the IRC's Project Match
 
 ## Setup
 
