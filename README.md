@@ -14,6 +14,9 @@ To setup, create and activate a virualenv and then run
 
 `jupyter notebook`
 
+All of the notebooks are contained in the `notebook/` directory of this
+repository
+
 ## API Setup & Run
 
 To run the API, you should have [docker](https://www.docker.com/) and
@@ -21,9 +24,14 @@ To run the API, you should have [docker](https://www.docker.com/) and
 
 `docker-compose up`
 
+
+### Docs
+
 For the API docs/contract, we use [API blueprint](https://apiblueprint.org/)
 and personally, I prefer [agilo](https://github.com/danielgtaylor/aglio) for
 reading the contract. 
 
 Simply `cd api` and `agilo -i contract.apib -s` and view it in your web
 browser.
+
+You can find the latest stable docs at https://github.com/nolski/tashbeek
