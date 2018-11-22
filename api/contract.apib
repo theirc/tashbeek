@@ -1,0 +1,39 @@
+FORMAT: 1A
+
+# Tashbeek API
+This is the contract of the Tashbeek API. It will act as a programtic interface
+to our machine learning powered, job match service. 
+
+This contract will forge an agreement on behalf of IRC and Souktel how our two
+services ill interact and as such you can **parse** it with the [API Blueprint
+parser](https://github.com/apiaryio/drafter) or one of its
+[bindings](https://github.com/apiaryio/drafter#bindings).
+
+It is also recommended that you use a nice formatter such as [aglio](https://github.com/danielgtaylor/aglio)
+in order to display the docs in a nice and pretty way.
+
+## Message [/message]
+
+### Retrieve a Message [GET]
+
++ Response 200 (text/plain)
+
+        Hello World!
+
+
+### Update a Message [PUT]
+
++ Request (text/plain)
+
+        All your base are belong to us.
+
++ Response 204
+
+
+## Task [/task]
+
+### Retrieve a Task [GET]
+
++ Response 200 (text/plain)
+
+        This is a task!
