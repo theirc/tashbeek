@@ -2,7 +2,7 @@
 
 The matching algorithm for the IRC's Project Match
 
-![](https://media.giphy.com/media/dh2XvZthDl7ag/giphy.gif)
+![](https://media.giphy.com/media/HnnKLPMqsO12g/giphy.gif)
 
 ## Python Notebook Setup
 
