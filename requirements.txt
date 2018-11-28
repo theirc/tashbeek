@@ -45,10 +45,9 @@ Pygments==2.2.0
 pyparsing==2.2.0
 python-dateutil==2.7.3
 pytz==2018.4
-PyYAML==3.12
 pyzmq==17.0.0
 qtconsole==4.3.1
-scikit-learn==0.19.1
+scikit-learn[alldeps]==0.20.0
 scipy==1.1.0
 Send2Trash==1.5.0
 simplegeneric==0.8.1
@@ -62,3 +61,4 @@ traitlets==4.3.2
 wcwidth==0.1.7
 webencodings==0.5.1
 widgetsnbextension==3.2.1
+falcon==1.4.1

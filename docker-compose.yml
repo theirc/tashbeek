@@ -4,33 +4,39 @@ services:
         build: .
         container_name: "tashbeek"
         volumes:
-            - ./src:/app/src
+            - ./api:/app
+        links:
+            - mongodb
+        depends_on:
+            - mongodb
         ports:
             - 8000:8000
-            # env_file:
-            #   - sheriff.env
-            #    migration-script:
-            #        build: .
-            #        container_name: "migration-script"
-            #        volumes:
-            #            - ./src:/app/src
-            #        links:
-            #            - mongodb
-            #        depends_on:
-            #            - mongodb
-            #        env_file:
-            #          - sheriff.env
-            #        command: python3 -m scripts.populate_mongo
-            #    mongodb:
-            #        image: mongo:latest
-            #        container_name: "mongodb"
-            #        volumes: 
-            #          - /data/db:/data/db
-            #        environment:
-            #          - MONGO_DATA_DIR=/data/db
-            #          - MONGO_LOG_DIR=/dev/null
-            #          - MONGO_INITDB_ROOT_USERNAME=root
-            #          - MONGO_INITDB_ROOT_PASSWORD=root
-            #        ports:
-            #            - 27017:27017
-            #        command: mongod --smallfiles --logpath=/dev/stdout # --quiet
+        env_file:
+          - tashbeek.env
+        command: gunicorn --reload -b '0.0.0.0:8000' app
+    migration-script:
+        build: .
+        container_name: "migration-script"
+        volumes:
+            - ./api:/app
+        links:
+            - mongodb
+        depends_on:
+            - mongodb
+        env_file:
+          - tashbeek.env
+        command: python3 -m scripts.populate_mongo
+    mongodb:
+        image: mongo:latest
+        container_name: "mongodb"
+        volumes: 
+          - /data/db:/data/db
+        environment:
+          - MONGO_INITDB_ROOT_USERNAME=root
+          - MONGO_INITDB_ROOT_PASSWORD=root
+          - MONGO_INITDB_DATABASE=tashbeek
+          - MONGO_DATA_DIR=/data/db
+          - MONGO_LOG_DIR=/dev/null
+        ports:
+            - 27017:27017
+        command: mongod --smallfiles --logpath=/dev/stdout # --quiet
