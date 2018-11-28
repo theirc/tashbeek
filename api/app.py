@@ -7,20 +7,14 @@ from requests.auth import HTTPBasicAuth
 from mongoengine import connect
 
 from models import JobOpening
+from const import connect_db
+
 
 COMMCARE_USERNAME = os.environ.get('COMMCARE_USERNAME')
 COMMCARE_PASSWORD = os.environ.get('COMMCARE_PASSWORD')
-DB_USER = os.environ.get('DB_USER')
-DB_PASSWORD = os.environ.get('DB_PASSWORD')
-DB_NAME = os.environ.get('DB_NAME')
-DB_PORT = os.environ.get('DB_PORT')
-DB_SSL = os.environ.get('DB_SSL')
-DB_HOST = os.environ.get('DB_HOST')
 CASES_URL = 'https://www.commcarehq.org/a/billy-excerpt/api/v0.5/case/'
 
-
-connect(db=DB_NAME, host=DB_HOST, port=int(DB_PORT), username=DB_USER, password=DB_PASSWORD)
-
+connect_db()
 
 class JobOpeningResource(object):
 
@@ -35,7 +29,15 @@ class JobOpeningResource(object):
         resp.status = falcon.HTTP_200
 
 
+class HelloWorldResource(object):
+
+    def on_get(self, req, resp):
+        resp.status = falcon.HTTP_200
+        resp.body = ('hello world!')
+
 api = application = falcon.API()
 
 job_opening_resource = JobOpeningResource()
+hello_world_resource = HelloWorldResource()
 api.add_route('/job_opening/', job_opening_resource)
+api.add_route('/', hello_world_resource)
