@@ -12,28 +12,490 @@ parser](https://github.com/apiaryio/drafter) or one of its
 It is also recommended that you use a nice formatter such as [aglio](https://github.com/danielgtaylor/aglio)
 in order to display the docs in a nice and pretty way.
 
-## Message [/message]
+# Group Job Seeker
 
-### Retrieve a Message [GET]
+## Job Seekers List [/job-seekers/]
 
-+ Response 200 (text/plain)
+### List Job Seekers [GET]
 
-        Hello World!
++ Response 200 (application/json)
+
+    + Attributes (array[JobSeeker])
+
+## Job Seeker Detail [/job-seekers/{{case_id}]
+
+### Show Job Seeker Detail [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (JobSeeker)
 
 
-### Update a Message [PUT]
+# Group Matches
 
-+ Request (text/plain)
+## Match List [/matches/]
 
-        All your base are belong to us.
+### List Matches [GET]
 
-+ Response 204
++ Response 200 (application/json)
+
+    + Attributes (array[Match])
+
+## Match Detail [/matches/{{case_id}]
+
+### Show Match Detail [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (Match)
 
 
-## Task [/task]
+# Group Firms
 
-### Retrieve a Task [GET]
+## Firms List [/firms/]
 
-+ Response 200 (text/plain)
+### List Firms [GET]
 
-        This is a task!
++ Response 200 (application/json)
+
+    + Attributes (array[Firm])
+
+## Firm Detail [/firms/{{case_id}]
+
+### Show Firm Detail [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (Firm)
+
+
+# Group Job Opening
+
+## Job Openings List [/job-seekers/]
+
+### List Job Openings [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (array[JobOpening])
+
+## Job Opening Detail [/job-seekers/{{case_id}]
+
+### Show Job Opening Detail [GET]
+
++ Response 200 (application/json)
+
+    + Attributes (JobOpening)
+
+## Data Structures
+
+### JobSeeker
+
+ + case_id: 86fcd660-11a9-4a7e-b3da-2bebacaebd85
+ + age: 50
+ + arab_coworkers: 0
+
+
+
+ + case_name: null
+ + case_type: job-seeker
+ + city: amman
+ + completed_training_courses: 0
+
+
+
+ + date_opened: 2018-08-19T10:40:27.701000Z
+
+ + distance_willing_to_travel: 0
+ + district: nfjfj
+ + dob: 2015-08-19
+
+
+
+ + eso_id: 99
+
+ + external_id: null
+
+
+ + first_name: test4444
+ + follow_up_agreement: 0
+ + gender: male
+ + gps: 31.97350215 35.8833914 982.35 17.15
+
+ + has_house_referrals: 0
+
+
+
+
+
+
+
+
+ + id_method: social_media
+
+
+
+
+ + interview_date: 2018-08-21
+
+ + job_interest: 0
+
+
+
+ + last_name: gsjfkfn
+
+
+
+ + marital_status: single
+ + mobile_num: 1234567890
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ + neighbourhood: hdhdj
+
+
+
+ + nonarab_coworkers: 1
+
+
+ + opposite_gender_coworkers: will_refuse
+ + opposite_gender_manager: no_issue
+
+
+
+ + owner_id: 40c7d589ba38440a9307543a644d1da4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ + start_time: 13:39:00.000+02
+ + testing: yes
+
+
+
+
+
+ + visit_time: 11_3pm
+
+ + will_live_in_dorm: 0
+
+ + will_work_night_shift: 1
+
+
+
+
+
+
+### Firm
+
+ + case_id: 6181cce7-9517-4b31-a4fa-aac266f1cb84
+ + adverstise_through_other: لا
+ + advertise_through_agency: no
+ + advertise_through_building_site: no
+ + advertise_through_epu: no
+ + advertise_through_newspapers: no
+ + advertise_through_ngo: no
+ + advertise_through_online: no
+ + age_client_services: 0
+ + age_production_workers: 25
+ + age_professionals: 29
+ + age_support_services: 0
+ + application_fee: no
+ + applied_num_client: 0
+ + applied_num_production: 15
+ + applied_num_professionals: 4
+ + applied_num_support: 0
+ + case_name: 200131892
+ + case_type: firm
+ + cgender: male
+ + clerical_experience_not_required: yes
+ + cnationality: syrian
+ + coage: 25
+ + commercial_id: 106406
+ + compact_is_good: yes
+ + contact_time: anytime
+ + contact_years_firm: 1
+ + contact_years_industry: 5
+
+ + cv10_17: no
+ + cv10_18: العمر
+ + cv11_17: no
+ + cv11_18: العمر
+ + cv12_17: yes
+ + cv13_17: no
+ + cv13_18: العمر
+ + cv14_17: no
+ + cv14_18: العمر
+ + cv15_17: no
+ + cv15_18: العمر
+ + cv16_17: yes
+ + cv17_17: no
+ + cv17_18: العمر
+ + cv18_17: yes
+ + cv19_17: yes
+ + cv1_17: no
+ + cv1_18: العمر
+ + cv20_17: yes
+ + cv21_17: no
+ + cv21_18: العمر
+ + cv22_17: yes
+ + cv23_17: yes
+ + cv24_17: no
+ + cv24_18: العمر
+ + cv25_17: yes
+ + cv26_17: yes
+ + cv27_17: no
+ + cv27_18: العمر
+ + cv28_17: yes
+ + cv29_17: yes
+ + cv2_17: no
+ + cv2_18: العمر
+ + cv30_17: yes
+ + cv3_17: yes
+ + cv4_17: yes
+ + cv5_17: no
+ + cv6_17: yes
+ + cv7_17: no
+ + cv7_18: العمر
+ + cv8_17: no
+ + cv8_18: العمر
+ + cv9_17: yes
+ + date_opened: 2018-08-27T11:56:31.695000Z
+ + displayed_salary: yes
+ + dorms_not_required: yes
+ + education: secondary
+
+ + education_production_workers: no_school
+ + education_professionals: secondary
+
+ + employment_policy: rare_promotion
+ + employment_programs: no
+ + end_time: 12:50:00.000+02
+ + eso_id: 13
+ + establishment_date: 2013-02-24
+ + expected_hire_production: 9
+ + expected_hire_support: 0
+ + expected_hires_client: 0
+ + expected_hires_professionals: 0
+ + experience_client_services: 0
+ + experience_not_required: yes
+ + experience_production_workers: 1
+ + experience_professionals: 1
+ + experience_support_services: 0
+ + external_id: null
+ + factory_experience_not_required: yes
+ + fcity: irbid
+ + fdistrict: مدينة الحسنةالصناعية
+ + femail: abdalrahmn1980@gmail.com
+ + female_employees: 3
+ + female_production_employees: 3
+ + female_professional_employees: 0
+ + female_service_employees: 0
+ + female_support_employees: 0
+ + ffname: عمار
+ + fgps: 32.4966908 36.0266391 568.0 20.0
+ + fill_time_client: 0
+ + fill_time_production: personal_contacts
+ + fill_time_professionals: 1
+ + fill_time_support: 0
+ + firm_consent: yes
+ + firm_id_method: site_visit
+ + firm_is_hiring: yes
+ + firm_name: مصنع كلش للبسكويت
+ + firm_national_id: 200131892
+ + firm_status: proprietorship
+ + flname: عبد الحي
+ + fmobile: 0795464852
+ + fphone: 0797481314
+ + fposition: finance_manager
+ + heard_about_service: no
+ + hire_num_client: 0
+ + hire_num_production: 6
+ + hire_num_support: 0
+ + hire_process_client_services: لم يتم توظيف اي شخص
+ + hire_process_production_workers: personal_contacts
+ + hire_process_professionals: personal_contacts
+ + hire_process_support_services: لم يتم توظيف اي شخص
+ + hired_num_professionals: 1
+ + hired_syrians_since_before: no
+ + hr_challenge: employee_turnover
+ + interview_client: yes
+ + interview_date: 2018-11-01
+ + interview_production: no
+ + interview_professionals: yes
+ + interview_support: no
+ + interview_time: 12:09:00.000+02
+
+ + know_about_compact: yes
+ + know_same_about_job: disagree
+ + labor_directorate: ibrid
+ + management_experience_not_required: yes
+ + management_female_employees: 0
+ + managment_employees: 1
+ + manual_experience_not_required: yes
+
+ + night_shifts_not_required: yes
+ + no_cooperation_risk: disagree
+ + num_contract_end_last_year: 0
+ + num_fired_last_year: 0
+ + num_locations: 1
+ + num_owners: 2
+ + num_quit_last_year: 8
+ + num_turnover_last_year: 8
+
+ + opened_date: 2018-08-27T11:56:31.000000Z
+ + owner_id: 40c7d589ba38440a9307543a644d1da4
+ + owner_nationality: syrian
+ + percent_government: 0
+ + percent_private_domestic: 0
+ + percent_private_foreign: 100
+ + permanent_client_services: 0
+ + permanent_contract_professionals: 1
+ + permanent_production_workers: 13
+ + permanent_support_services: 0
+ + produce_in_roo: no
+ + product_code: 96
+ + production_employyes: 13
+ + professional_employees: 0
+ + professional_experience_not_required: yes
+ + promotion_method: effort_ability
+ + recruitment_test: no
+ + salary_1year_client_services: 0
+ + salary_1year_production_workers: 235
+ + salary_1year_support_services: 0
+ + salary_5years_client_services: 0
+ + salary_5years_production_workers: 275
+ + salary_5years_professionals: 750
+ + salary_5years_support_services: 0
+ + salary_year_professionals: 600
+ + sector: production
+ + service_employees: 0
+ + sez_firm: yes
+ + sez_name: prince_hassan
+ + staff_april1_2018: 15
+ + staff_march1_2018: 9
+ + starting_salary_client_services: 0
+ + starting_salary_production_workers: 220
+ + starting_salary_professionals: 450
+ + starting_salary_support_services: 0
+ + support_employees: 0
+ + syrian_cares_more: neutral
+ + syrian_client_services: 0
+ + syrian_hired_same_jordanian: strongly_disagree
+ + syrian_lower_wage: agree
+ + syrian_outreach: no
+ + syrian_production_workers: 2
+ + syrian_productivity_same_jordanian: agree
+ + syrian_professionals: 1
+ + syrian_retain_longer: neutral
+ + syrian_support_services: 0
+ + temporary_client_services: 0
+ + temporary_contract_professionals: 0
+ + temporary_production_workers: 0
+ + temporary_support_services: 0
+ + total_employees: 15
+ + training_not_required: yes
+
+### Match
+
+ + case_id: 95ec83ff-5a6d-4738-a1cb-075683e7992b
+ + case_name: KWVTIM4PQ0Z2O84
+ + case_type: match
+ + date_opened: 2018-06-11T13:53:05.854000Z
+ + external_id: null
+ + interest_applying: 1
+ + job_id: 12345678900
+ + match_job_description: management
+ + no_interest_applying: 0
+ + owner_id: 1f50c3206882bbf8fff069d033c2cf9a
+
+### JobOpening
+
+ + case_id: cce13022-00ba-402d-a6f1-b80df74317e0
+ + job_id: NCJDI5
+ + age_accepted: all_age
+ + bus_covered: yes
+ + case_name: NCJDI5
+ + case_type: job-opening
+ + childcare_subsidy_offered: no
+ + date_opened: 2018-10-28T13:34:51.170000Z
+ + date_required: 2018-11-28
+ + dorm_covered: no
+ + driving_ability_required: no
+ + education_required: no_school
+ + english_proficiency_required: not_literate
+ + external_id": nul
+ + female_requied: yes
+ + free_meals_at_wok: no
+ + health_insurance_offered: no
+ + housing_subsidy_offered: no
+ + it_proficiency_required: none
+ + job_description: production
+ + job_production: textile_worker
+ + job_title: خياطات
+ + label_name: مصنع البشائر لصناعة الالبسة - خياطات
+ + literacy_required: no
+ + male_required: no
+ + meal_subsidy_offered: no
+ + night_shifts_required: no
+ + num_vacancies: 3
+ + owner_id: 40c7d589ba38440a9307543a644d1da4
+ + physical_work_abilities_required: no
+ + school_subsidy_offered: no
+ + specialization_required: no
+ + syrian_considered: no
+ + syrian_not_considered: يرغب صاحب العمل بتشغيل العمالة الاردنية
+ + transport_subsidy_offered: no
+ + wage_offered: 220
+ + work_permit_offered: no
+ + years_experience_required: 1
