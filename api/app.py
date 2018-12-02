@@ -6,7 +6,7 @@ import os
 from requests.auth import HTTPBasicAuth
 from mongoengine import connect
 
-from models import JobOpening, JobSeeker, Firm, Match
+from models import JobOpening, JobSeeker, Firm, Match, User
 from const import connect_db
 
 
@@ -16,6 +16,17 @@ CASES_URL = 'https://www.commcarehq.org/a/billy-excerpt/api/v0.5/case/'
 
 connect_db()
 
+class ScoresResource(object):
+    def on_get(self, req, resp):
+        url = 'https://www.dropbox.com/s/p0jdw71vwu1quru/scores.csv'
+        r = requests.get(url)
+        print(r.body)
+        resp.body = '{"hello": "world"}'
+
+class JobMatchResource(object):
+    def on_get(self, req, resp):
+        resp.body = '{"hello": "world"}'
+
 class JobOpeningResource(object):
     def on_get(self, req, resp):
         openings = JobOpening.objects.all()
@@ -23,33 +34,29 @@ class JobOpeningResource(object):
 
 class JobSeekerResource(object):
     def on_get(self, req, resp):
-        openings = JobSeeker.objects.all()
-        resp.body = openings.to_json()
+        job_seekers = JobSeeker.objects.all()
+        resp.body = job_seekers.to_json()
 
 class FirmResource(object):
     def on_get(self, req, resp):
-        openings = Firm.objects.all()
-        resp.body = openings.to_json()
+        firms = Firm.objects.all()
+        resp.body = firms.to_json()
 
 class MatchResource(object):
     def on_get(self, req, resp):
-        openings = Match.objects.all()
-        resp.body = openings.to_json()
+        matches = Match.objects.all()
+        resp.body = matches.to_json()
 
-class HelloWorldResource(object):
+class UserResource(object):
     def on_get(self, req, resp):
-        resp.status = falcon.HTTP_200
-        resp.body = ('hello world!')
+        users = User.objects.all()
+        resp.body = users.to_json()
 
 api = application = falcon.API()
-
-job_opening_resource = JobOpeningResource()
-job_seeker_resource = JobSeekerResource()
-firm_resource = FirmResource()
-match_resource = MatchResource()
-hello_world_resource = HelloWorldResource()
-api.add_route('/job-openings/', job_opening_resource)
-api.add_route('/job-seekers/', job_seeker_resource)
-api.add_route('/firms/', firm_resource)
-api.add_route('/matches/', match_resource)
-api.add_route('/', hello_world_resource)
+api.add_route('/job-openings/', JobOpeningResource())
+api.add_route('/job-seekers/', JobSeekerResource())
+api.add_route('/firms/', FirmResource())
+api.add_route('/matches/', MatchResource())
+api.add_route('/users/', UserResource())
+api.add_route('/job-match/', JobMatchResource())
+api.add_route('/scores/', ScoresResource())

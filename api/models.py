@@ -15,3 +15,7 @@ class Firm(DynamicDocument):
 
 class Match(DynamicDocument):
     case_id = StringField(required=True, unique=True)
+
+class User(DynamicDocument):
+    user_id = StringField(required=True, unique=True)
+    username = StringField(required=True, unique=True)
