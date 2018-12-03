@@ -6,36 +6,57 @@ import os
 from requests.auth import HTTPBasicAuth
 from mongoengine import connect
 
-from models import JobOpening
+from models import JobOpening, JobSeeker, Firm, Match, User
+from const import connect_db
+
 
 COMMCARE_USERNAME = os.environ.get('COMMCARE_USERNAME')
 COMMCARE_PASSWORD = os.environ.get('COMMCARE_PASSWORD')
-DB_USER = os.environ.get('DB_USER')
-DB_PASSWORD = os.environ.get('DB_PASSWORD')
-DB_NAME = os.environ.get('DB_NAME')
-DB_PORT = os.environ.get('DB_PORT')
-DB_SSL = os.environ.get('DB_SSL')
-DB_HOST = os.environ.get('DB_HOST')
 CASES_URL = 'https://www.commcarehq.org/a/billy-excerpt/api/v0.5/case/'
 
+connect_db()
 
-connect(db=DB_NAME, host=DB_HOST, port=int(DB_PORT), username=DB_USER, password=DB_PASSWORD)
+class ScoresResource(object):
+    def on_get(self, req, resp):
+        url = 'https://www.dropbox.com/s/p0jdw71vwu1quru/scores.csv'
+        r = requests.get(url)
+        print(r.body)
+        resp.body = '{"hello": "world"}'
 
+class JobMatchResource(object):
+    def on_get(self, req, resp):
+        resp.body = '{"hello": "world"}'
 
 class JobOpeningResource(object):
-
     def on_get(self, req, resp):
         openings = JobOpening.objects.all()
-
         resp.body = openings.to_json()
 
-        # The following line can be omitted because 200 is the default
-        # status returned by the framework, but it is included here to
-        # illustrate how this may be overridden as needed.
-        resp.status = falcon.HTTP_200
+class JobSeekerResource(object):
+    def on_get(self, req, resp):
+        job_seekers = JobSeeker.objects.all()
+        resp.body = job_seekers.to_json()
 
+class FirmResource(object):
+    def on_get(self, req, resp):
+        firms = Firm.objects.all()
+        resp.body = firms.to_json()
+
+class MatchResource(object):
+    def on_get(self, req, resp):
+        matches = Match.objects.all()
+        resp.body = matches.to_json()
+
+class UserResource(object):
+    def on_get(self, req, resp):
+        users = User.objects.all()
+        resp.body = users.to_json()
 
 api = application = falcon.API()
-
-job_opening_resource = JobOpeningResource()
-api.add_route('/job_opening/', job_opening_resource)
+api.add_route('/job-openings/', JobOpeningResource())
+api.add_route('/job-seekers/', JobSeekerResource())
+api.add_route('/firms/', FirmResource())
+api.add_route('/matches/', MatchResource())
+api.add_route('/users/', UserResource())
+api.add_route('/job-match/', JobMatchResource())
+api.add_route('/scores/', ScoresResource())
