@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Tashbeek API</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"><style>@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200');.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}.right .hljs-comment{color:#969896}.right .css .hljs-class,.right .css .hljs-id,.right .css .hljs-pseudo,.right .hljs-attribute,.right .hljs-regexp,.right .hljs-tag,.right .hljs-variable,.right .html .hljs-doctype,.right .ruby .hljs-constant,.right .xml .hljs-doctype,.right .xml .hljs-pi,.right .xml .hljs-tag .hljs-title{color:#c66}.right .hljs-built_in,.right .hljs-constant,.right .hljs-literal,.right .hljs-number,.right .hljs-params,.right .hljs-pragma,.right .hljs-preprocessor{color:#de935f}.right .css .hljs-rule .hljs-attribute,.right .ruby .hljs-class .hljs-title{color:#f0c674}.right .hljs-header,.right .hljs-inheritance,.right .hljs-name,.right .hljs-string,.right .hljs-value,.right .ruby .hljs-symbol,.right .xml .hljs-cdata{color:#b5bd68}.right .css .hljs-hexcolor,.right .hljs-title{color:#8abeb7}.right .coffeescript .hljs-title,.right .hljs-function,.right .javascript .hljs-title,.right .perl .hljs-sub,.right .python .hljs-decorator,.right .python .hljs-title,.right .ruby .hljs-function .hljs-title,.right .ruby .hljs-title .hljs-keyword{color:#81a2be}.right .hljs-keyword,.right .javascript .hljs-function{color:#b294bb}.right .hljs{display:block;overflow-x:auto;background:#1d1f21;color:#c5c8c6;padding:.5em;-webkit-text-size-adjust:none}.right .coffeescript .javascript,.right .javascript .xml,.right .tex .hljs-formula,.right .xml .css,.right .xml .hljs-cdata,.right .xml .javascript,.right .xml .vbscript{opacity:.5}body{color:black;background:white;font:400 14px / 1.42 'Roboto',Helvetica,sans-serif}header{border-bottom:1px solid #f2f2f2;margin-bottom:12px}h1,h2,h3,h4,h5{color:black;margin:12px 0}h1 .permalink,h2 .permalink,h3 .permalink,h4 .permalink,h5 .permalink{margin-left:0;opacity:0;transition:opacity .25s ease}h1:hover .permalink,h2:hover .permalink,h3:hover .permalink,h4:hover .permalink,h5:hover .permalink{opacity:1}.triple h1 .permalink,.triple h2 .permalink,.triple h3 .permalink,.triple h4 .permalink,.triple h5 .permalink{opacity:.15}.triple h1:hover .permalink,.triple h2:hover .permalink,.triple h3:hover .permalink,.triple h4:hover .permalink,.triple h5:hover .permalink{opacity:.15}h1{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:36px}h2{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:30px}h3{font-size:100%;text-transform:uppercase}h5{font-size:100%;font-weight:normal}p{margin:0 0 10px}p.choices{line-height:1.6}a{color:#428bca;text-decoration:none}li p{margin:0}hr.split{border:0;height:1px;width:100%;padding-left:6px;margin:12px auto;background-image:linear-gradient(to right, rgba(0,0,0,0) 20%, rgba(0,0,0,0.2) 51.4%, rgba(255,255,255,0.2) 51.4%, rgba(255,255,255,0) 80%)}dl dt{float:left;width:130px;clear:left;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}dl dd{margin-left:150px}blockquote{color:rgba(0,0,0,0.5);font-size:15.5px;padding:10px 20px;margin:12px 0;border-left:5px solid #e8e8e8}blockquote p:last-child{margin-bottom:0}pre{background-color:#f5f5f5;padding:12px;border:1px solid #cfcfcf;border-radius:6px;overflow:auto}pre code{color:black;background-color:transparent;padding:0;border:none}code{color:#444;background-color:#f5f5f5;font:'Inconsolata',monospace;padding:1px 4px;border:1px solid #cfcfcf;border-radius:3px}ul,ol{padding-left:2em}table{border-collapse:collapse;border-spacing:0;margin-bottom:12px}table tr:nth-child(2n){background-color:#fafafa}table th,table td{padding:6px 12px;border:1px solid #e6e6e6}.text-muted{opacity:.5}.note,.warning{padding:.3em 1em;margin:1em 0;border-radius:2px;font-size:90%}.note h1,.warning h1,.note h2,.warning h2,.note h3,.warning h3,.note h4,.warning h4,.note h5,.warning h5,.note h6,.warning h6{font-family:200 36px 'Raleway',Helvetica,sans-serif;font-size:135%;font-weight:500}.note p,.warning p{margin:.5em 0}.note{color:black;background-color:#f0f6fb;border-left:4px solid #428bca}.note h1,.note h2,.note h3,.note h4,.note h5,.note h6{color:#428bca}.warning{color:black;background-color:#fbf1f0;border-left:4px solid #c9302c}.warning h1,.warning h2,.warning h3,.warning h4,.warning h5,.warning h6{color:#c9302c}header{margin-top:24px}nav{position:fixed;top:24px;bottom:0;overflow-y:auto}nav .resource-group{padding:0}nav .resource-group .heading{position:relative}nav .resource-group .heading .chevron{position:absolute;top:12px;right:12px;opacity:.5}nav .resource-group .heading a{display:block;color:black;opacity:.7;border-left:2px solid transparent;margin:0}nav .resource-group .heading a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul{list-style-type:none;padding-left:0}nav ul a{display:block;font-size:13px;color:rgba(0,0,0,0.7);padding:8px 12px;border-top:1px solid #d9d9d9;border-left:2px solid transparent;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}nav ul a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul>li{margin:0}nav ul>li:first-child{margin-top:-12px}nav ul>li:last-child{margin-bottom:-12px}nav ul ul a{padding-left:24px}nav ul ul li{margin:0}nav ul ul li:first-child{margin-top:0}nav ul ul li:last-child{margin-bottom:0}nav>div>div>ul>li:first-child>a{border-top:none}.preload *{transition:none !important}.pull-left{float:left}.pull-right{float:right}.badge{display:inline-block;float:right;min-width:10px;min-height:14px;padding:3px 7px;font-size:12px;color:#000;background-color:#f2f2f2;border-radius:10px;margin:-2px 0}.badge.get{color:#70bbe1;background-color:#d9edf7}.badge.head{color:#70bbe1;background-color:#d9edf7}.badge.options{color:#70bbe1;background-color:#d9edf7}.badge.put{color:#f0db70;background-color:#fcf8e3}.badge.patch{color:#f0db70;background-color:#fcf8e3}.badge.post{color:#93cd7c;background-color:#dff0d8}.badge.delete{color:#ce8383;background-color:#f2dede}.collapse-button{float:right}.collapse-button .close{display:none;color:#428bca;cursor:pointer}.collapse-button .open{color:#428bca;cursor:pointer}.collapse-button.show .close{display:inline}.collapse-button.show .open{display:none}.collapse-content{max-height:0;overflow:hidden;transition:max-height .3s ease-in-out}nav{width:220px}.container{max-width:940px;margin-left:auto;margin-right:auto}.container .row .content{margin-left:244px;width:696px}.container .row:after{content:'';display:block;clear:both}.container-fluid nav{width:22%}.container-fluid .row .content{margin-left:24%}.container-fluid.triple nav{width:16.5%;padding-right:1px}.container-fluid.triple .row .content{position:relative;margin-left:16.5%;padding-left:24px}.middle:before,.middle:after{content:'';display:table}.middle:after{clear:both}.middle{box-sizing:border-box;width:51.5%;padding-right:12px}.right{box-sizing:border-box;float:right;width:48.5%;padding-left:12px}.right a{color:#428bca}.right h1,.right h2,.right h3,.right h4,.right h5,.right p,.right div{color:white}.right pre{background-color:#1d1f21;border:1px solid #1d1f21}.right pre code{color:#c5c8c6}.right .description{margin-top:12px}.triple .resource-heading{font-size:125%}.definition{margin-top:12px;margin-bottom:12px}.definition .method{font-weight:bold}.definition .method.get{color:#2e8ab8}.definition .method.head{color:#2e8ab8}.definition .method.options{color:#2e8ab8}.definition .method.post{color:#56b82e}.definition .method.put{color:#b8a22e}.definition .method.patch{color:#b8a22e}.definition .method.delete{color:#b82e2e}.definition .uri{word-break:break-all;word-wrap:break-word}.definition .hostname{opacity:.5}.example-names{background-color:#eee;padding:12px;border-radius:6px}.example-names .tab-button{cursor:pointer;color:black;border:1px solid #ddd;padding:6px;margin-left:12px}.example-names .tab-button.active{background-color:#d5d5d5}.right .example-names{background-color:#444}.right .example-names .tab-button{color:white;border:1px solid #666;border-radius:6px}.right .example-names .tab-button.active{background-color:#5e5e5e}#nav-background{position:fixed;left:0;top:0;bottom:0;width:16.5%;padding-right:14.4px;background-color:#fbfbfb;border-right:1px solid #f0f0f0;z-index:-1}#right-panel-background{position:absolute;right:-12px;top:-12px;bottom:-12px;width:48.6%;background-color:#333;z-index:-1}@media (max-width:1200px){nav{width:198px}.container{max-width:840px}.container .row .content{margin-left:224px;width:606px}}@media (max-width:992px){nav{width:169.4px}.container{max-width:720px}.container .row .content{margin-left:194px;width:526px}}@media (max-width:768px){nav{display:none}.container{width:95%;max-width:none}.container .row .content,.container-fluid .row .content,.container-fluid.triple .row .content{margin-left:auto;margin-right:auto;width:95%}#nav-background{display:none}#right-panel-background{width:48.6%}}.back-to-top{position:fixed;z-index:1;bottom:0;right:24px;padding:4px 8px;color:rgba(0,0,0,0.5);background-color:#f2f2f2;text-decoration:none !important;border-top:1px solid #d9d9d9;border-left:1px solid #d9d9d9;border-right:1px solid #d9d9d9;border-top-left-radius:3px;border-top-right-radius:3px}.resource-group{padding:12px;margin-bottom:12px;background-color:white;border:1px solid #d9d9d9;border-radius:6px}.resource-group h2.group-heading,.resource-group .heading a{padding:12px;margin:-12px -12px 12px -12px;background-color:#f2f2f2;border-bottom:1px solid #d9d9d9;border-top-left-radius:6px;border-top-right-radius:6px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.triple .content .resource-group{padding:0;border:none}.triple .content .resource-group h2.group-heading,.triple .content .resource-group .heading a{margin:0 0 12px 0;border:1px solid #d9d9d9}nav .resource-group .heading a{padding:12px;margin-bottom:0}nav .resource-group .collapse-content{padding:0}.action{margin-bottom:12px;padding:12px 12px 0 12px;overflow:hidden;border:1px solid transparent;border-radius:6px}.action h4.action-heading{padding:6px 12px;margin:-12px -12px 12px -12px;border-bottom:1px solid transparent;border-top-left-radius:6px;border-top-right-radius:6px;overflow:hidden}.action h4.action-heading .name{float:right;font-weight:normal;padding:6px 0}.action h4.action-heading .method{padding:6px 12px;margin-right:12px;border-radius:3px;display:inline-block}.action h4.action-heading .method.get{color:#fff;background-color:#337ab7}.action h4.action-heading .method.head{color:#fff;background-color:#337ab7}.action h4.action-heading .method.options{color:#fff;background-color:#337ab7}.action h4.action-heading .method.put{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.patch{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.post{color:#fff;background-color:#5cb85c}.action h4.action-heading .method.delete{color:#fff;background-color:#d9534f}.action h4.action-heading code{color:#444;background-color:#f5f5f5;border-color:#cfcfcf;font-weight:normal;word-break:break-all;display:inline-block;margin-top:2px}.action dl.inner{padding-bottom:2px}.action .title{border-bottom:1px solid white;margin:0 -12px -1px -12px;padding:12px}.action.get{border-color:#bce8f1}.action.get h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.head{border-color:#bce8f1}.action.head h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.options{border-color:#bce8f1}.action.options h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.post{border-color:#d6e9c6}.action.post h4.action-heading{color:#5cb85c;background:#dff0d8;border-bottom-color:#d6e9c6}.action.put{border-color:#faebcc}.action.put h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.patch{border-color:#faebcc}.action.patch h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.delete{border-color:#ebccd1}.action.delete h4.action-heading{color:#d9534f;background:#f2dede;border-bottom-color:#ebccd1}</style></head><body class="preload"><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><nav><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#">Resource Group</a></div><div class="collapse-content"><ul><li><a href="#message">Message</a><ul><li><a href="#message-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Retrieve a Message</a></li><li><a href="#message-put"><span class="badge put"><i class="fa fa-pencil"></i></span>Update a Message</a></li></ul></li><li><a href="#task-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Retrieve a Task</a></li></ul></div></div></nav><div class="content"><header><h1 id="top">Tashbeek API</h1></header><p>This is the contract of the Tashbeek API. It will act as a programtic interface
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Tashbeek API</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"><style>@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200');.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}.right .hljs-comment{color:#969896}.right .css .hljs-class,.right .css .hljs-id,.right .css .hljs-pseudo,.right .hljs-attribute,.right .hljs-regexp,.right .hljs-tag,.right .hljs-variable,.right .html .hljs-doctype,.right .ruby .hljs-constant,.right .xml .hljs-doctype,.right .xml .hljs-pi,.right .xml .hljs-tag .hljs-title{color:#c66}.right .hljs-built_in,.right .hljs-constant,.right .hljs-literal,.right .hljs-number,.right .hljs-params,.right .hljs-pragma,.right .hljs-preprocessor{color:#de935f}.right .css .hljs-rule .hljs-attribute,.right .ruby .hljs-class .hljs-title{color:#f0c674}.right .hljs-header,.right .hljs-inheritance,.right .hljs-name,.right .hljs-string,.right .hljs-value,.right .ruby .hljs-symbol,.right .xml .hljs-cdata{color:#b5bd68}.right .css .hljs-hexcolor,.right .hljs-title{color:#8abeb7}.right .coffeescript .hljs-title,.right .hljs-function,.right .javascript .hljs-title,.right .perl .hljs-sub,.right .python .hljs-decorator,.right .python .hljs-title,.right .ruby .hljs-function .hljs-title,.right .ruby .hljs-title .hljs-keyword{color:#81a2be}.right .hljs-keyword,.right .javascript .hljs-function{color:#b294bb}.right .hljs{display:block;overflow-x:auto;background:#1d1f21;color:#c5c8c6;padding:.5em;-webkit-text-size-adjust:none}.right .coffeescript .javascript,.right .javascript .xml,.right .tex .hljs-formula,.right .xml .css,.right .xml .hljs-cdata,.right .xml .javascript,.right .xml .vbscript{opacity:.5}body{color:black;background:white;font:400 14px / 1.42 'Roboto',Helvetica,sans-serif}header{border-bottom:1px solid #f2f2f2;margin-bottom:12px}h1,h2,h3,h4,h5{color:black;margin:12px 0}h1 .permalink,h2 .permalink,h3 .permalink,h4 .permalink,h5 .permalink{margin-left:0;opacity:0;transition:opacity .25s ease}h1:hover .permalink,h2:hover .permalink,h3:hover .permalink,h4:hover .permalink,h5:hover .permalink{opacity:1}.triple h1 .permalink,.triple h2 .permalink,.triple h3 .permalink,.triple h4 .permalink,.triple h5 .permalink{opacity:.15}.triple h1:hover .permalink,.triple h2:hover .permalink,.triple h3:hover .permalink,.triple h4:hover .permalink,.triple h5:hover .permalink{opacity:.15}h1{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:36px}h2{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:30px}h3{font-size:100%;text-transform:uppercase}h5{font-size:100%;font-weight:normal}p{margin:0 0 10px}p.choices{line-height:1.6}a{color:#428bca;text-decoration:none}li p{margin:0}hr.split{border:0;height:1px;width:100%;padding-left:6px;margin:12px auto;background-image:linear-gradient(to right, rgba(0,0,0,0) 20%, rgba(0,0,0,0.2) 51.4%, rgba(255,255,255,0.2) 51.4%, rgba(255,255,255,0) 80%)}dl dt{float:left;width:130px;clear:left;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}dl dd{margin-left:150px}blockquote{color:rgba(0,0,0,0.5);font-size:15.5px;padding:10px 20px;margin:12px 0;border-left:5px solid #e8e8e8}blockquote p:last-child{margin-bottom:0}pre{background-color:#f5f5f5;padding:12px;border:1px solid #cfcfcf;border-radius:6px;overflow:auto}pre code{color:black;background-color:transparent;padding:0;border:none}code{color:#444;background-color:#f5f5f5;font:'Inconsolata',monospace;padding:1px 4px;border:1px solid #cfcfcf;border-radius:3px}ul,ol{padding-left:2em}table{border-collapse:collapse;border-spacing:0;margin-bottom:12px}table tr:nth-child(2n){background-color:#fafafa}table th,table td{padding:6px 12px;border:1px solid #e6e6e6}.text-muted{opacity:.5}.note,.warning{padding:.3em 1em;margin:1em 0;border-radius:2px;font-size:90%}.note h1,.warning h1,.note h2,.warning h2,.note h3,.warning h3,.note h4,.warning h4,.note h5,.warning h5,.note h6,.warning h6{font-family:200 36px 'Raleway',Helvetica,sans-serif;font-size:135%;font-weight:500}.note p,.warning p{margin:.5em 0}.note{color:black;background-color:#f0f6fb;border-left:4px solid #428bca}.note h1,.note h2,.note h3,.note h4,.note h5,.note h6{color:#428bca}.warning{color:black;background-color:#fbf1f0;border-left:4px solid #c9302c}.warning h1,.warning h2,.warning h3,.warning h4,.warning h5,.warning h6{color:#c9302c}header{margin-top:24px}nav{position:fixed;top:24px;bottom:0;overflow-y:auto}nav .resource-group{padding:0}nav .resource-group .heading{position:relative}nav .resource-group .heading .chevron{position:absolute;top:12px;right:12px;opacity:.5}nav .resource-group .heading a{display:block;color:black;opacity:.7;border-left:2px solid transparent;margin:0}nav .resource-group .heading a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul{list-style-type:none;padding-left:0}nav ul a{display:block;font-size:13px;color:rgba(0,0,0,0.7);padding:8px 12px;border-top:1px solid #d9d9d9;border-left:2px solid transparent;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}nav ul a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul>li{margin:0}nav ul>li:first-child{margin-top:-12px}nav ul>li:last-child{margin-bottom:-12px}nav ul ul a{padding-left:24px}nav ul ul li{margin:0}nav ul ul li:first-child{margin-top:0}nav ul ul li:last-child{margin-bottom:0}nav>div>div>ul>li:first-child>a{border-top:none}.preload *{transition:none !important}.pull-left{float:left}.pull-right{float:right}.badge{display:inline-block;float:right;min-width:10px;min-height:14px;padding:3px 7px;font-size:12px;color:#000;background-color:#f2f2f2;border-radius:10px;margin:-2px 0}.badge.get{color:#70bbe1;background-color:#d9edf7}.badge.head{color:#70bbe1;background-color:#d9edf7}.badge.options{color:#70bbe1;background-color:#d9edf7}.badge.put{color:#f0db70;background-color:#fcf8e3}.badge.patch{color:#f0db70;background-color:#fcf8e3}.badge.post{color:#93cd7c;background-color:#dff0d8}.badge.delete{color:#ce8383;background-color:#f2dede}.collapse-button{float:right}.collapse-button .close{display:none;color:#428bca;cursor:pointer}.collapse-button .open{color:#428bca;cursor:pointer}.collapse-button.show .close{display:inline}.collapse-button.show .open{display:none}.collapse-content{max-height:0;overflow:hidden;transition:max-height .3s ease-in-out}nav{width:220px}.container{max-width:940px;margin-left:auto;margin-right:auto}.container .row .content{margin-left:244px;width:696px}.container .row:after{content:'';display:block;clear:both}.container-fluid nav{width:22%}.container-fluid .row .content{margin-left:24%}.container-fluid.triple nav{width:16.5%;padding-right:1px}.container-fluid.triple .row .content{position:relative;margin-left:16.5%;padding-left:24px}.middle:before,.middle:after{content:'';display:table}.middle:after{clear:both}.middle{box-sizing:border-box;width:51.5%;padding-right:12px}.right{box-sizing:border-box;float:right;width:48.5%;padding-left:12px}.right a{color:#428bca}.right h1,.right h2,.right h3,.right h4,.right h5,.right p,.right div{color:white}.right pre{background-color:#1d1f21;border:1px solid #1d1f21}.right pre code{color:#c5c8c6}.right .description{margin-top:12px}.triple .resource-heading{font-size:125%}.definition{margin-top:12px;margin-bottom:12px}.definition .method{font-weight:bold}.definition .method.get{color:#2e8ab8}.definition .method.head{color:#2e8ab8}.definition .method.options{color:#2e8ab8}.definition .method.post{color:#56b82e}.definition .method.put{color:#b8a22e}.definition .method.patch{color:#b8a22e}.definition .method.delete{color:#b82e2e}.definition .uri{word-break:break-all;word-wrap:break-word}.definition .hostname{opacity:.5}.example-names{background-color:#eee;padding:12px;border-radius:6px}.example-names .tab-button{cursor:pointer;color:black;border:1px solid #ddd;padding:6px;margin-left:12px}.example-names .tab-button.active{background-color:#d5d5d5}.right .example-names{background-color:#444}.right .example-names .tab-button{color:white;border:1px solid #666;border-radius:6px}.right .example-names .tab-button.active{background-color:#5e5e5e}#nav-background{position:fixed;left:0;top:0;bottom:0;width:16.5%;padding-right:14.4px;background-color:#fbfbfb;border-right:1px solid #f0f0f0;z-index:-1}#right-panel-background{position:absolute;right:-12px;top:-12px;bottom:-12px;width:48.6%;background-color:#333;z-index:-1}@media (max-width:1200px){nav{width:198px}.container{max-width:840px}.container .row .content{margin-left:224px;width:606px}}@media (max-width:992px){nav{width:169.4px}.container{max-width:720px}.container .row .content{margin-left:194px;width:526px}}@media (max-width:768px){nav{display:none}.container{width:95%;max-width:none}.container .row .content,.container-fluid .row .content,.container-fluid.triple .row .content{margin-left:auto;margin-right:auto;width:95%}#nav-background{display:none}#right-panel-background{width:48.6%}}.back-to-top{position:fixed;z-index:1;bottom:0;right:24px;padding:4px 8px;color:rgba(0,0,0,0.5);background-color:#f2f2f2;text-decoration:none !important;border-top:1px solid #d9d9d9;border-left:1px solid #d9d9d9;border-right:1px solid #d9d9d9;border-top-left-radius:3px;border-top-right-radius:3px}.resource-group{padding:12px;margin-bottom:12px;background-color:white;border:1px solid #d9d9d9;border-radius:6px}.resource-group h2.group-heading,.resource-group .heading a{padding:12px;margin:-12px -12px 12px -12px;background-color:#f2f2f2;border-bottom:1px solid #d9d9d9;border-top-left-radius:6px;border-top-right-radius:6px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.triple .content .resource-group{padding:0;border:none}.triple .content .resource-group h2.group-heading,.triple .content .resource-group .heading a{margin:0 0 12px 0;border:1px solid #d9d9d9}nav .resource-group .heading a{padding:12px;margin-bottom:0}nav .resource-group .collapse-content{padding:0}.action{margin-bottom:12px;padding:12px 12px 0 12px;overflow:hidden;border:1px solid transparent;border-radius:6px}.action h4.action-heading{padding:6px 12px;margin:-12px -12px 12px -12px;border-bottom:1px solid transparent;border-top-left-radius:6px;border-top-right-radius:6px;overflow:hidden}.action h4.action-heading .name{float:right;font-weight:normal;padding:6px 0}.action h4.action-heading .method{padding:6px 12px;margin-right:12px;border-radius:3px;display:inline-block}.action h4.action-heading .method.get{color:#fff;background-color:#337ab7}.action h4.action-heading .method.head{color:#fff;background-color:#337ab7}.action h4.action-heading .method.options{color:#fff;background-color:#337ab7}.action h4.action-heading .method.put{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.patch{color:#fff;background-color:#ed9c28}.action h4.action-heading .method.post{color:#fff;background-color:#5cb85c}.action h4.action-heading .method.delete{color:#fff;background-color:#d9534f}.action h4.action-heading code{color:#444;background-color:#f5f5f5;border-color:#cfcfcf;font-weight:normal;word-break:break-all;display:inline-block;margin-top:2px}.action dl.inner{padding-bottom:2px}.action .title{border-bottom:1px solid white;margin:0 -12px -1px -12px;padding:12px}.action.get{border-color:#bce8f1}.action.get h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.head{border-color:#bce8f1}.action.head h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.options{border-color:#bce8f1}.action.options h4.action-heading{color:#337ab7;background:#d9edf7;border-bottom-color:#bce8f1}.action.post{border-color:#d6e9c6}.action.post h4.action-heading{color:#5cb85c;background:#dff0d8;border-bottom-color:#d6e9c6}.action.put{border-color:#faebcc}.action.put h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.patch{border-color:#faebcc}.action.patch h4.action-heading{color:#ed9c28;background:#fcf8e3;border-bottom-color:#faebcc}.action.delete{border-color:#ebccd1}.action.delete h4.action-heading{color:#d9534f;background:#f2dede;border-bottom-color:#ebccd1}</style></head><body class="preload"><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><nav><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#job-seeker">Job Seeker</a></div><div class="collapse-content"><ul><li><a href="#job-seeker-job-seekers-list-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>List Job Seekers</a></li><li><a href="#job-seeker-job-seeker-detail-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Show Job Seeker Detail</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#matches">Matches</a></div><div class="collapse-content"><ul><li><a href="#matches-match-list-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>List Matches</a></li><li><a href="#matches-match-detail-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Show Match Detail</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#firms">Firms</a></div><div class="collapse-content"><ul><li><a href="#firms-firms-list-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>List Firms</a></li><li><a href="#firms-firm-detail-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Show Firm Detail</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#job-opening">Job Opening</a></div><div class="collapse-content"><ul><li><a href="#job-opening-job-openings-list-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>List Job Openings</a></li><li><a href="#job-opening-job-opening-detail-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Show Job Opening Detail</a></li></ul></div></div></nav><div class="content"><header><h1 id="top">Tashbeek API</h1></header><p>This is the contract of the Tashbeek API. It will act as a programtic interface
 to our machine learning powered, job match service.</p>
 <p>This contract will forge an agreement on behalf of IRC and Souktel how our two
 services ill interact and as such you can <strong>parse</strong> it with the <a href="https://github.com/apiaryio/drafter">API Blueprint
@@ -6,7 +6,1487 @@ parser</a> or one of its
 <a href="https://github.com/apiaryio/drafter#bindings">bindings</a>.</p>
 <p>It is also recommended that you use a nice formatter such as <a href="https://github.com/danielgtaylor/aglio">aglio</a>
 in order to display the docs in a nice and pretty way.</p>
-<section id="" class="resource-group"><h2 class="group-heading">Resource Group <a href="#" class="permalink">&para;</a></h2><div id="message" class="resource"><h3 class="resource-heading">Message <a href="#message" class="permalink">&nbsp;&para;</a></h3><div id="message-get" class="action get"><h4 class="action-heading"><div class="name">Retrieve a Message</div><a href="#message-get" class="method get">GET</a><code class="uri">/message</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/message</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">text/plain</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>Hello World!</code></pre><div style="height: 1px;"></div></div></div></div><div id="message-put" class="action put"><h4 class="action-heading"><div class="name">Update a Message</div><a href="#message-put" class="method put">PUT</a><code class="uri">/message</code></h4><h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname"></span>/message</span></div><div class="title"><strong>Request</strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">text/plain</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>All your base are belong to us.</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>204</code></strong></div></div></div><div id="task" class="resource"><h3 class="resource-heading">Task <a href="#task" class="permalink">&nbsp;&para;</a></h3><div id="task-get" class="action get"><h4 class="action-heading"><div class="name">Retrieve a Task</div><a href="#task-get" class="method get">GET</a><code class="uri">/task</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/task</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">text/plain</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>This is a task!</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 22 Nov 2018</p><script>/* eslint-env browser */
+<section id="job-seeker" class="resource-group"><h2 class="group-heading">Job Seeker <a href="#job-seeker" class="permalink">&para;</a></h2><div id="job-seeker-job-seekers-list" class="resource"><h3 class="resource-heading">Job Seekers List <a href="#job-seeker-job-seekers-list" class="permalink">&nbsp;&para;</a></h3><div id="job-seeker-job-seekers-list-get" class="action get"><h4 class="action-heading"><div class="name">List Job Seekers</div><a href="#job-seeker-job-seekers-list-get" class="method get">GET</a><code class="uri">/job-seekers/</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/job-seekers/</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>[
+  {
+    "<span class="hljs-attribute">case_id</span>": <span class="hljs-value"><span class="hljs-string">"86fcd660"</span></span>,
+    "<span class="hljs-attribute">age</span>": <span class="hljs-value"><span class="hljs-string">"50"</span></span>,
+    "<span class="hljs-attribute">arab_coworkers</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">case_name</span>": <span class="hljs-value"><span class="hljs-string">"null"</span></span>,
+    "<span class="hljs-attribute">case_type</span>": <span class="hljs-value"><span class="hljs-string">"job"</span></span>,
+    "<span class="hljs-attribute">city</span>": <span class="hljs-value"><span class="hljs-string">"amman"</span></span>,
+    "<span class="hljs-attribute">completed_training_courses</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">date_opened</span>": <span class="hljs-value"><span class="hljs-string">"2018"</span></span>,
+    "<span class="hljs-attribute">distance_willing_to_travel</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">district</span>": <span class="hljs-value"><span class="hljs-string">"nfjfj"</span></span>,
+    "<span class="hljs-attribute">dob</span>": <span class="hljs-value"><span class="hljs-string">"2015"</span></span>,
+    "<span class="hljs-attribute">eso_id</span>": <span class="hljs-value"><span class="hljs-string">"99"</span></span>,
+    "<span class="hljs-attribute">external_id</span>": <span class="hljs-value"><span class="hljs-string">"null"</span></span>,
+    "<span class="hljs-attribute">first_name</span>": <span class="hljs-value"><span class="hljs-string">"test4444"</span></span>,
+    "<span class="hljs-attribute">follow_up_agreement</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">gender</span>": <span class="hljs-value"><span class="hljs-string">"male"</span></span>,
+    "<span class="hljs-attribute">gps</span>": <span class="hljs-value"><span class="hljs-string">"31.97350215 35.8833914 982.35 17.15"</span></span>,
+    "<span class="hljs-attribute">has_house_referrals</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">id_method: social_media</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
+    "<span class="hljs-attribute">interview_date</span>": <span class="hljs-value"><span class="hljs-string">"2018"</span></span>,
+    "<span class="hljs-attribute">job_interest</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">last_name</span>": <span class="hljs-value"><span class="hljs-string">"gsjfkfn"</span></span>,
+    "<span class="hljs-attribute">marital_status</span>": <span class="hljs-value"><span class="hljs-string">"single"</span></span>,
+    "<span class="hljs-attribute">mobile_num</span>": <span class="hljs-value"><span class="hljs-string">"1234567890"</span></span>,
+    "<span class="hljs-attribute">neighbourhood</span>": <span class="hljs-value"><span class="hljs-string">"hdhdj"</span></span>,
+    "<span class="hljs-attribute">nonarab_coworkers</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+    "<span class="hljs-attribute">opposite_gender_coworkers</span>": <span class="hljs-value"><span class="hljs-string">"will_refuse"</span></span>,
+    "<span class="hljs-attribute">opposite_gender_manager</span>": <span class="hljs-value"><span class="hljs-string">"no_issue"</span></span>,
+    "<span class="hljs-attribute">owner_id</span>": <span class="hljs-value"><span class="hljs-string">"40c7d589ba38440a9307543a644d1da4"</span></span>,
+    "<span class="hljs-attribute">start_time</span>": <span class="hljs-value"><span class="hljs-string">"13:39:00.000+02"</span></span>,
+    "<span class="hljs-attribute">testing</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">visit_time: 11_3pm</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
+    "<span class="hljs-attribute">will_live_in_dorm</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">will_work_night_shift</span>": <span class="hljs-value"><span class="hljs-string">"1"</span>
+  </span>}
+]</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema#"</span></span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="job-seeker-job-seeker-detail" class="resource"><h3 class="resource-heading">Job Seeker Detail <a href="#job-seeker-job-seeker-detail" class="permalink">&nbsp;&para;</a></h3><div id="job-seeker-job-seeker-detail-get" class="action get"><h4 class="action-heading"><div class="name">Show Job Seeker Detail</div><a href="#job-seeker-job-seeker-detail-get" class="method get">GET</a><code class="uri">/job-seekers/{case_id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/job-seekers/{case_id}</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">case_id</span>": <span class="hljs-value"><span class="hljs-string">"86fcd660"</span></span>,
+  "<span class="hljs-attribute">age</span>": <span class="hljs-value"><span class="hljs-string">"50"</span></span>,
+  "<span class="hljs-attribute">arab_coworkers</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">case_name</span>": <span class="hljs-value"><span class="hljs-string">"null"</span></span>,
+  "<span class="hljs-attribute">case_type</span>": <span class="hljs-value"><span class="hljs-string">"job"</span></span>,
+  "<span class="hljs-attribute">city</span>": <span class="hljs-value"><span class="hljs-string">"amman"</span></span>,
+  "<span class="hljs-attribute">completed_training_courses</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">date_opened</span>": <span class="hljs-value"><span class="hljs-string">"2018"</span></span>,
+  "<span class="hljs-attribute">distance_willing_to_travel</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">district</span>": <span class="hljs-value"><span class="hljs-string">"nfjfj"</span></span>,
+  "<span class="hljs-attribute">dob</span>": <span class="hljs-value"><span class="hljs-string">"2015"</span></span>,
+  "<span class="hljs-attribute">eso_id</span>": <span class="hljs-value"><span class="hljs-string">"99"</span></span>,
+  "<span class="hljs-attribute">external_id</span>": <span class="hljs-value"><span class="hljs-string">"null"</span></span>,
+  "<span class="hljs-attribute">first_name</span>": <span class="hljs-value"><span class="hljs-string">"test4444"</span></span>,
+  "<span class="hljs-attribute">follow_up_agreement</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">gender</span>": <span class="hljs-value"><span class="hljs-string">"male"</span></span>,
+  "<span class="hljs-attribute">gps</span>": <span class="hljs-value"><span class="hljs-string">"31.97350215 35.8833914 982.35 17.15"</span></span>,
+  "<span class="hljs-attribute">has_house_referrals</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">id_method: social_media</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
+  "<span class="hljs-attribute">interview_date</span>": <span class="hljs-value"><span class="hljs-string">"2018"</span></span>,
+  "<span class="hljs-attribute">job_interest</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">last_name</span>": <span class="hljs-value"><span class="hljs-string">"gsjfkfn"</span></span>,
+  "<span class="hljs-attribute">marital_status</span>": <span class="hljs-value"><span class="hljs-string">"single"</span></span>,
+  "<span class="hljs-attribute">mobile_num</span>": <span class="hljs-value"><span class="hljs-string">"1234567890"</span></span>,
+  "<span class="hljs-attribute">neighbourhood</span>": <span class="hljs-value"><span class="hljs-string">"hdhdj"</span></span>,
+  "<span class="hljs-attribute">nonarab_coworkers</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+  "<span class="hljs-attribute">opposite_gender_coworkers</span>": <span class="hljs-value"><span class="hljs-string">"will_refuse"</span></span>,
+  "<span class="hljs-attribute">opposite_gender_manager</span>": <span class="hljs-value"><span class="hljs-string">"no_issue"</span></span>,
+  "<span class="hljs-attribute">owner_id</span>": <span class="hljs-value"><span class="hljs-string">"40c7d589ba38440a9307543a644d1da4"</span></span>,
+  "<span class="hljs-attribute">start_time</span>": <span class="hljs-value"><span class="hljs-string">"13:39:00.000+02"</span></span>,
+  "<span class="hljs-attribute">testing</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">visit_time: 11_3pm</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
+  "<span class="hljs-attribute">will_live_in_dorm</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">will_work_night_shift</span>": <span class="hljs-value"><span class="hljs-string">"1"</span>
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema#"</span></span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">case_id</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"11a9-4a7e-b3da-2bebacaebd85"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">age</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">arab_coworkers</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">case_name</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">case_type</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"seeker"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">city</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">completed_training_courses</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">date_opened</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"08-19T10:40:27.701000Z"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">distance_willing_to_travel</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">district</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">dob</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"08-19"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">eso_id</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">external_id</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">first_name</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">follow_up_agreement</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">gender</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">gps</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">has_house_referrals</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">id_method: social_media</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">interview_date</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"08-21"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">job_interest</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">last_name</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">marital_status</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">mobile_num</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">neighbourhood</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">nonarab_coworkers</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">opposite_gender_coworkers</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">opposite_gender_manager</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">owner_id</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">start_time</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">testing</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">visit_time: 11_3pm</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">will_live_in_dorm</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">will_work_night_shift</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="matches" class="resource-group"><h2 class="group-heading">Matches <a href="#matches" class="permalink">&para;</a></h2><div id="matches-match-list" class="resource"><h3 class="resource-heading">Match List <a href="#matches-match-list" class="permalink">&nbsp;&para;</a></h3><div id="matches-match-list-get" class="action get"><h4 class="action-heading"><div class="name">List Matches</div><a href="#matches-match-list-get" class="method get">GET</a><code class="uri">/matches/</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/matches/</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>[
+  {
+    "<span class="hljs-attribute">case_id</span>": <span class="hljs-value"><span class="hljs-string">"95ec83ff"</span></span>,
+    "<span class="hljs-attribute">case_name</span>": <span class="hljs-value"><span class="hljs-string">"KWVTIM4PQ0Z2O84"</span></span>,
+    "<span class="hljs-attribute">case_type</span>": <span class="hljs-value"><span class="hljs-string">"match"</span></span>,
+    "<span class="hljs-attribute">date_opened</span>": <span class="hljs-value"><span class="hljs-string">"2018"</span></span>,
+    "<span class="hljs-attribute">external_id</span>": <span class="hljs-value"><span class="hljs-string">"null"</span></span>,
+    "<span class="hljs-attribute">interest_applying</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+    "<span class="hljs-attribute">job_id</span>": <span class="hljs-value"><span class="hljs-string">"12345678900"</span></span>,
+    "<span class="hljs-attribute">match_job_description</span>": <span class="hljs-value"><span class="hljs-string">"management"</span></span>,
+    "<span class="hljs-attribute">no_interest_applying</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">owner_id</span>": <span class="hljs-value"><span class="hljs-string">"1f50c3206882bbf8fff069d033c2cf9a"</span>
+  </span>}
+]</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema#"</span></span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="matches-match-detail" class="resource"><h3 class="resource-heading">Match Detail <a href="#matches-match-detail" class="permalink">&nbsp;&para;</a></h3><div id="matches-match-detail-get" class="action get"><h4 class="action-heading"><div class="name">Show Match Detail</div><a href="#matches-match-detail-get" class="method get">GET</a><code class="uri">/matches/{case_id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/matches/{case_id}</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">case_id</span>": <span class="hljs-value"><span class="hljs-string">"95ec83ff"</span></span>,
+  "<span class="hljs-attribute">case_name</span>": <span class="hljs-value"><span class="hljs-string">"KWVTIM4PQ0Z2O84"</span></span>,
+  "<span class="hljs-attribute">case_type</span>": <span class="hljs-value"><span class="hljs-string">"match"</span></span>,
+  "<span class="hljs-attribute">date_opened</span>": <span class="hljs-value"><span class="hljs-string">"2018"</span></span>,
+  "<span class="hljs-attribute">external_id</span>": <span class="hljs-value"><span class="hljs-string">"null"</span></span>,
+  "<span class="hljs-attribute">interest_applying</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+  "<span class="hljs-attribute">job_id</span>": <span class="hljs-value"><span class="hljs-string">"12345678900"</span></span>,
+  "<span class="hljs-attribute">match_job_description</span>": <span class="hljs-value"><span class="hljs-string">"management"</span></span>,
+  "<span class="hljs-attribute">no_interest_applying</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">owner_id</span>": <span class="hljs-value"><span class="hljs-string">"1f50c3206882bbf8fff069d033c2cf9a"</span>
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema#"</span></span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">case_id</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"5a6d-4738-a1cb-075683e7992b"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">case_name</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">case_type</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">date_opened</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"06-11T13:53:05.854000Z"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">external_id</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">interest_applying</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">job_id</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">match_job_description</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">no_interest_applying</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">owner_id</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="firms" class="resource-group"><h2 class="group-heading">Firms <a href="#firms" class="permalink">&para;</a></h2><div id="firms-firms-list" class="resource"><h3 class="resource-heading">Firms List <a href="#firms-firms-list" class="permalink">&nbsp;&para;</a></h3><div id="firms-firms-list-get" class="action get"><h4 class="action-heading"><div class="name">List Firms</div><a href="#firms-firms-list-get" class="method get">GET</a><code class="uri">/firms/</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/firms/</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>[
+  {
+    "<span class="hljs-attribute">case_id</span>": <span class="hljs-value"><span class="hljs-string">"6181cce7"</span></span>,
+    "<span class="hljs-attribute">adverstise_through_other</span>": <span class="hljs-value"><span class="hljs-string">"لا"</span></span>,
+    "<span class="hljs-attribute">advertise_through_agency</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">advertise_through_building_site</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">advertise_through_epu</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">advertise_through_newspapers</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">advertise_through_ngo</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">advertise_through_online</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">age_client_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">age_production_workers</span>": <span class="hljs-value"><span class="hljs-string">"25"</span></span>,
+    "<span class="hljs-attribute">age_professionals</span>": <span class="hljs-value"><span class="hljs-string">"29"</span></span>,
+    "<span class="hljs-attribute">age_support_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">application_fee</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">applied_num_client</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">applied_num_production</span>": <span class="hljs-value"><span class="hljs-string">"15"</span></span>,
+    "<span class="hljs-attribute">applied_num_professionals</span>": <span class="hljs-value"><span class="hljs-string">"4"</span></span>,
+    "<span class="hljs-attribute">applied_num_support</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">case_name</span>": <span class="hljs-value"><span class="hljs-string">"200131892"</span></span>,
+    "<span class="hljs-attribute">case_type</span>": <span class="hljs-value"><span class="hljs-string">"firm"</span></span>,
+    "<span class="hljs-attribute">cgender</span>": <span class="hljs-value"><span class="hljs-string">"male"</span></span>,
+    "<span class="hljs-attribute">clerical_experience_not_required</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">cnationality</span>": <span class="hljs-value"><span class="hljs-string">"syrian"</span></span>,
+    "<span class="hljs-attribute">coage</span>": <span class="hljs-value"><span class="hljs-string">"25"</span></span>,
+    "<span class="hljs-attribute">commercial_id</span>": <span class="hljs-value"><span class="hljs-string">"106406"</span></span>,
+    "<span class="hljs-attribute">compact_is_good</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">contact_time</span>": <span class="hljs-value"><span class="hljs-string">"anytime"</span></span>,
+    "<span class="hljs-attribute">contact_years_firm</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+    "<span class="hljs-attribute">contact_years_industry</span>": <span class="hljs-value"><span class="hljs-string">"5"</span></span>,
+    "<span class="hljs-attribute">cv10_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">cv10_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+    "<span class="hljs-attribute">cv11_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">cv11_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+    "<span class="hljs-attribute">cv12_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">cv13_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">cv13_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+    "<span class="hljs-attribute">cv14_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">cv14_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+    "<span class="hljs-attribute">cv15_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">cv15_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+    "<span class="hljs-attribute">cv16_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">cv17_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">cv17_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+    "<span class="hljs-attribute">cv18_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">cv19_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">cv1_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">cv1_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+    "<span class="hljs-attribute">cv20_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">cv21_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">cv21_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+    "<span class="hljs-attribute">cv22_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">cv23_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">cv24_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">cv24_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+    "<span class="hljs-attribute">cv25_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">cv26_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">cv27_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">cv27_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+    "<span class="hljs-attribute">cv28_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">cv29_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">cv2_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">cv2_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+    "<span class="hljs-attribute">cv30_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">cv3_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">cv4_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">cv5_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">cv6_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">cv7_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">cv7_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+    "<span class="hljs-attribute">cv8_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">cv8_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+    "<span class="hljs-attribute">cv9_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">date_opened</span>": <span class="hljs-value"><span class="hljs-string">"2018"</span></span>,
+    "<span class="hljs-attribute">displayed_salary</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">dorms_not_required</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">education</span>": <span class="hljs-value"><span class="hljs-string">"secondary"</span></span>,
+    "<span class="hljs-attribute">education_production_workers</span>": <span class="hljs-value"><span class="hljs-string">"no_school"</span></span>,
+    "<span class="hljs-attribute">education_professionals</span>": <span class="hljs-value"><span class="hljs-string">"secondary"</span></span>,
+    "<span class="hljs-attribute">employment_policy: rare_promotion</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
+    "<span class="hljs-attribute">employment_programs</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">end_time</span>": <span class="hljs-value"><span class="hljs-string">"12:50:00.000+02"</span></span>,
+    "<span class="hljs-attribute">eso_id</span>": <span class="hljs-value"><span class="hljs-string">"13"</span></span>,
+    "<span class="hljs-attribute">establishment_date</span>": <span class="hljs-value"><span class="hljs-string">"2013"</span></span>,
+    "<span class="hljs-attribute">expected_hire_production</span>": <span class="hljs-value"><span class="hljs-string">"9"</span></span>,
+    "<span class="hljs-attribute">expected_hire_support</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">expected_hires_client</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">expected_hires_professionals</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">experience_client_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">experience_not_required</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">experience_production_workers</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+    "<span class="hljs-attribute">experience_professionals</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+    "<span class="hljs-attribute">experience_support_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">external_id</span>": <span class="hljs-value"><span class="hljs-string">"null"</span></span>,
+    "<span class="hljs-attribute">factory_experience_not_required</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">fcity</span>": <span class="hljs-value"><span class="hljs-string">"irbid"</span></span>,
+    "<span class="hljs-attribute">fdistrict</span>": <span class="hljs-value"><span class="hljs-string">"مدينة الحسنةالصناعية"</span></span>,
+    "<span class="hljs-attribute">femail</span>": <span class="hljs-value"><span class="hljs-string">"abdalrahmn1980@gmail.com"</span></span>,
+    "<span class="hljs-attribute">female_employees</span>": <span class="hljs-value"><span class="hljs-string">"3"</span></span>,
+    "<span class="hljs-attribute">female_production_employees</span>": <span class="hljs-value"><span class="hljs-string">"3"</span></span>,
+    "<span class="hljs-attribute">female_professional_employees</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">female_service_employees</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">female_support_employees</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">ffname</span>": <span class="hljs-value"><span class="hljs-string">"عمار"</span></span>,
+    "<span class="hljs-attribute">fgps</span>": <span class="hljs-value"><span class="hljs-string">"32.4966908 36.0266391 568.0 20.0"</span></span>,
+    "<span class="hljs-attribute">fill_time_client</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">fill_time_production</span>": <span class="hljs-value"><span class="hljs-string">"personal_contacts"</span></span>,
+    "<span class="hljs-attribute">fill_time_professionals</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+    "<span class="hljs-attribute">fill_time_support</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">firm_consent</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">firm_id_method</span>": <span class="hljs-value"><span class="hljs-string">"site_visit"</span></span>,
+    "<span class="hljs-attribute">firm_is_hiring</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">firm_name</span>": <span class="hljs-value"><span class="hljs-string">"مصنع كلش للبسكويت"</span></span>,
+    "<span class="hljs-attribute">firm_national_id</span>": <span class="hljs-value"><span class="hljs-string">"200131892"</span></span>,
+    "<span class="hljs-attribute">firm_status</span>": <span class="hljs-value"><span class="hljs-string">"proprietorship"</span></span>,
+    "<span class="hljs-attribute">flname</span>": <span class="hljs-value"><span class="hljs-string">"عبد الحي"</span></span>,
+    "<span class="hljs-attribute">fmobile</span>": <span class="hljs-value"><span class="hljs-string">"0795464852"</span></span>,
+    "<span class="hljs-attribute">fphone</span>": <span class="hljs-value"><span class="hljs-string">"0797481314"</span></span>,
+    "<span class="hljs-attribute">fposition</span>": <span class="hljs-value"><span class="hljs-string">"finance_manager"</span></span>,
+    "<span class="hljs-attribute">heard_about_service</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">hire_num_client</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">hire_num_production</span>": <span class="hljs-value"><span class="hljs-string">"6"</span></span>,
+    "<span class="hljs-attribute">hire_num_support</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">hire_process_client_services</span>": <span class="hljs-value"><span class="hljs-string">"لم يتم توظيف اي شخص"</span></span>,
+    "<span class="hljs-attribute">hire_process_production_workers: personal_contacts</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
+    "<span class="hljs-attribute">hire_process_professionals</span>": <span class="hljs-value"><span class="hljs-string">"personal_contacts"</span></span>,
+    "<span class="hljs-attribute">hire_process_support_services</span>": <span class="hljs-value"><span class="hljs-string">"لم يتم توظيف اي شخص"</span></span>,
+    "<span class="hljs-attribute">hired_num_professionals</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+    "<span class="hljs-attribute">hired_syrians_since_before</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">hr_challenge: employee_turnover</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
+    "<span class="hljs-attribute">interview_client</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">interview_date</span>": <span class="hljs-value"><span class="hljs-string">"2018"</span></span>,
+    "<span class="hljs-attribute">interview_production</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">interview_professionals</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">interview_support</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">interview_time</span>": <span class="hljs-value"><span class="hljs-string">"12:09:00.000+02"</span></span>,
+    "<span class="hljs-attribute">know_about_compact</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">know_same_about_job</span>": <span class="hljs-value"><span class="hljs-string">"disagree"</span></span>,
+    "<span class="hljs-attribute">labor_directorate</span>": <span class="hljs-value"><span class="hljs-string">"ibrid"</span></span>,
+    "<span class="hljs-attribute">management_experience_not_required</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">management_female_employees</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">managment_employees</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+    "<span class="hljs-attribute">manual_experience_not_required</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">night_shifts_not_required</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">no_cooperation_risk</span>": <span class="hljs-value"><span class="hljs-string">"disagree"</span></span>,
+    "<span class="hljs-attribute">num_contract_end_last_year</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">num_fired_last_year</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">num_locations</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+    "<span class="hljs-attribute">num_owners</span>": <span class="hljs-value"><span class="hljs-string">"2"</span></span>,
+    "<span class="hljs-attribute">num_quit_last_year</span>": <span class="hljs-value"><span class="hljs-string">"8"</span></span>,
+    "<span class="hljs-attribute">num_turnover_last_year</span>": <span class="hljs-value"><span class="hljs-string">"8"</span></span>,
+    "<span class="hljs-attribute">opened_date</span>": <span class="hljs-value"><span class="hljs-string">"2018"</span></span>,
+    "<span class="hljs-attribute">owner_id</span>": <span class="hljs-value"><span class="hljs-string">"40c7d589ba38440a9307543a644d1da4"</span></span>,
+    "<span class="hljs-attribute">owner_nationality</span>": <span class="hljs-value"><span class="hljs-string">"syrian"</span></span>,
+    "<span class="hljs-attribute">percent_government</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">percent_private_domestic</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">percent_private_foreign</span>": <span class="hljs-value"><span class="hljs-string">"100"</span></span>,
+    "<span class="hljs-attribute">permanent_client_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">permanent_contract_professionals</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+    "<span class="hljs-attribute">permanent_production_workers</span>": <span class="hljs-value"><span class="hljs-string">"13"</span></span>,
+    "<span class="hljs-attribute">permanent_support_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">produce_in_roo</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">product_code</span>": <span class="hljs-value"><span class="hljs-string">"96"</span></span>,
+    "<span class="hljs-attribute">production_employyes</span>": <span class="hljs-value"><span class="hljs-string">"13"</span></span>,
+    "<span class="hljs-attribute">professional_employees</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">professional_experience_not_required</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">promotion_method: effort_ability</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
+    "<span class="hljs-attribute">recruitment_test</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">salary_1year_client_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">salary_1year_production_workers</span>": <span class="hljs-value"><span class="hljs-string">"235"</span></span>,
+    "<span class="hljs-attribute">salary_1year_support_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">salary_5years_client_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">salary_5years_production_workers</span>": <span class="hljs-value"><span class="hljs-string">"275"</span></span>,
+    "<span class="hljs-attribute">salary_5years_professionals</span>": <span class="hljs-value"><span class="hljs-string">"750"</span></span>,
+    "<span class="hljs-attribute">salary_5years_support_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">salary_year_professionals</span>": <span class="hljs-value"><span class="hljs-string">"600"</span></span>,
+    "<span class="hljs-attribute">sector</span>": <span class="hljs-value"><span class="hljs-string">"production"</span></span>,
+    "<span class="hljs-attribute">service_employees</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">sez_firm</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">sez_name: prince_hassan</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
+    "<span class="hljs-attribute">staff_april1_2018</span>": <span class="hljs-value"><span class="hljs-string">"15"</span></span>,
+    "<span class="hljs-attribute">staff_march1_2018</span>": <span class="hljs-value"><span class="hljs-string">"9"</span></span>,
+    "<span class="hljs-attribute">starting_salary_client_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">starting_salary_production_workers</span>": <span class="hljs-value"><span class="hljs-string">"220"</span></span>,
+    "<span class="hljs-attribute">starting_salary_professionals</span>": <span class="hljs-value"><span class="hljs-string">"450"</span></span>,
+    "<span class="hljs-attribute">starting_salary_support_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">support_employees</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">syrian_cares_more</span>": <span class="hljs-value"><span class="hljs-string">"neutral"</span></span>,
+    "<span class="hljs-attribute">syrian_client_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">syrian_hired_same_jordanian: strongly_disagree</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
+    "<span class="hljs-attribute">syrian_lower_wage</span>": <span class="hljs-value"><span class="hljs-string">"agree"</span></span>,
+    "<span class="hljs-attribute">syrian_outreach</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">syrian_production_workers</span>": <span class="hljs-value"><span class="hljs-string">"2"</span></span>,
+    "<span class="hljs-attribute">syrian_productivity_same_jordanian</span>": <span class="hljs-value"><span class="hljs-string">"agree"</span></span>,
+    "<span class="hljs-attribute">syrian_professionals</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+    "<span class="hljs-attribute">syrian_retain_longer</span>": <span class="hljs-value"><span class="hljs-string">"neutral"</span></span>,
+    "<span class="hljs-attribute">syrian_support_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">temporary_client_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">temporary_contract_professionals</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">temporary_production_workers</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">temporary_support_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+    "<span class="hljs-attribute">total_employees</span>": <span class="hljs-value"><span class="hljs-string">"15"</span></span>,
+    "<span class="hljs-attribute">training_not_required</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span>
+  </span>}
+]</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema#"</span></span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="firms-firm-detail" class="resource"><h3 class="resource-heading">Firm Detail <a href="#firms-firm-detail" class="permalink">&nbsp;&para;</a></h3><div id="firms-firm-detail-get" class="action get"><h4 class="action-heading"><div class="name">Show Firm Detail</div><a href="#firms-firm-detail-get" class="method get">GET</a><code class="uri">/firms/{case_id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/firms/{case_id}</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">case_id</span>": <span class="hljs-value"><span class="hljs-string">"6181cce7"</span></span>,
+  "<span class="hljs-attribute">adverstise_through_other</span>": <span class="hljs-value"><span class="hljs-string">"لا"</span></span>,
+  "<span class="hljs-attribute">advertise_through_agency</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">advertise_through_building_site</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">advertise_through_epu</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">advertise_through_newspapers</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">advertise_through_ngo</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">advertise_through_online</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">age_client_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">age_production_workers</span>": <span class="hljs-value"><span class="hljs-string">"25"</span></span>,
+  "<span class="hljs-attribute">age_professionals</span>": <span class="hljs-value"><span class="hljs-string">"29"</span></span>,
+  "<span class="hljs-attribute">age_support_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">application_fee</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">applied_num_client</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">applied_num_production</span>": <span class="hljs-value"><span class="hljs-string">"15"</span></span>,
+  "<span class="hljs-attribute">applied_num_professionals</span>": <span class="hljs-value"><span class="hljs-string">"4"</span></span>,
+  "<span class="hljs-attribute">applied_num_support</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">case_name</span>": <span class="hljs-value"><span class="hljs-string">"200131892"</span></span>,
+  "<span class="hljs-attribute">case_type</span>": <span class="hljs-value"><span class="hljs-string">"firm"</span></span>,
+  "<span class="hljs-attribute">cgender</span>": <span class="hljs-value"><span class="hljs-string">"male"</span></span>,
+  "<span class="hljs-attribute">clerical_experience_not_required</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">cnationality</span>": <span class="hljs-value"><span class="hljs-string">"syrian"</span></span>,
+  "<span class="hljs-attribute">coage</span>": <span class="hljs-value"><span class="hljs-string">"25"</span></span>,
+  "<span class="hljs-attribute">commercial_id</span>": <span class="hljs-value"><span class="hljs-string">"106406"</span></span>,
+  "<span class="hljs-attribute">compact_is_good</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">contact_time</span>": <span class="hljs-value"><span class="hljs-string">"anytime"</span></span>,
+  "<span class="hljs-attribute">contact_years_firm</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+  "<span class="hljs-attribute">contact_years_industry</span>": <span class="hljs-value"><span class="hljs-string">"5"</span></span>,
+  "<span class="hljs-attribute">cv10_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">cv10_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+  "<span class="hljs-attribute">cv11_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">cv11_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+  "<span class="hljs-attribute">cv12_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">cv13_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">cv13_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+  "<span class="hljs-attribute">cv14_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">cv14_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+  "<span class="hljs-attribute">cv15_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">cv15_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+  "<span class="hljs-attribute">cv16_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">cv17_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">cv17_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+  "<span class="hljs-attribute">cv18_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">cv19_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">cv1_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">cv1_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+  "<span class="hljs-attribute">cv20_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">cv21_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">cv21_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+  "<span class="hljs-attribute">cv22_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">cv23_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">cv24_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">cv24_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+  "<span class="hljs-attribute">cv25_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">cv26_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">cv27_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">cv27_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+  "<span class="hljs-attribute">cv28_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">cv29_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">cv2_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">cv2_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+  "<span class="hljs-attribute">cv30_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">cv3_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">cv4_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">cv5_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">cv6_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">cv7_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">cv7_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+  "<span class="hljs-attribute">cv8_17</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">cv8_18</span>": <span class="hljs-value"><span class="hljs-string">"العمر"</span></span>,
+  "<span class="hljs-attribute">cv9_17</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">date_opened</span>": <span class="hljs-value"><span class="hljs-string">"2018"</span></span>,
+  "<span class="hljs-attribute">displayed_salary</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">dorms_not_required</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">education</span>": <span class="hljs-value"><span class="hljs-string">"secondary"</span></span>,
+  "<span class="hljs-attribute">education_production_workers</span>": <span class="hljs-value"><span class="hljs-string">"no_school"</span></span>,
+  "<span class="hljs-attribute">education_professionals</span>": <span class="hljs-value"><span class="hljs-string">"secondary"</span></span>,
+  "<span class="hljs-attribute">employment_policy: rare_promotion</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
+  "<span class="hljs-attribute">employment_programs</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">end_time</span>": <span class="hljs-value"><span class="hljs-string">"12:50:00.000+02"</span></span>,
+  "<span class="hljs-attribute">eso_id</span>": <span class="hljs-value"><span class="hljs-string">"13"</span></span>,
+  "<span class="hljs-attribute">establishment_date</span>": <span class="hljs-value"><span class="hljs-string">"2013"</span></span>,
+  "<span class="hljs-attribute">expected_hire_production</span>": <span class="hljs-value"><span class="hljs-string">"9"</span></span>,
+  "<span class="hljs-attribute">expected_hire_support</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">expected_hires_client</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">expected_hires_professionals</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">experience_client_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">experience_not_required</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">experience_production_workers</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+  "<span class="hljs-attribute">experience_professionals</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+  "<span class="hljs-attribute">experience_support_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">external_id</span>": <span class="hljs-value"><span class="hljs-string">"null"</span></span>,
+  "<span class="hljs-attribute">factory_experience_not_required</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">fcity</span>": <span class="hljs-value"><span class="hljs-string">"irbid"</span></span>,
+  "<span class="hljs-attribute">fdistrict</span>": <span class="hljs-value"><span class="hljs-string">"مدينة الحسنةالصناعية"</span></span>,
+  "<span class="hljs-attribute">femail</span>": <span class="hljs-value"><span class="hljs-string">"abdalrahmn1980@gmail.com"</span></span>,
+  "<span class="hljs-attribute">female_employees</span>": <span class="hljs-value"><span class="hljs-string">"3"</span></span>,
+  "<span class="hljs-attribute">female_production_employees</span>": <span class="hljs-value"><span class="hljs-string">"3"</span></span>,
+  "<span class="hljs-attribute">female_professional_employees</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">female_service_employees</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">female_support_employees</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">ffname</span>": <span class="hljs-value"><span class="hljs-string">"عمار"</span></span>,
+  "<span class="hljs-attribute">fgps</span>": <span class="hljs-value"><span class="hljs-string">"32.4966908 36.0266391 568.0 20.0"</span></span>,
+  "<span class="hljs-attribute">fill_time_client</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">fill_time_production</span>": <span class="hljs-value"><span class="hljs-string">"personal_contacts"</span></span>,
+  "<span class="hljs-attribute">fill_time_professionals</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+  "<span class="hljs-attribute">fill_time_support</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">firm_consent</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">firm_id_method</span>": <span class="hljs-value"><span class="hljs-string">"site_visit"</span></span>,
+  "<span class="hljs-attribute">firm_is_hiring</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">firm_name</span>": <span class="hljs-value"><span class="hljs-string">"مصنع كلش للبسكويت"</span></span>,
+  "<span class="hljs-attribute">firm_national_id</span>": <span class="hljs-value"><span class="hljs-string">"200131892"</span></span>,
+  "<span class="hljs-attribute">firm_status</span>": <span class="hljs-value"><span class="hljs-string">"proprietorship"</span></span>,
+  "<span class="hljs-attribute">flname</span>": <span class="hljs-value"><span class="hljs-string">"عبد الحي"</span></span>,
+  "<span class="hljs-attribute">fmobile</span>": <span class="hljs-value"><span class="hljs-string">"0795464852"</span></span>,
+  "<span class="hljs-attribute">fphone</span>": <span class="hljs-value"><span class="hljs-string">"0797481314"</span></span>,
+  "<span class="hljs-attribute">fposition</span>": <span class="hljs-value"><span class="hljs-string">"finance_manager"</span></span>,
+  "<span class="hljs-attribute">heard_about_service</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">hire_num_client</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">hire_num_production</span>": <span class="hljs-value"><span class="hljs-string">"6"</span></span>,
+  "<span class="hljs-attribute">hire_num_support</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">hire_process_client_services</span>": <span class="hljs-value"><span class="hljs-string">"لم يتم توظيف اي شخص"</span></span>,
+  "<span class="hljs-attribute">hire_process_production_workers: personal_contacts</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
+  "<span class="hljs-attribute">hire_process_professionals</span>": <span class="hljs-value"><span class="hljs-string">"personal_contacts"</span></span>,
+  "<span class="hljs-attribute">hire_process_support_services</span>": <span class="hljs-value"><span class="hljs-string">"لم يتم توظيف اي شخص"</span></span>,
+  "<span class="hljs-attribute">hired_num_professionals</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+  "<span class="hljs-attribute">hired_syrians_since_before</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">hr_challenge: employee_turnover</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
+  "<span class="hljs-attribute">interview_client</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">interview_date</span>": <span class="hljs-value"><span class="hljs-string">"2018"</span></span>,
+  "<span class="hljs-attribute">interview_production</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">interview_professionals</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">interview_support</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">interview_time</span>": <span class="hljs-value"><span class="hljs-string">"12:09:00.000+02"</span></span>,
+  "<span class="hljs-attribute">know_about_compact</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">know_same_about_job</span>": <span class="hljs-value"><span class="hljs-string">"disagree"</span></span>,
+  "<span class="hljs-attribute">labor_directorate</span>": <span class="hljs-value"><span class="hljs-string">"ibrid"</span></span>,
+  "<span class="hljs-attribute">management_experience_not_required</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">management_female_employees</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">managment_employees</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+  "<span class="hljs-attribute">manual_experience_not_required</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">night_shifts_not_required</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">no_cooperation_risk</span>": <span class="hljs-value"><span class="hljs-string">"disagree"</span></span>,
+  "<span class="hljs-attribute">num_contract_end_last_year</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">num_fired_last_year</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">num_locations</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+  "<span class="hljs-attribute">num_owners</span>": <span class="hljs-value"><span class="hljs-string">"2"</span></span>,
+  "<span class="hljs-attribute">num_quit_last_year</span>": <span class="hljs-value"><span class="hljs-string">"8"</span></span>,
+  "<span class="hljs-attribute">num_turnover_last_year</span>": <span class="hljs-value"><span class="hljs-string">"8"</span></span>,
+  "<span class="hljs-attribute">opened_date</span>": <span class="hljs-value"><span class="hljs-string">"2018"</span></span>,
+  "<span class="hljs-attribute">owner_id</span>": <span class="hljs-value"><span class="hljs-string">"40c7d589ba38440a9307543a644d1da4"</span></span>,
+  "<span class="hljs-attribute">owner_nationality</span>": <span class="hljs-value"><span class="hljs-string">"syrian"</span></span>,
+  "<span class="hljs-attribute">percent_government</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">percent_private_domestic</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">percent_private_foreign</span>": <span class="hljs-value"><span class="hljs-string">"100"</span></span>,
+  "<span class="hljs-attribute">permanent_client_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">permanent_contract_professionals</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+  "<span class="hljs-attribute">permanent_production_workers</span>": <span class="hljs-value"><span class="hljs-string">"13"</span></span>,
+  "<span class="hljs-attribute">permanent_support_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">produce_in_roo</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">product_code</span>": <span class="hljs-value"><span class="hljs-string">"96"</span></span>,
+  "<span class="hljs-attribute">production_employyes</span>": <span class="hljs-value"><span class="hljs-string">"13"</span></span>,
+  "<span class="hljs-attribute">professional_employees</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">professional_experience_not_required</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">promotion_method: effort_ability</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
+  "<span class="hljs-attribute">recruitment_test</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">salary_1year_client_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">salary_1year_production_workers</span>": <span class="hljs-value"><span class="hljs-string">"235"</span></span>,
+  "<span class="hljs-attribute">salary_1year_support_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">salary_5years_client_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">salary_5years_production_workers</span>": <span class="hljs-value"><span class="hljs-string">"275"</span></span>,
+  "<span class="hljs-attribute">salary_5years_professionals</span>": <span class="hljs-value"><span class="hljs-string">"750"</span></span>,
+  "<span class="hljs-attribute">salary_5years_support_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">salary_year_professionals</span>": <span class="hljs-value"><span class="hljs-string">"600"</span></span>,
+  "<span class="hljs-attribute">sector</span>": <span class="hljs-value"><span class="hljs-string">"production"</span></span>,
+  "<span class="hljs-attribute">service_employees</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">sez_firm</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">sez_name: prince_hassan</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
+  "<span class="hljs-attribute">staff_april1_2018</span>": <span class="hljs-value"><span class="hljs-string">"15"</span></span>,
+  "<span class="hljs-attribute">staff_march1_2018</span>": <span class="hljs-value"><span class="hljs-string">"9"</span></span>,
+  "<span class="hljs-attribute">starting_salary_client_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">starting_salary_production_workers</span>": <span class="hljs-value"><span class="hljs-string">"220"</span></span>,
+  "<span class="hljs-attribute">starting_salary_professionals</span>": <span class="hljs-value"><span class="hljs-string">"450"</span></span>,
+  "<span class="hljs-attribute">starting_salary_support_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">support_employees</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">syrian_cares_more</span>": <span class="hljs-value"><span class="hljs-string">"neutral"</span></span>,
+  "<span class="hljs-attribute">syrian_client_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">syrian_hired_same_jordanian: strongly_disagree</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
+  "<span class="hljs-attribute">syrian_lower_wage</span>": <span class="hljs-value"><span class="hljs-string">"agree"</span></span>,
+  "<span class="hljs-attribute">syrian_outreach</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">syrian_production_workers</span>": <span class="hljs-value"><span class="hljs-string">"2"</span></span>,
+  "<span class="hljs-attribute">syrian_productivity_same_jordanian</span>": <span class="hljs-value"><span class="hljs-string">"agree"</span></span>,
+  "<span class="hljs-attribute">syrian_professionals</span>": <span class="hljs-value"><span class="hljs-string">"1"</span></span>,
+  "<span class="hljs-attribute">syrian_retain_longer</span>": <span class="hljs-value"><span class="hljs-string">"neutral"</span></span>,
+  "<span class="hljs-attribute">syrian_support_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">temporary_client_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">temporary_contract_professionals</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">temporary_production_workers</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">temporary_support_services</span>": <span class="hljs-value"><span class="hljs-string">"0"</span></span>,
+  "<span class="hljs-attribute">total_employees</span>": <span class="hljs-value"><span class="hljs-string">"15"</span></span>,
+  "<span class="hljs-attribute">training_not_required</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span>
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema#"</span></span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">case_id</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"9517-4b31-a4fa-aac266f1cb84"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">adverstise_through_other</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">advertise_through_agency</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">advertise_through_building_site</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">advertise_through_epu</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">advertise_through_newspapers</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">advertise_through_ngo</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">advertise_through_online</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">age_client_services</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">age_production_workers</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">age_professionals</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">age_support_services</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">application_fee</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">applied_num_client</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">applied_num_production</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">applied_num_professionals</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">applied_num_support</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">case_name</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">case_type</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cgender</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">clerical_experience_not_required</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cnationality</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">coage</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">commercial_id</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">compact_is_good</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">contact_time</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">contact_years_firm</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">contact_years_industry</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv10_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv10_18</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv11_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv11_18</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv12_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv13_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv13_18</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv14_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv14_18</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv15_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv15_18</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv16_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv17_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv17_18</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv18_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv19_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv1_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv1_18</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv20_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv21_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv21_18</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv22_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv23_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv24_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv24_18</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv25_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv26_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv27_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv27_18</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv28_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv29_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv2_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv2_18</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv30_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv3_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv4_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv5_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv6_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv7_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv7_18</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv8_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv8_18</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">cv9_17</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">date_opened</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"08-27T11:56:31.695000Z"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">displayed_salary</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">dorms_not_required</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">education</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">education_production_workers</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">education_professionals</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">employment_policy: rare_promotion</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">employment_programs</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">end_time</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">eso_id</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">establishment_date</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"02-24"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">expected_hire_production</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">expected_hire_support</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">expected_hires_client</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">expected_hires_professionals</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">experience_client_services</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">experience_not_required</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">experience_production_workers</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">experience_professionals</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">experience_support_services</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">external_id</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">factory_experience_not_required</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">fcity</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">fdistrict</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">femail</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">female_employees</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">female_production_employees</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">female_professional_employees</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">female_service_employees</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">female_support_employees</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">ffname</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">fgps</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">fill_time_client</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">fill_time_production</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">fill_time_professionals</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">fill_time_support</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">firm_consent</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">firm_id_method</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">firm_is_hiring</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">firm_name</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">firm_national_id</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">firm_status</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">flname</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">fmobile</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">fphone</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">fposition</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">heard_about_service</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">hire_num_client</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">hire_num_production</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">hire_num_support</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">hire_process_client_services</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">hire_process_production_workers: personal_contacts</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">hire_process_professionals</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">hire_process_support_services</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">hired_num_professionals</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">hired_syrians_since_before</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">hr_challenge: employee_turnover</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">interview_client</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">interview_date</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"11-01"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">interview_production</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">interview_professionals</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">interview_support</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">interview_time</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">know_about_compact</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">know_same_about_job</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">labor_directorate</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">management_experience_not_required</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">management_female_employees</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">managment_employees</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">manual_experience_not_required</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">night_shifts_not_required</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">no_cooperation_risk</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">num_contract_end_last_year</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">num_fired_last_year</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">num_locations</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">num_owners</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">num_quit_last_year</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">num_turnover_last_year</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">opened_date</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"08-27T11:56:31.000000Z"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">owner_id</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">owner_nationality</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">percent_government</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">percent_private_domestic</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">percent_private_foreign</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">permanent_client_services</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">permanent_contract_professionals</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">permanent_production_workers</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">permanent_support_services</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">produce_in_roo</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">product_code</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">production_employyes</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">professional_employees</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">professional_experience_not_required</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">promotion_method: effort_ability</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">recruitment_test</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">salary_1year_client_services</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">salary_1year_production_workers</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">salary_1year_support_services</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">salary_5years_client_services</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">salary_5years_production_workers</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">salary_5years_professionals</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">salary_5years_support_services</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">salary_year_professionals</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">sector</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">service_employees</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">sez_firm</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">sez_name: prince_hassan</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">staff_april1_2018</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">staff_march1_2018</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">starting_salary_client_services</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">starting_salary_production_workers</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">starting_salary_professionals</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">starting_salary_support_services</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">support_employees</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">syrian_cares_more</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">syrian_client_services</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">syrian_hired_same_jordanian: strongly_disagree</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">syrian_lower_wage</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">syrian_outreach</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">syrian_production_workers</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">syrian_productivity_same_jordanian</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">syrian_professionals</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">syrian_retain_longer</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">syrian_support_services</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">temporary_client_services</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">temporary_contract_professionals</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">temporary_production_workers</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">temporary_support_services</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">total_employees</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">training_not_required</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="job-opening" class="resource-group"><h2 class="group-heading">Job Opening <a href="#job-opening" class="permalink">&para;</a></h2><div id="job-opening-job-openings-list" class="resource"><h3 class="resource-heading">Job Openings List <a href="#job-opening-job-openings-list" class="permalink">&nbsp;&para;</a></h3><div id="job-opening-job-openings-list-get" class="action get"><h4 class="action-heading"><div class="name">List Job Openings</div><a href="#job-opening-job-openings-list-get" class="method get">GET</a><code class="uri">/job-seekers/</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/job-seekers/</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>[
+  {
+    "<span class="hljs-attribute">case_id</span>": <span class="hljs-value"><span class="hljs-string">"cce13022"</span></span>,
+    "<span class="hljs-attribute">job_id</span>": <span class="hljs-value"><span class="hljs-string">"NCJDI5"</span></span>,
+    "<span class="hljs-attribute">age_accepted: all_age</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
+    "<span class="hljs-attribute">bus_covered</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">case_name</span>": <span class="hljs-value"><span class="hljs-string">"NCJDI5"</span></span>,
+    "<span class="hljs-attribute">case_type</span>": <span class="hljs-value"><span class="hljs-string">"job"</span></span>,
+    "<span class="hljs-attribute">childcare_subsidy_offered</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">date_opened</span>": <span class="hljs-value"><span class="hljs-string">"2018"</span></span>,
+    "<span class="hljs-attribute">date_required</span>": <span class="hljs-value"><span class="hljs-string">"2018"</span></span>,
+    "<span class="hljs-attribute">dorm_covered</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">driving_ability_required</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">education_required: no_school</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
+    "<span class="hljs-attribute">english_proficiency_required</span>": <span class="hljs-value"><span class="hljs-string">"not_literate"</span></span>,
+    "<span class="hljs-attribute">external_id\"</span>": <span class="hljs-value"><span class="hljs-string">"nul"</span></span>,
+    "<span class="hljs-attribute">female_requied</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+    "<span class="hljs-attribute">free_meals_at_wok</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">health_insurance_offered</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">housing_subsidy_offered</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">it_proficiency_required</span>": <span class="hljs-value"><span class="hljs-string">"none"</span></span>,
+    "<span class="hljs-attribute">job_description</span>": <span class="hljs-value"><span class="hljs-string">"production"</span></span>,
+    "<span class="hljs-attribute">job_production: textile_worker</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
+    "<span class="hljs-attribute">job_title</span>": <span class="hljs-value"><span class="hljs-string">"خياطات"</span></span>,
+    "<span class="hljs-attribute">label_name</span>": <span class="hljs-value"><span class="hljs-string">"مصنع البشائر لصناعة الالبسة"</span></span>,
+    "<span class="hljs-attribute">literacy_required</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">male_required</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">meal_subsidy_offered</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">night_shifts_required</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">num_vacancies</span>": <span class="hljs-value"><span class="hljs-string">"3"</span></span>,
+    "<span class="hljs-attribute">owner_id</span>": <span class="hljs-value"><span class="hljs-string">"40c7d589ba38440a9307543a644d1da4"</span></span>,
+    "<span class="hljs-attribute">physical_work_abilities_required</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">school_subsidy_offered</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">specialization_required</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">syrian_considered</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">syrian_not_considered</span>": <span class="hljs-value"><span class="hljs-string">"يرغب صاحب العمل بتشغيل العمالة الاردنية"</span></span>,
+    "<span class="hljs-attribute">transport_subsidy_offered</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">wage_offered</span>": <span class="hljs-value"><span class="hljs-string">"220"</span></span>,
+    "<span class="hljs-attribute">work_permit_offered</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+    "<span class="hljs-attribute">years_experience_required</span>": <span class="hljs-value"><span class="hljs-string">"1"</span>
+  </span>}
+]</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema#"</span></span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"array"</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="job-opening-job-opening-detail" class="resource"><h3 class="resource-heading">Job Opening Detail <a href="#job-opening-job-opening-detail" class="permalink">&nbsp;&para;</a></h3><div id="job-opening-job-opening-detail-get" class="action get"><h4 class="action-heading"><div class="name">Show Job Opening Detail</div><a href="#job-opening-job-opening-detail-get" class="method get">GET</a><code class="uri">/job-seekers/{case_id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/job-seekers/{case_id}</span></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">case_id</span>": <span class="hljs-value"><span class="hljs-string">"cce13022"</span></span>,
+  "<span class="hljs-attribute">job_id</span>": <span class="hljs-value"><span class="hljs-string">"NCJDI5"</span></span>,
+  "<span class="hljs-attribute">age_accepted: all_age</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
+  "<span class="hljs-attribute">bus_covered</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">case_name</span>": <span class="hljs-value"><span class="hljs-string">"NCJDI5"</span></span>,
+  "<span class="hljs-attribute">case_type</span>": <span class="hljs-value"><span class="hljs-string">"job"</span></span>,
+  "<span class="hljs-attribute">childcare_subsidy_offered</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">date_opened</span>": <span class="hljs-value"><span class="hljs-string">"2018"</span></span>,
+  "<span class="hljs-attribute">date_required</span>": <span class="hljs-value"><span class="hljs-string">"2018"</span></span>,
+  "<span class="hljs-attribute">dorm_covered</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">driving_ability_required</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">education_required: no_school</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
+  "<span class="hljs-attribute">english_proficiency_required</span>": <span class="hljs-value"><span class="hljs-string">"not_literate"</span></span>,
+  "<span class="hljs-attribute">external_id\"</span>": <span class="hljs-value"><span class="hljs-string">"nul"</span></span>,
+  "<span class="hljs-attribute">female_requied</span>": <span class="hljs-value"><span class="hljs-string">"yes"</span></span>,
+  "<span class="hljs-attribute">free_meals_at_wok</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">health_insurance_offered</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">housing_subsidy_offered</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">it_proficiency_required</span>": <span class="hljs-value"><span class="hljs-string">"none"</span></span>,
+  "<span class="hljs-attribute">job_description</span>": <span class="hljs-value"><span class="hljs-string">"production"</span></span>,
+  "<span class="hljs-attribute">job_production: textile_worker</span>": <span class="hljs-value"><span class="hljs-string">"Hello, world!"</span></span>,
+  "<span class="hljs-attribute">job_title</span>": <span class="hljs-value"><span class="hljs-string">"خياطات"</span></span>,
+  "<span class="hljs-attribute">label_name</span>": <span class="hljs-value"><span class="hljs-string">"مصنع البشائر لصناعة الالبسة"</span></span>,
+  "<span class="hljs-attribute">literacy_required</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">male_required</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">meal_subsidy_offered</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">night_shifts_required</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">num_vacancies</span>": <span class="hljs-value"><span class="hljs-string">"3"</span></span>,
+  "<span class="hljs-attribute">owner_id</span>": <span class="hljs-value"><span class="hljs-string">"40c7d589ba38440a9307543a644d1da4"</span></span>,
+  "<span class="hljs-attribute">physical_work_abilities_required</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">school_subsidy_offered</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">specialization_required</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">syrian_considered</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">syrian_not_considered</span>": <span class="hljs-value"><span class="hljs-string">"يرغب صاحب العمل بتشغيل العمالة الاردنية"</span></span>,
+  "<span class="hljs-attribute">transport_subsidy_offered</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">wage_offered</span>": <span class="hljs-value"><span class="hljs-string">"220"</span></span>,
+  "<span class="hljs-attribute">work_permit_offered</span>": <span class="hljs-value"><span class="hljs-string">"no"</span></span>,
+  "<span class="hljs-attribute">years_experience_required</span>": <span class="hljs-value"><span class="hljs-string">"1"</span>
+</span>}</code></pre><div style="height: 1px;"></div><h5>Schema</h5><pre><code>{
+  "<span class="hljs-attribute">$schema</span>": <span class="hljs-value"><span class="hljs-string">"http://json-schema.org/draft-04/schema#"</span></span>,
+  "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"object"</span></span>,
+  "<span class="hljs-attribute">properties</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">case_id</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"00ba-402d-a6f1-b80df74317e0"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">job_id</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">age_accepted: all_age</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">bus_covered</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">case_name</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">case_type</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"opening"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">childcare_subsidy_offered</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">date_opened</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"10-28T13:34:51.170000Z"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">date_required</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"11-28"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">dorm_covered</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">driving_ability_required</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">education_required: no_school</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">english_proficiency_required</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">external_id\"</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">female_requied</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">free_meals_at_wok</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">health_insurance_offered</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">housing_subsidy_offered</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">it_proficiency_required</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">job_description</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">job_production: textile_worker</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">job_title</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">label_name</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"خياطات"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">literacy_required</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">male_required</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">meal_subsidy_offered</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">night_shifts_required</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">num_vacancies</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">owner_id</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">physical_work_abilities_required</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">school_subsidy_offered</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">specialization_required</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">syrian_considered</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">syrian_not_considered</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">transport_subsidy_offered</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">wage_offered</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">work_permit_offered</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}</span>,
+    "<span class="hljs-attribute">years_experience_required</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">type</span>": <span class="hljs-value"><span class="hljs-string">"string"</span>
+    </span>}
+  </span>}
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 03 Dec 2018</p><script>/* eslint-env browser */
 /* eslint quotes: [2, "single"] */
 'use strict';
 
