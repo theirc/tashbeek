@@ -1,11 +1,71 @@
 import pandas as pd
 import numpy as np
 
+from sklearn.preprocessing import MultiLabelBinarizer, Imputer
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+from sklearn.base import BaseEstimator, TransformerMixin
+from sklearn.linear_model import LogisticRegressionCV
+from sklearn.feature_selection import RFE
+
 from const import connect_db, categorical_columns, all_columns, scalar_columns
 from models import JobSeeker, Firm, JobOpening, Match
 
 
 JOB_ID = 40
+
+def array_vector(col):
+    return np.array(str(col))
+
+arrayerize = np.vectorize(array_vector)
+
+def preformat_X(merged):
+    formatted = pd.DataFrame()
+    dvs = ['hired_yes_no', 'quit', 'fired']
+    for col in all_columns:
+        if col not in dvs:
+            formatted[col] = merged[col]
+
+    for col in all_columns:
+        if col not in scalar_columns and col not in dvs:
+            formatted = one_hot_encode(formatted, col)
+
+    for col in formatted.columns:
+        # TODO: Change this
+        formatted[col] = formatted[col].replace(['---'], 0)
+
+    to_drop = []
+    for col in formatted.columns:
+        if col in scalar_columns:
+            formatted[col] = formatted[col].apply(try_float)
+            mean = formatted[col].mean()
+            formatted[col] = formatted[col].replace(['---', ''], mean)
+            formatted[col] = formatted[col].fillna(mean)
+        else:
+            formatted[col] = formatted[col].fillna(0)
+            formatted[col] = formatted[col].astype(int)
+            formatted[col] = formatted[col].replace(['---', ''], 0)
+
+        if col.endswith('---') or col.endswith('nan'):
+            to_drop.append(col)
+
+    formatted = formatted.drop(columns=to_drop)
+    return formatted
+
+def one_hot_encode(df, column, labels_column=None, whitelist=[]):
+    # This is gross but since strings are iterable, we have to wrap them in a list
+    # in order for the binarizer to parse the labels as strings and not chars
+    labels = arrayerize(pd.DataFrame(df[column]))
+    terms = arrayerize(pd.DataFrame(list(set(df[column]))))
+
+    mlb = MultiLabelBinarizer()
+    mlb.fit(terms)
+    mlb.transform(labels)
+    columns = [ f'{column}-{classname}' for classname in  mlb.classes_]
+
+    encoded = pd.DataFrame(mlb.transform(labels), columns=columns, index=df[column].index)
+
+    df.drop(column, axis=1, inplace=True)
+    return df.join(encoded)
 
 def try_float(v):
     try:
@@ -13,33 +73,68 @@ def try_float(v):
     except Exception as e:
         return np.nan
 
-def get_match_scores():
-    job_seeker_models = JobSeeker.objects.all()
-    job_opening_models = JobOpening.objects.all()
-    firm_models = Firm.objects.all()
-    match_models = Match.objects.all()
+def get_x_y(job_seekers, firms, matches, jobs):
+    matches['parent_case_id'] = matches['MATCH-parent_case_id']
+    job_seekers['parent_case_id'] = job_seekers['JS-case_id']
+    merged = pd.merge(job_seekers, matches, on='parent_case_id')
+    merged = pd.merge(merged, jobs, on='job_id')
 
-    job_seeker_json = [js.to_mongo() for js in job_seeker_models]
-    job_opening_json = [jo.to_mongo() for jo in job_opening_models]
-    firm_json = [firm.to_mongo() for firm in firm_models]
-    match_json = [match.to_mongo() for match in match_models]
+    # Drop irrelevant columns that will throw off our predictions
+    merged = merged.drop(["MATCH-hh_income", "MATCH-interest_applying", "MATCH-num_children", "MATCH-personal_income"], axis=1)
 
-    job_seekers = pd.DataFrame(job_seeker_json)
-    jobs = pd.DataFrame(job_opening_json)
-    firms = pd.DataFrame(firm_json)
-    matches = pd.DataFrame(match_json)
+    merged['hired_yes_no'] = merged['hired_yes_no'].fillna(0)
+    merged['hired_yes_no'] = merged['hired_yes_no'].replace(['---'], 0)
 
-    ignore = ['number', 'caseid', 'parent_caseid', 'job_id', 'hired_yes_no', 'quit', 'fired']
+    merged['quit'] = merged['quit'].fillna(0)
+    merged['quit'] = merged['quit'].replace(['---'], 0)
+    merged['quit'] = merged['quit'].replace(['no'], 0)
+    merged['quit'] = merged['quit'].replace(['yes'], 1)
 
-    job_seekers.columns = ['JS-' + c if c not in ignore else c for c in job_seekers.columns]
-    firms.columns = ['JOB-' + c if c not in ignore else c for c in firms.columns]
-    jobs.columns = ['JOB-' + c if c not in ignore else c for c in jobs.columns]
-    matches.columns = ['MATCH-' + c if c not in ignore else c for c in matches.columns]
+    merged['fired'] = merged['fired'].fillna(0)
+    merged['fired'] = merged['fired'].replace(['---'], 0)
+    merged['fired'] = merged['fired'].replace(['no'], 0)
+    merged['fired'] = merged['fired'].replace(['yes'], 1)
 
-    job = jobs.loc[JOB_ID]
-    job_seekers = job_seekers[job_seekers['JS-testing'] != 'yes']
-    firm = firms[firms['JOB-case_id'] == job['JOB-parent_case_id']]
+    merged['hired_yes_no'] = merged['hired_yes_no'].astype(bool)
+    merged['quit'] = merged['quit'].astype(bool)
+    merged['fired'] = merged['fired'].astype(bool)
+    outcomes = pd.DataFrame()
+    outcomes['retained'] = merged['hired_yes_no'] & ~(merged['quit'] | merged['fired'])
+    outcomes['hired'] = merged['hired_yes_no']
+    y = pd.DataFrame()
+    o = []
+    for index, row in outcomes.iterrows():
+        if row['hired'] and row['retained']:
+            o.append(2)
+        elif not row['hired'] and not row['retained']:
+            o.append(0)
+        elif row['hired'] and not row['retained']:
+            o.append(1)
+    y['outcomes'] = outcomes['hired']
+    y = y.astype(int)
 
+    X = preformat_X(merged)
+    return X, y
+
+def train_model(X, y):
+    transformer = ReduceVIF(thresh=10.0)
+
+    # Only use 10 columns for speed in this example
+    # X = transformer.fit_transform(X, y)
+    model = LogisticRegressionCV(max_iter=1000, solver='liblinear', penalty='l1', cv=3)
+    selector = RFE(model, 20, step=4)
+    selector.fit(X, y)
+    cols = []
+    XX = pd.DataFrame()
+    for i, v in enumerate(selector.support_):
+        if v:
+            cols.append(X.columns[i])
+    for c in cols:
+        XX[c] = X[c]
+
+    model.fit(XX, y)
+    return model, XX
+def filter_job_seekers(job_seekers, firm, job):
     print('city: ' + firm['JOB-fcity'].values[0])
     print(job_seekers.shape)
     #city
@@ -128,14 +223,70 @@ def get_match_scores():
 
     job_seekers = job_seekers.replace(['---'], 0)
     if not np.isnan(float(job['JOB-years_experience_required'])):
-        job_seekers['JS-years_exp'] = job_seekers['JS-years_exp'].apply(try_float)
-        job_seekers = job_seekers[job_seekers['JS-years_exp'].astype(float) > float(job['JOB-years_experience_required'])]
+        job_seekers['JS-years_exp'] = job_seekers['JS-years_exp']
+        job_seekers = job_seekers[job_seekers['JS-years_exp'].apply(try_float) > float(job['JOB-years_experience_required'])]
 
     print(job_seekers.shape)
+    return job_seekers
 
+def get_match_scores():
+    job_seeker_models = JobSeeker.objects.all()
+    job_opening_models = JobOpening.objects.all()
+    firm_models = Firm.objects.all()
+    match_models = Match.objects.all()
 
-def train_model(job_seekers, firms, matches, jobs):
-    pass
+    job_seeker_json = [js.to_mongo() for js in job_seeker_models]
+    job_opening_json = [jo.to_mongo() for jo in job_opening_models]
+    firm_json = [firm.to_mongo() for firm in firm_models]
+    match_json = [match.to_mongo() for match in match_models]
+
+    job_seekers = pd.DataFrame(job_seeker_json)
+    jobs = pd.DataFrame(job_opening_json)
+    firms = pd.DataFrame(firm_json)
+    matches = pd.DataFrame(match_json)
+
+    ignore = ['number', 'caseid', 'parent_caseid', 'job_id', 'hired_yes_no', 'quit', 'fired']
+    # Do some column formatting to help with analysis
+    job_seekers.columns = ['JS-' + c if c not in ignore else c for c in job_seekers.columns]
+    firms.columns = ['JOB-' + c if c not in ignore else c for c in firms.columns]
+    jobs.columns = ['JOB-' + c if c not in ignore else c for c in jobs.columns]
+    matches.columns = ['MATCH-' + c if c not in ignore else c for c in matches.columns]
+
+    # Select job ID and do some basic formatting to join everything together
+    job = jobs.loc[JOB_ID]
+    job_seekers = job_seekers[job_seekers['JS-testing'] != 'yes']
+    firm = firms[firms['JOB-case_id'] == job['JOB-parent_case_id']]
+    og_job_seekers = job_seekers
+
+    # Run the actual filter and training bits for our model
+    job_seekers = filter_job_seekers(job_seekers, firm, job)
+    merged = job_seekers
+
+    X, y = get_x_y(job_seekers, firms, matches, jobs)
+    model, X = train_model(X, y)
+
+    # all post-filter job seekers 1 hot encoded for our test set
+    for k in job.keys():
+        merged[k] = job[k]
+    for k in firm.keys():
+        merged[k] = firm[k]
+
+    merged = preformat_X(merged)
+
+    # Limit to feature selected columns
+    test_X = pd.DataFrame()
+    for col in X.columns:
+        try:
+            test_X[col] = merged[col]
+        except KeyError as e:
+            test_X[col] = 0
+
+    # Run the actual prediction here
+    probs = model.predict_proba(test_X)
+    print(probs)
+    import ipdb
+    ipdb.set_trace()
+
 
 if __name__ == '__main__':
     connect_db()
