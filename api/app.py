@@ -1,13 +1,17 @@
+from gevent import monkey
+monkey.patch_all()
+import gevent
 import falcon
 import json
 import requests
 import os
 
 from requests.auth import HTTPBasicAuth
-from mongoengine import connect
+from mongoengine import connect, DoesNotExist
 
-from models import JobOpening, JobSeeker, Firm, Match, User
+from models import JobOpening, JobSeeker, Firm, Match, User, JobMatch
 from const import connect_db
+from utils import create_match_object
 
 
 COMMCARE_USERNAME = os.environ.get('COMMCARE_USERNAME')
@@ -25,7 +29,24 @@ class ScoresResource(object):
 
 class JobMatchResource(object):
     def on_get(self, req, resp):
-        resp.body = '{"hello": "world"}'
+        job_id = req.params['job_id']
+        try:
+            match = JobMatch.objects.get(job_id=job_id)
+            resp.body = match.to_json()
+        except DoesNotExist:
+            resp.status = falcon.HTTP_404
+
+    def on_post(self, req, resp):
+        job_id = req.params['job_id']
+        try:
+            match = JobMatch.objects.get(job_id=job_id)
+            resp.status = falcon.HTTP_409
+            resp.body = match.to_json()
+        except DoesNotExist:
+            match = JobMatch(job_id=job_id, status='processing')
+            match.save()
+            gevent.spawn(create_match_object, job_id)
+            resp.status = falcon.HTTP_201
 
 class JobOpeningResource(object):
     def on_get(self, req, resp):
@@ -58,5 +79,5 @@ api.add_route('/job-seekers/', JobSeekerResource())
 api.add_route('/firms/', FirmResource())
 api.add_route('/matches/', MatchResource())
 api.add_route('/users/', UserResource())
-api.add_route('/job-match/', JobMatchResource())
+api.add_route('/job-matches/', JobMatchResource())
 api.add_route('/scores/', ScoresResource())

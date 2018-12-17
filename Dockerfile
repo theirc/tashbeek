@@ -5,7 +5,6 @@ FROM python:3
 COPY ./requirements.txt /app/
 
 RUN pip install -r /app/requirements.txt
-RUN pip install requests mongoengine gunicorn
 WORKDIR "/app/"
 
 # CMD python3 -m http.server
