@@ -38,6 +38,15 @@ class JobMatchResource(object):
 
     def on_post(self, req, resp):
         job_id = req.params['job_id']
+        if not JobOpening.objects(job_id=job_id):
+            resp.status = falcon.HTTP_400
+            resp.body = json.dumps({
+                "code": 400,
+                "message": "Job Opening with ID does not exist.",
+                "more_info": "https://nolski.github.io/tashbeek#job-match-job-matches-post-2"
+            })
+            return
+
         try:
             match = JobMatch.objects.get(job_id=job_id)
             resp.status = falcon.HTTP_409

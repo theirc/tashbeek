@@ -12,6 +12,93 @@ parser](https://github.com/apiaryio/drafter) or one of its
 It is also recommended that you use a nice formatter such as [aglio](https://github.com/danielgtaylor/aglio)
 in order to display the docs in a nice and pretty way.
 
+# Group Job Match
+
+This is the core API endpoint for our service. It will handle the running of our
+"Job Match Algorithm". From here you can initiate the algorithm to run for a new
+job opening.
+
+## Job Matches [/job-matches/?job_id={{job_id}]
+
+### Job ID has finished matching [GET]
+
+Once the algorithm has finished matching, this endpoint will show the selected
+candidates under the `"scores"` attribute.
+
++ Response 200 (application/json)
+
+{
+   "_id": {
+       "$oid": "5c1772c7e72d2b0083d04be9"
+   }, 
+   "job_id": "B6JTC4", 
+   "scores": [
+       {
+           "case_id": "08d1bff17ce84350ae68b422deee9aaa", 
+           "probs": 0.88054
+       }, 
+       {
+           "case_id": "f2aef7ba4a28425088de1f4bc98fc681", 
+           "probs": 0.58385
+       }, 
+   ], 
+   "status": "complete"
+}
+
+### Job ID hasn't finished matching [GET]
+
+Job matches will have the `status` of `"processing"` until the matching
+algorithm has finished
+
++ Response 200 (application/json)
+
+{
+   "_id": {
+       "$oid": "5c1772c7e72d2b0083d04be9"
+   }, 
+   "job_id": "B6JTC4", 
+   "status": "processing"
+}
+
+### Job match doesn't exist [GET]
+
+If we haven't created matches for the given ID yet, you'll receive a 404
+
++ Response 404 (application/json)
+
+### Create Job Match List [POST]
+
+The ideal response will be a 201 for creating a new job match list
+
++ Response 201
+
+
+### Job Match already created [POST]
+
+If the match has already been started, you will see a response as follows
+
++ Response 409 (application/json)
+
+{
+   "_id": {
+       "$oid": "5c1772c7e72d2b0083d04be9"
+   }, 
+   "job_id": "B6JTC4", 
+   "status": "processing"
+}
+
+### Job Opening doesn't exist [POST]
+
+If the job opening doesn't exist, we will throw a 400 and point to this document
+
++ Response 400 (application/json)
+
+{
+    "code": 400,
+    "message": "Job Opening with ID does not exist.",
+    "more_info": ""
+}
+
 # Group Job Seeker
 
 ## Job Seekers List [/job-seekers/]
@@ -88,6 +175,29 @@ in order to display the docs in a nice and pretty way.
     + Attributes (JobOpening)
 
 ## Data Structures
+
+
+### JobMatch
+ 
+```json
+{
+   "_id": {
+       "$oid": "5c1772c7e72d2b0083d04be9"
+   }, 
+   "job_id": "B6JTC4", 
+   "scores": [
+       {
+           "case_id": "08d1bff17ce84350ae68b422deee9aaa", 
+           "probs": 0.88054
+       }, 
+       {
+           "case_id": "f2aef7ba4a28425088de1f4bc98fc681", 
+           "probs": 0.58385
+       }, 
+   ], 
+   "status": "complete"
+}
+```
 
 ### JobSeeker
 
@@ -499,3 +609,5 @@ in order to display the docs in a nice and pretty way.
  + wage_offered: 220
  + work_permit_offered: no
  + years_experience_required: 1
+ 
+ 
