@@ -25,8 +25,8 @@ services:
             - mongodb
         env_file:
           - tashbeek.env
-        command: bash
-        # command: python3 -m scripts.populate_mongo
+        # command: bash
+        command: python3 -m scripts.populate_mongo
         # command: python3 -m scripts.set_probabilities
         # command: python3 -m utils
     mongodb:

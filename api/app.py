@@ -18,15 +18,6 @@ COMMCARE_USERNAME = os.environ.get('COMMCARE_USERNAME')
 COMMCARE_PASSWORD = os.environ.get('COMMCARE_PASSWORD')
 CASES_URL = 'https://www.commcarehq.org/a/billy-excerpt/api/v0.5/case/'
 
-connect_db()
-
-class ScoresResource(object):
-    def on_get(self, req, resp):
-        url = 'https://www.dropbox.com/s/p0jdw71vwu1quru/scores.csv'
-        r = requests.get(url)
-        print(r.body)
-        resp.body = '{"hello": "world"}'
-
 class JobMatchResource(object):
     def on_get(self, req, resp):
         job_id = req.params['job_id']
@@ -89,4 +80,3 @@ api.add_route('/firms/', FirmResource())
 api.add_route('/matches/', MatchResource())
 api.add_route('/users/', UserResource())
 api.add_route('/job-matches/', JobMatchResource())
-api.add_route('/scores/', ScoresResource())

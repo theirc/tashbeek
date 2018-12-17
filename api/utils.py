@@ -127,19 +127,19 @@ def train_model(X, y):
     model.fit(XX, y)
     return model, XX
 def filter_job_seekers(job_seekers, firm, job):
-    print('city: ' + firm['JOB-fcity'].values[0])
     print(job_seekers.shape)
+    print('city: ' + firm['JOB-fcity'].values[0])
     #city
     job_seekers = job_seekers[job_seekers['JS-city'] == firm['JOB-fcity'].values[0]]
 
-    print('syrian considered: ' + job['JOB-syrian_considered'])
     print(job_seekers.shape)
+    print('syrian considered: ' + job['JOB-syrian_considered'])
     # nationality
     if job['JOB-syrian_considered'] == 'no':
         job_seekers = job_seekers[job_seekers['JS-nationality'] != 'syrian']
 
-    print('male/female required: ' + job['JOB-male_required'] + job['JOB-female_requied'])
     print(job_seekers.shape)
+    print('male/female required: ' + job['JOB-male_required'] + job['JOB-female_requied'])
     # genders
     if job['JOB-male_required'] == 'yes' and  job['JOB-female_requied'] == 'no':
         job_seekers = job_seekers[job_seekers['JS-gender'] == 'male']
@@ -148,8 +148,8 @@ def filter_job_seekers(job_seekers, firm, job):
     if job['JOB-female_requied'] == 'yes' and job['JOB-male_required'] == 'no':
         job_seekers = job_seekers[job_seekers['JS-gender'] == 'female']
 
-    print(f"age accepted: {job['JOB-age_accepted']}")
     print(job_seekers.shape)
+    print(f"age accepted: {job['JOB-age_accepted']}")
 
     # age
     job_seekers['JS-age'] = job_seekers['JS-age'].apply(try_float)
@@ -161,22 +161,22 @@ def filter_job_seekers(job_seekers, firm, job):
             job_seekers = job_seekers[job_seekers['JS-age'] > int(lower)]
             job_seekers = job_seekers[job_seekers['JS-age'] < int(higher)]
 
-    print(f"sez: {firm['JOB-sez_firm']}")
     print(job_seekers.shape)
+    print(f"sez: {firm['JOB-sez_firm']}")
     # qiz
     if firm['JOB-sez_firm'].values[0] == 'yes':
         # Include NA answers as well
         job_seekers = job_seekers[job_seekers['JS-will_work_qiz'] != 0]
 
     # physical work
-    print('physical: ' + job['JOB-physical_work_abilities_required'])
     print(job_seekers.shape)
+    print('physical: ' + job['JOB-physical_work_abilities_required'])
     if job['JOB-physical_work_abilities_required'] == 'yes':
         # Include NA answers as well
         job_seekers = job_seekers[job_seekers['JS-will_do_physical_work'] != 0]
 
-    print('night shifts: ' + job['JOB-night_shifts_required'])
     print(job_seekers.shape)
+    print('night shifts: ' + job['JOB-night_shifts_required'])
     # night shift
     if job['JOB-night_shifts_required'] == 'yes':
         job_seekers = job_seekers[job_seekers['JS-will_work_night_shift'] != 0]
@@ -187,14 +187,14 @@ def filter_job_seekers(job_seekers, firm, job):
     if job['JOB-dorm_covered'] == 'yes':
         job_seekers = job_seekers[job_seekers['JS-will_live_in_dorm'] != 0]
 
-    print(f"unpaid training: {job['JOB-unpaid_training_required']}")
     print(job_seekers.shape)
+    print(f"unpaid training: {job['JOB-unpaid_training_required']}")
     # unpaid training
     if job['JOB-unpaid_training_required'] == 'yes':
         job_seekers = job_seekers[job_seekers['JS-will_train_unpaid'] == 1]
 
-    print(f"education: {job['JOB-education_required']}")
     print(job_seekers.shape)
+    print(f"education: {job['JOB-education_required']}")
 
     # education
     replace = {
@@ -211,8 +211,8 @@ def filter_job_seekers(job_seekers, firm, job):
     educations[:i + 1]
     job_seekers = job_seekers[job_seekers['JS-highest_edu_level'].isin(educations[:i + 1])]
 
-    print(f"literacy required: {job['JOB-literacy_required']}")
     print(job_seekers.shape)
+    print(f"literacy required: {job['JOB-literacy_required']}")
     # literacy
     if job['JOB-literacy_required'] == 'yes':
         job_seekers = job_seekers[job_seekers['JS-is_literate'] != 0]
@@ -258,8 +258,7 @@ def get_match_scores(job_id):
     # Train our model
     X, y = get_x_y(job_seekers, firms, matches, jobs)
     X.drop(['case_id'], axis=1, inplace=True)
-    # TODO: Remove .head() here as it's just for speeding up testing
-    model, X = train_model(X.head(100), y.head(100))
+    model, X = train_model(X, y)
 
     # Run the actual filter
     merged = filter_job_seekers(job_seekers, firm, job)
@@ -300,6 +299,7 @@ def create_match_object(job_id):
     except Exception as e:
         print("error: ", e)
 
+# This is just used for testing
 if __name__ == '__main__':
     connect_db()
     job_id = 'B6JTC4'
