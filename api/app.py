@@ -5,6 +5,7 @@ import falcon
 import json
 import requests
 import os
+import operator
 
 from requests.auth import HTTPBasicAuth
 from mongoengine import connect, DoesNotExist
@@ -18,12 +19,33 @@ COMMCARE_USERNAME = os.environ.get('COMMCARE_USERNAME')
 COMMCARE_PASSWORD = os.environ.get('COMMCARE_PASSWORD')
 CASES_URL = 'https://www.commcarehq.org/a/billy-excerpt/api/v0.5/case/'
 
+connect_db()
+
 class JobMatchResource(object):
     def on_get(self, req, resp):
         job_id = req.params['job_id']
         try:
             match = JobMatch.objects.get(job_id=job_id)
+            match.scores.sort(key=operator.itemgetter('probs'))
             resp.body = match.to_json()
+        except DoesNotExist:
+            resp.status = falcon.HTTP_404
+
+    def on_delete(self, req, resp):
+        job_id = req.params['job_id']
+        if not JobOpening.objects(job_id=job_id):
+            resp.status = falcon.HTTP_400
+            resp.body = json.dumps({
+                "code": 400,
+                "message": "Job Opening with ID does not exist.",
+                "more_info": "https://nolski.github.io/tashbeek#job-match-job-matches-post-2"
+            })
+            return
+
+        try:
+            match = JobMatch.objects.get(job_id=job_id)
+            match.delete()
+            resp.status = falcon.HTTP_204
         except DoesNotExist:
             resp.status = falcon.HTTP_404
 
@@ -41,6 +63,7 @@ class JobMatchResource(object):
         try:
             match = JobMatch.objects.get(job_id=job_id)
             resp.status = falcon.HTTP_409
+            match.scores.sort(key=operator.itemgetter('probs'))
             resp.body = match.to_json()
         except DoesNotExist:
             match = JobMatch(job_id=job_id, status='processing')
