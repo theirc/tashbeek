@@ -31,11 +31,15 @@ def create_cases(next_params: str, n: int, CaseClass: DynamicDocument) -> Tuple:
         params = {**c['properties'], 'case_id': c['case_id']}
         if c.get('indices').get('parent'):
             params['parent_case_id'] = c['indices']['parent']['case_id']
+        upsert_params = {}
+        for k in params:
+            upsert_params['set__' + k] = params[k]
         case = CaseClass(**params)
         print(f"Creating case {case.case_id}...")
         try:
             case.save()
         except NotUniqueError as e:
+            CaseClass.objects(case_id=c['case_id']).modify(upsert=True, **params)
             print(f"{c['case_id']} already exists, skipping...")
         print("saved")
         n += 1

@@ -7,6 +7,7 @@ from statsmodels.stats.outliers_influence import variance_inflation_factor
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.linear_model import LogisticRegressionCV
 from sklearn.feature_selection import RFE
+from sklearn.feature_selection import chi2
 
 from const import connect_db, categorical_columns, all_columns, scalar_columns
 from models import JobSeeker, Firm, JobOpening, Match, JobMatch
@@ -16,6 +17,41 @@ def array_vector(col):
     return np.array(str(col))
 
 arrayerize = np.vectorize(array_vector)
+
+def output_coefs(model, X, y):
+    coef_dict = {}
+    for coef, feat in zip(model.coef_[0], X.columns):
+        coef_dict[feat] = coef
+
+    c = {}
+    for k, v in coef_dict.items():
+        c[k] = [v]
+
+
+    coef_frame = pd.DataFrame.from_dict(c)
+    sorted_frame = coef_frame.columns[coef_frame.ix[coef_frame.last_valid_index()].argsort()]
+    coef_frame.to_csv('rfe-coefs.csv')
+
+    odds_ratios = np.exp(coef_frame)
+    scores, pvalues = chi2(X, y)
+
+    p_dict = {}
+    for pvalue, feat in zip(pvalues, X.columns):
+        p_dict[feat] = pvalue
+
+    c = {}
+    for k, v in p_dict.items():
+        c[k] = [v]
+
+
+    pval_frame = pd.DataFrame.from_dict(c)
+    sorted_frame = pval_frame.columns[pval_frame.ix[pval_frame.last_valid_index()].argsort()]
+    pval_frame.to_csv('rfe-pvalues.csv')
+
+    combined = coef_frame.append(pval_frame).append(np.exp(odds_ratios))
+    combined.to_csv('rfe-combined.csv')
+    X.to_csv('X.csv')
+    y.to_csv('y.csv')
 
 def preformat_X(merged):
     formatted = pd.DataFrame()
@@ -125,21 +161,22 @@ def train_model(X, y):
         XX[c] = X[c]
 
     model.fit(XX, y)
+    output_coefs(model, XX, y)
     return model, XX
 def filter_job_seekers(job_seekers, firm, job):
-    print('city: ' + firm['JOB-fcity'].values[0])
     print(job_seekers.shape)
+    print('city: ' + firm['JOB-fcity'].values[0])
     #city
     job_seekers = job_seekers[job_seekers['JS-city'] == firm['JOB-fcity'].values[0]]
 
-    print('syrian considered: ' + job['JOB-syrian_considered'])
     print(job_seekers.shape)
+    print('syrian considered: ' + job['JOB-syrian_considered'])
     # nationality
     if job['JOB-syrian_considered'] == 'no':
         job_seekers = job_seekers[job_seekers['JS-nationality'] != 'syrian']
 
-    print('male/female required: ' + job['JOB-male_required'] + job['JOB-female_requied'])
     print(job_seekers.shape)
+    print('male/female required: ' + job['JOB-male_required'] + job['JOB-female_requied'])
     # genders
     if job['JOB-male_required'] == 'yes' and  job['JOB-female_requied'] == 'no':
         job_seekers = job_seekers[job_seekers['JS-gender'] == 'male']
@@ -148,12 +185,15 @@ def filter_job_seekers(job_seekers, firm, job):
     if job['JOB-female_requied'] == 'yes' and job['JOB-male_required'] == 'no':
         job_seekers = job_seekers[job_seekers['JS-gender'] == 'female']
 
-    print(f"age accepted: {job['JOB-age_accepted']}")
     print(job_seekers.shape)
+    print(f"age accepted: {job['JOB-age_accepted']}")
 
     # age
     job_seekers['JS-age'] = job_seekers['JS-age'].apply(try_float)
-    ranges = job['JOB-age_accepted'].split(' ') if not np.isnan(job['JOB-age_accepted']) else ['---']
+    if not type(job['JOB-age_accepted']) and np.isnan(job['JOB-age_accepted']):
+        ranges = job['JOB-age_accepted'].split(' ')
+    else:
+        ranges = '---'
     if '---' not in ranges:
         for age_range in ranges:
             print(age_range)
@@ -161,22 +201,22 @@ def filter_job_seekers(job_seekers, firm, job):
             job_seekers = job_seekers[job_seekers['JS-age'] > int(lower)]
             job_seekers = job_seekers[job_seekers['JS-age'] < int(higher)]
 
-    print(f"sez: {firm['JOB-sez_firm']}")
     print(job_seekers.shape)
+    print(f"sez: {firm['JOB-sez_firm']}")
     # qiz
     if firm['JOB-sez_firm'].values[0] == 'yes':
         # Include NA answers as well
         job_seekers = job_seekers[job_seekers['JS-will_work_qiz'] != 0]
 
     # physical work
-    print('physical: ' + job['JOB-physical_work_abilities_required'])
     print(job_seekers.shape)
+    print('physical: ' + job['JOB-physical_work_abilities_required'])
     if job['JOB-physical_work_abilities_required'] == 'yes':
         # Include NA answers as well
         job_seekers = job_seekers[job_seekers['JS-will_do_physical_work'] != 0]
 
-    print('night shifts: ' + job['JOB-night_shifts_required'])
     print(job_seekers.shape)
+    print('night shifts: ' + job['JOB-night_shifts_required'])
     # night shift
     if job['JOB-night_shifts_required'] == 'yes':
         job_seekers = job_seekers[job_seekers['JS-will_work_night_shift'] != 0]
@@ -187,14 +227,14 @@ def filter_job_seekers(job_seekers, firm, job):
     if job['JOB-dorm_covered'] == 'yes':
         job_seekers = job_seekers[job_seekers['JS-will_live_in_dorm'] != 0]
 
-    print(f"unpaid training: {job['JOB-unpaid_training_required']}")
     print(job_seekers.shape)
+    print(f"unpaid training: {job['JOB-unpaid_training_required']}")
     # unpaid training
     if job['JOB-unpaid_training_required'] == 'yes':
         job_seekers = job_seekers[job_seekers['JS-will_train_unpaid'] == 1]
 
-    print(f"education: {job['JOB-education_required']}")
     print(job_seekers.shape)
+    print(f"education: {job['JOB-education_required']}")
 
     # education
     replace = {
@@ -205,14 +245,14 @@ def filter_job_seekers(job_seekers, firm, job):
     for k, v in replace.items():
         job['JOB-education_required'] = job['JOB-education_required'].replace(k, v)
 
-    educations = ['doctorate', 'masters', 'bachelors', 'diploma', 'college', 'secondary', 'primary', 'none', np.nan]
+    educations = ['doctorate', 'masters', 'bachelors', 'diploma', 'college', 'secondary', 'intermediate', 'primary', 'none', np.nan]
 
     i = educations.index(job['JOB-education_required'])
     educations[:i + 1]
     job_seekers = job_seekers[job_seekers['JS-highest_edu_level'].isin(educations[:i + 1])]
 
-    print(f"literacy required: {job['JOB-literacy_required']}")
     print(job_seekers.shape)
+    print(f"literacy required: {job['JOB-literacy_required']}")
     # literacy
     if job['JOB-literacy_required'] == 'yes':
         job_seekers = job_seekers[job_seekers['JS-is_literate'] != 0]
@@ -258,8 +298,7 @@ def get_match_scores(job_id):
     # Train our model
     X, y = get_x_y(job_seekers, firms, matches, jobs)
     X.drop(['case_id'], axis=1, inplace=True)
-    # TODO: Remove .head() here as it's just for speeding up testing
-    model, X = train_model(X.head(100), y.head(100))
+    model, X = train_model(X, y)
 
     # Run the actual filter
     merged = filter_job_seekers(job_seekers, firm, job)
@@ -286,6 +325,8 @@ def get_match_scores(job_id):
     output['probs'] = probs.T[1]
     output['case_id'] = merged['case_id'].values
     output = output.round({'probs': 5})
+    test_X.to_csv('test_X.csv')
+    output.to_csv('output.csv')
     return output
 
 def create_match_object(job_id):
@@ -300,8 +341,9 @@ def create_match_object(job_id):
     except Exception as e:
         print("error: ", e)
 
+# This is just used for testing
 if __name__ == '__main__':
     connect_db()
-    job_id = 'B6JTC4'
+    job_id = 'XCHJQ3'
     scores = create_match_object(job_id)
     print('scores')

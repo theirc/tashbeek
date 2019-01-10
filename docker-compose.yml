@@ -13,7 +13,7 @@ services:
             - 8000:8000
         env_file:
           - tashbeek.env
-        command: gunicorn --workers=5 --reload -b '0.0.0.0:8000' -k gevent app
+        command: gunicorn --workers=5 --reload --timeout 900 -b '0.0.0.0:8000' -k gevent app
     migration-script:
         build: .
         container_name: "migration-script"
@@ -25,10 +25,10 @@ services:
             - mongodb
         env_file:
           - tashbeek.env
-        command: bash
+        # command: bash
         # command: python3 -m scripts.populate_mongo
         # command: python3 -m scripts.set_probabilities
-        # command: python3 -m utils
+        command: python3 -m utils
     mongodb:
         image: mongo:latest
         container_name: "mongodb"
