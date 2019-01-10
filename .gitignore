@@ -4,3 +4,4 @@ __pycache__
 venv
 .~lock*
 tashbeek.env
+api/*.csv
