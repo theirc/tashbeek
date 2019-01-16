@@ -26,7 +26,8 @@ class JobMatchResource(object):
         job_id = req.params['job_id']
         try:
             match = JobMatch.objects.get(job_id=job_id)
-            match.scores.sort(key=operator.itemgetter('probs'))
+            if hasattr(match, 'scores'):
+                match.scores.sort(key=operator.itemgetter('probs'))
             resp.body = match.to_json()
         except DoesNotExist:
             resp.status = falcon.HTTP_404
@@ -63,7 +64,8 @@ class JobMatchResource(object):
         try:
             match = JobMatch.objects.get(job_id=job_id)
             resp.status = falcon.HTTP_409
-            match.scores.sort(key=operator.itemgetter('probs'))
+            if hasattr(match, 'scores'):
+                match.scores.sort(key=operator.itemgetter('probs'))
             resp.body = match.to_json()
         except DoesNotExist:
             match = JobMatch(job_id=job_id, status='processing')
