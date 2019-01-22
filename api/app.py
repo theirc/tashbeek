@@ -9,11 +9,11 @@ import operator
 
 from requests.auth import HTTPBasicAuth
 from mongoengine import connect, DoesNotExist
+from falcon_auth import FalconAuthMiddleware, TokenAuthBackend
 
 from models import JobOpening, JobSeeker, Firm, Match, User, JobMatch
 from const import connect_db
 from utils import create_match_object
-
 
 COMMCARE_USERNAME = os.environ.get('COMMCARE_USERNAME')
 COMMCARE_PASSWORD = os.environ.get('COMMCARE_PASSWORD')
@@ -98,10 +98,25 @@ class UserResource(object):
         users = User.objects.all()
         resp.body = users.to_json()
 
-api = application = falcon.API()
+
+class HomeResource(object):
+    def on_get(self, req, resp):
+        resp.body = '{"hello": "world"}'
+
+def user_loader(token):
+    password = os.environ.get('AUTH_TOKEN', None)
+    if token == password:
+        return {'id': 1}
+    else:
+        return None
+
+token_auth = TokenAuthBackend(user_loader=user_loader)
+auth_middleware = FalconAuthMiddleware(token_auth)
+api = application = falcon.API(middleware=[auth_middleware])
 api.add_route('/job-openings/', JobOpeningResource())
 api.add_route('/job-seekers/', JobSeekerResource())
 api.add_route('/firms/', FirmResource())
 api.add_route('/matches/', MatchResource())
 api.add_route('/users/', UserResource())
 api.add_route('/job-matches/', JobMatchResource())
+api.add_route('/', HomeResource())
