@@ -6,6 +6,9 @@ DB_NAME = os.environ.get('DB_NAME')
 DB_USER = os.environ.get('DB_USER')
 DB_PASSWORD = os.environ.get('DB_PASSWORD')
 DB_HOST = os.environ.get('DB_HOST')
+DB_PORT = int(os.environ.get('DB_PORT'))
+DB_SSL = os.environ.get('DB_SSL') == "True"
+REPLICA_SET = os.environ.get('DB_REPLICA_SET', None)
 
 def connect_db():
     connect(
@@ -13,7 +16,10 @@ def connect_db():
         username=DB_USER,
         password=DB_PASSWORD,
         host=DB_HOST,
-        authentication_source='admin',
+        port=DB_PORT,
+        ssl=DB_SSL,
+        replicaset=REPLICA_SET,
+        authentication_source='admin'
     )
 
 
