@@ -1,0 +1,3 @@
+MAILTO=""
+
+* * * * * echo 'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaaaaaaa' 2>&1 || true
