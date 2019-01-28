@@ -13,22 +13,21 @@ services:
             - 8000:8000
         env_file:
           - tashbeek.env
-        command: gunicorn --workers=5 --reload --timeout 900 -b '0.0.0.0:8000' -k gevent app
-    migration-script:
-        build: .
-        container_name: "migration-script"
-        volumes:
-            - ./api:/app
-        links:
-            - mongodb
-        depends_on:
-            - mongodb
-        env_file:
-          - tashbeek.env
-        # command: bash
-        # command: python3 -m scripts.populate_mongo
-        # command: python3 -m scripts.set_probabilities
-        command: python3 -m utils
+#     migration-script:
+#         build: .
+#         container_name: "migration-script"
+#         volumes:
+#             - ./api:/app
+#         links:
+#             - mongodb
+#         depends_on:
+#             - mongodb
+#         env_file:
+#           - tashbeek-prod.env
+#         # command: bash # Don't do anything. Just exit
+#         command: python3 -m scripts.populate_mongo # Import data from CommCare into MongoDB
+#         # command: python3 -m scripts.set_probabilities # Set probabilities from csv file
+#         # command: python3 -m utils # Run matching algorithm
     mongodb:
         image: mongo:latest
         container_name: "mongodb"
