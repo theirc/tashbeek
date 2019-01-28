@@ -19,12 +19,16 @@ COMMCARE_USERNAME = os.environ.get('COMMCARE_USERNAME')
 COMMCARE_PASSWORD = os.environ.get('COMMCARE_PASSWORD')
 CASES_URL = 'https://www.commcarehq.org/a/billy-excerpt/api/v0.5/case/'
 USERS_URL = 'https://www.commcarehq.org/a/billy-excerpt/api/v0.5/user/'
+headers = {
+    'Authorization': f"ApiKey {COMMCARE_USERNAME}:{COMMCARE_PASSWORD}"
+}
 
 def create_cases(next_params: str, n: int, CaseClass: DynamicDocument) -> Tuple:
     print(f"Getting cases from {CASES_URL}{next_params}")
+    headers = {'Authorization': f"ApiKey {COMMCARE_USERNAME}:{COMMCARE_PASSWORD}"}
     resp = requests.get(
         CASES_URL + next_params,
-        auth=HTTPBasicAuth(COMMCARE_USERNAME, COMMCARE_PASSWORD)
+        headers=headers
     )
     cases = json.loads(resp.content)
     for c in cases['objects']:
@@ -39,6 +43,7 @@ def create_cases(next_params: str, n: int, CaseClass: DynamicDocument) -> Tuple:
         try:
             case.save()
         except NotUniqueError as e:
+            print('modifying existing case...')
             CaseClass.objects(case_id=c['case_id']).modify(upsert=True, **params)
             print(f"{c['case_id']} already exists, skipping...")
         print("saved")
@@ -63,7 +68,7 @@ def import_cases(case_type: str, CaseClass: DynamicDocument) -> None:
 def create_users(next_params: str, n: int) -> Tuple:
     resp = requests.get(
         USERS_URL + next_params,
-        auth=HTTPBasicAuth(COMMCARE_USERNAME, COMMCARE_PASSWORD)
+        headers=headers
     )
     users = json.loads(resp.content)
 
@@ -75,6 +80,7 @@ def create_users(next_params: str, n: int) -> Tuple:
         try:
             case.save()
         except NotUniqueError as e:
+            print('Modifying existing user...')
             print(f"{user['user_id']} already exists, skipping...")
         print("saved")
         n += 1

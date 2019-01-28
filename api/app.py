@@ -98,7 +98,6 @@ class UserResource(object):
         users = User.objects.all()
         resp.body = users.to_json()
 
-
 class HomeResource(object):
     def on_get(self, req, resp):
         resp.body = '{"hello": "world"}'
