@@ -12,12 +12,14 @@ from sklearn.feature_selection import chi2
 from const import connect_db, categorical_columns, all_columns, scalar_columns
 from models import JobSeeker, Firm, JobOpening, Match, JobMatch
 
-
 def array_vector(col):
-    return np.array(str(col))
-
+    # Split all values in the cell on space
+    return np.array(str(col).split(' '), dtype=object)[0]
 arrayerize = np.vectorize(array_vector)
 
+"""
+Helper function for outputting csv with information on our model
+"""
 def output_coefs(model, X, y):
     coef_dict = {}
     for coef, feat in zip(model.coef_[0], X.columns):
@@ -53,6 +55,11 @@ def output_coefs(model, X, y):
     X.to_csv('X.csv')
     y.to_csv('y.csv')
 
+
+"""
+Prep our X training set to be used. Normalize and fill in any blank
+data. Remove DVs from training set.
+"""
 def preformat_X(merged):
     formatted = pd.DataFrame()
     dvs = ['hired_yes_no', 'quit', 'fired']
@@ -77,12 +84,15 @@ def preformat_X(merged):
             formatted[col] = formatted[col].astype(int)
             formatted[col] = formatted[col].replace(['---', ''], 0)
 
-        if col.endswith('---') or col.endswith('nan'):
+        if col.endswith('---') or col.endswith('nan') or col.endswith('-'):
             to_drop.append(col)
 
     formatted = formatted.drop(columns=to_drop)
     return formatted
 
+"""
+Helper function for one hot encoding a dataframe column
+"""
 def one_hot_encode(df, column, labels_column=None, whitelist=[]):
     # This is gross but since strings are iterable, we have to wrap them in a list
     # in order for the binarizer to parse the labels as strings and not chars
@@ -99,20 +109,32 @@ def one_hot_encode(df, column, labels_column=None, whitelist=[]):
     df.drop(column, axis=1, inplace=True)
     return df.join(encoded)
 
+"""
+Cast float or NaN on exception
+"""
 def try_float(v):
     try:
         return float(v)
     except Exception as e:
         return np.nan
 
+"""
+Given database of job_seekers, firms, matches, and job openings, return
+the relevant X and y dataframes
+"""
 def get_x_y(job_seekers, firms, matches, jobs):
+    job_seekers.drop(['quit', 'hired_yes_no', 'fired'], axis=1, inplace=True)
     matches['parent_case_id'] = matches['MATCH-parent_case_id']
     job_seekers['parent_case_id'] = job_seekers['JS-case_id']
     merged = pd.merge(job_seekers, matches, on='parent_case_id')
     merged = pd.merge(merged, jobs, on='job_id')
 
     # Drop irrelevant columns that will throw off our predictions
-    merged = merged.drop(["MATCH-hh_income", "MATCH-interest_applying", "MATCH-num_children", "MATCH-personal_income"], axis=1)
+    merged = merged.drop(
+        ["MATCH-hh_income", "MATCH-interest_applying", "MATCH-num_children",
+         "MATCH-personal_income", "JS-city", "JOB-num_vacancies"],
+        axis=1
+    )
 
     merged['hired_yes_no'] = merged['hired_yes_no'].fillna(0)
     merged['hired_yes_no'] = merged['hired_yes_no'].replace(['---'], 0)
@@ -148,21 +170,20 @@ def get_x_y(job_seekers, firms, matches, jobs):
     X = preformat_X(merged)
     return X, y
 
+"""
+Train our model
+"""
 def train_model(X, y):
+    X.to_csv('./X.csv')
     model = LogisticRegressionCV(max_iter=1000, solver='liblinear', penalty='l1', cv=3)
-    selector = RFE(model, 20, step=4)
-    selector.fit(X, y)
-    cols = []
-    XX = pd.DataFrame()
-    for i, v in enumerate(selector.support_):
-        if v:
-            cols.append(X.columns[i])
-    for c in cols:
-        XX[c] = X[c]
 
-    model.fit(XX, y)
-    output_coefs(model, XX, y)
-    return model, XX
+    print("fitting model...")
+    model.fit(X, y)
+    # output_coefs(model, X, y)
+    return model, X
+"""
+Run our criteria filters to remove unqualified candidates
+"""
 def filter_job_seekers(job_seekers, firm, job):
     print(job_seekers.shape)
     print('city: ' + firm['JOB-fcity'].values[0])
@@ -265,6 +286,9 @@ def filter_job_seekers(job_seekers, firm, job):
     print(job_seekers.shape)
     return job_seekers
 
+"""
+Helper function to get job_seeker ranks for a given job opening
+"""
 def get_match_scores(job_id):
     job_seeker_models = JobSeeker.objects.all()
     job_opening_models = JobOpening.objects.all()
@@ -294,10 +318,15 @@ def get_match_scores(job_id):
     job_seekers = job_seekers[job_seekers['JS-testing'] != 'yes']
     firm = firms[firms['JOB-case_id'] == job['JOB-parent_case_id']]
 
-    print('training model')
     # Train our model
     X, y = get_x_y(job_seekers, firms, matches, jobs)
+
     X.drop(['case_id'], axis=1, inplace=True)
+    for col in X.columns:
+        if not all(ord(c) < 128 for c in col):
+            X.drop([col], axis=1, inplace=True)
+
+    print('training model')
     model, X = train_model(X, y)
 
     # Run the actual filter
@@ -329,6 +358,9 @@ def get_match_scores(job_id):
     output.to_csv('output.csv')
     return output
 
+"""
+Create match database object and get scores
+"""
 def create_match_object(job_id):
     print('create match object')
     match_scores = get_match_scores(job_id)
