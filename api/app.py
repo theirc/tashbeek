@@ -12,16 +12,24 @@ from mongoengine import connect, DoesNotExist
 from falcon_auth import FalconAuthMiddleware, TokenAuthBackend
 
 from models import JobOpening, JobSeeker, Firm, Match, User, JobMatch
-from const import connect_db
+from const import connect_db, disconnect_db
 from utils import create_match_object
 
 COMMCARE_USERNAME = os.environ.get('COMMCARE_USERNAME')
 COMMCARE_PASSWORD = os.environ.get('COMMCARE_PASSWORD')
 CASES_URL = 'https://www.commcarehq.org/a/billy-excerpt/api/v0.5/case/'
 
-connect_db()
+def init_db(req, resp, resource, kwargs=None):
+    connect_db()
+
+
+def tear_down_db(req, resp, resource, kwargs=None):
+    disconnect_db()
 
 class JobMatchResource(object):
+
+    @falcon.before(init_db)
+    @falcon.after(tear_down_db)
     def on_get(self, req, resp):
         job_id = req.params['job_id']
         try:
@@ -32,6 +40,8 @@ class JobMatchResource(object):
         except DoesNotExist:
             resp.status = falcon.HTTP_404
 
+    @falcon.before(init_db)
+    @falcon.after(tear_down_db)
     def on_delete(self, req, resp):
         job_id = req.params['job_id']
         if not JobOpening.objects(job_id=job_id):
@@ -50,6 +60,8 @@ class JobMatchResource(object):
         except DoesNotExist:
             resp.status = falcon.HTTP_404
 
+    @falcon.before(init_db)
+    @falcon.after(tear_down_db)
     def on_post(self, req, resp):
         job_id = req.params['job_id']
         if not JobOpening.objects(job_id=job_id):
@@ -74,31 +86,43 @@ class JobMatchResource(object):
             resp.status = falcon.HTTP_201
 
 class JobOpeningResource(object):
+    @falcon.before(init_db)
+    @falcon.after(tear_down_db)
     def on_get(self, req, resp):
         openings = JobOpening.objects.all()
         resp.body = openings.to_json()
 
 class JobSeekerResource(object):
+    @falcon.before(init_db)
+    @falcon.after(tear_down_db)
     def on_get(self, req, resp):
         job_seekers = JobSeeker.objects.all()
         resp.body = job_seekers.to_json()
 
 class FirmResource(object):
+    @falcon.before(init_db)
+    @falcon.after(tear_down_db)
     def on_get(self, req, resp):
         firms = Firm.objects.all()
         resp.body = firms.to_json()
 
 class MatchResource(object):
+    @falcon.before(init_db)
+    @falcon.after(tear_down_db)
     def on_get(self, req, resp):
         matches = Match.objects.all()
         resp.body = matches.to_json()
 
 class UserResource(object):
+    @falcon.before(init_db)
+    @falcon.after(tear_down_db)
     def on_get(self, req, resp):
         users = User.objects.all()
         resp.body = users.to_json()
 
 class HomeResource(object):
+    @falcon.before(init_db)
+    @falcon.after(tear_down_db)
     def on_get(self, req, resp):
         resp.body = '{"hello": "world"}'
 
