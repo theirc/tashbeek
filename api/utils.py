@@ -9,7 +9,7 @@ from sklearn.linear_model import LogisticRegressionCV
 from sklearn.feature_selection import RFE
 from sklearn.feature_selection import chi2
 
-from const import connect_db, categorical_columns, all_columns, scalar_columns
+from const import connect_db, disconnect_db, categorical_columns, all_columns, scalar_columns
 from models import JobSeeker, Firm, JobOpening, Match, JobMatch
 
 def array_vector(col):
@@ -372,10 +372,13 @@ def create_match_object(job_id):
         print('match updated')
     except Exception as e:
         print("error: ", e)
+    finally:
+        disconnect_db()
 
 # This is just used for testing
 if __name__ == '__main__':
     connect_db()
     job_id = 'XCHJQ3'
     scores = create_match_object(job_id)
+    disconnect_db()
     print('scores')

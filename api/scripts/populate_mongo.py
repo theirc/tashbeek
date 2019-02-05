@@ -12,7 +12,7 @@ import sys
 sys.path.append("..")
 
 from models import JobOpening, JobSeeker, Firm, Match, User
-from const import connect_db
+from const import connect_db, disconnect_db
 
 
 COMMCARE_USERNAME = os.environ.get('COMMCARE_USERNAME')
@@ -114,3 +114,4 @@ if __name__ == '__main__':
     import_cases('firm', Firm)
     print('Creating matches')
     import_cases('match', Match)
+    disconnect_db()
