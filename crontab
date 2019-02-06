@@ -1,3 +1,4 @@
-MAILTO=""
+MAILTO="michael.nolan@rescue.org"
+SHELL=/bin/bash
 
-0 12 * * * cd /app/ && python3 -m scripts.populate_mongo
+1 1 * * * cd /app/ && source .env && python3 -m scripts.populate_mongo >> /dev/stdout 2>&1

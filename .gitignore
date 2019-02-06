@@ -6,3 +6,5 @@ venv
 tashbeek.env
 tashbeek-prod.env
 api/*.csv
+.env
+cronlog
