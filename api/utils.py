@@ -279,9 +279,9 @@ def filter_job_seekers(job_seekers, firm, job):
         job_seekers = job_seekers[job_seekers['JS-is_literate'] != 0]
 
     job_seekers = job_seekers.replace(['---'], 0)
-    if not np.isnan(float(job['JOB-years_experience_required'])):
+    if not np.isnan(try_float(job['JOB-years_experience_required'])):
         job_seekers['JS-years_exp'] = job_seekers['JS-years_exp']
-        job_seekers = job_seekers[job_seekers['JS-years_exp'].apply(try_float) > float(job['JOB-years_experience_required'])]
+        job_seekers = job_seekers[job_seekers['JS-years_exp'].apply(try_float) > try_float(job['JOB-years_experience_required'])]
 
     print(job_seekers.shape)
     return job_seekers
