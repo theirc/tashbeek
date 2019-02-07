@@ -31,7 +31,11 @@ def create_cases(next_params: str, n: int, CaseClass: DynamicDocument) -> Tuple:
     )
     cases = json.loads(resp.content)
     for c in cases['objects']:
-        params = {**c['properties'], 'case_id': c['case_id']}
+        params = {
+            **c['properties'],
+            'case_id': c['case_id'],
+            'closed': c['closed']
+        }
         if c.get('indices').get('parent'):
             params['parent_case_id'] = c['indices']['parent']['case_id']
         upsert_params = {}
