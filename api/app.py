@@ -80,8 +80,6 @@ class JobMatchResource(object):
                 match.scores.sort(key=operator.itemgetter('probs'))
             resp.body = match.to_json()
         except DoesNotExist:
-            match = JobMatch(job_id=job_id, status='processing')
-            match.save()
             gevent.spawn(create_match_object, job_id)
             resp.status = falcon.HTTP_201
 

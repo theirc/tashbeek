@@ -294,6 +294,7 @@ def get_match_scores(job_id):
     job_opening_models = JobOpening.objects.all()
     firm_models = Firm.objects.all()
     match_models = Match.objects.all()
+    print('got db items')
 
     job_seeker_json = [js.to_mongo() for js in job_seeker_models]
     job_opening_json = [jo.to_mongo() for jo in job_opening_models]
@@ -305,7 +306,6 @@ def get_match_scores(job_id):
     firms = pd.DataFrame(firm_json)
     matches = pd.DataFrame(match_json)
 
-    print('got db items')
     ignore = ['number', 'caseid', 'parent_caseid', 'job_id', 'hired_yes_no', 'quit', 'fired']
     # Do some column formatting to help with analysis
     job_seekers.columns = ['JS-' + c if c not in ignore else c for c in job_seekers.columns]
@@ -363,6 +363,8 @@ Create match database object and get scores
 """
 def create_match_object(job_id):
     print('create match object')
+    match = JobMatch(job_id=job_id, status='processing')
+    match.save()
     match_scores = get_match_scores(job_id)
     scores_list = json.loads(match_scores.T.to_json()).values()
     try:
@@ -378,7 +380,8 @@ def create_match_object(job_id):
 # This is just used for testing
 if __name__ == '__main__':
     connect_db()
-    job_id = 'XCHJQ3'
+    job_id = '4FDDNR'
+
     scores = create_match_object(job_id)
     disconnect_db()
     print('scores')
