@@ -9,3 +9,4 @@ api/*.csv
 .env
 cronlog
 .python-version
+output.*
