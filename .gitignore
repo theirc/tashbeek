@@ -8,3 +8,4 @@ tashbeek-prod.env
 api/*.csv
 .env
 cronlog
+.python-version
