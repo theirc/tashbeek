@@ -1,4 +1,4 @@
-from mongoengine import DynamicDocument, StringField
+from mongoengine import (DynamicDocument, StringField, Document, DateTimeField)
 
 class JobOpening(DynamicDocument):
     case_id = StringField(required=True, unique=True)
@@ -19,3 +19,7 @@ class Match(DynamicDocument):
 class User(DynamicDocument):
     user_id = StringField(required=True, unique=True)
     username = StringField(required=True, unique=True)
+
+class Probabilities(Document):
+    date = DateTimeField(required=True)
+    probs = StringField(required=True)
