@@ -332,6 +332,10 @@ def get_match_scores(job_id):
     # Run the actual filter
     merged = filter_job_seekers(job_seekers, firm, job)
 
+    # Don't bother running the algorithm if no one makes it through
+    if len(merged.index) == 0:
+        return pd.DataFrame(columns=['probs', 'case_id'])
+
     # all post-filter job seekers 1 hot encoded for our test set
     for k in job.keys():
         merged[k] = job[k]
@@ -380,8 +384,7 @@ def create_match_object(job_id):
 # This is just used for testing
 if __name__ == '__main__':
     connect_db()
-    job_id = '4FDDNR'
-
+    job_id = 'TPHLBC'
     scores = create_match_object(job_id)
     disconnect_db()
     print('scores')

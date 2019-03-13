@@ -8,7 +8,6 @@ def run_matches():
     open_jobs = JobOpening.objects(closed=False)
     for job in open_jobs:
         if not JobMatch.objects(job_id=job.job_id):
-            match = JobMatch(job_id=job.job_id, status='processing')
             print(f'Calculating match for {job.job_id}')
             create_match_object(job.job_id)
         else:
