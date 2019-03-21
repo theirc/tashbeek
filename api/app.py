@@ -11,7 +11,8 @@ from requests.auth import HTTPBasicAuth
 from mongoengine import connect, DoesNotExist
 from falcon_auth import FalconAuthMiddleware, TokenAuthBackend
 
-from models import JobOpening, JobSeeker, Firm, Match, User, JobMatch
+from models import (JobOpening, JobSeeker, Firm, Match, User, JobMatch,
+                    ThompsonProbability)
 from const import connect_db, disconnect_db
 from utils import create_match_object
 
@@ -124,6 +125,17 @@ class HomeResource(object):
     def on_get(self, req, resp):
         resp.body = '{"hello": "world"}'
 
+class ThompsonResource(object):
+    auth= {
+        'auth_disabled': True
+    }
+    @falcon.before(init_db)
+    @falcon.after(tear_down_db)
+    def on_get(self, req, resp):
+        t_prob = ThompsonProbability.objects.order_by('-date').first()
+        resp.append_header('Content-Type', 'text/csv')
+        resp.body = t_prob.probs
+
 def user_loader(token):
     password = os.environ.get('AUTH_TOKEN', None)
     if token == password:
@@ -132,8 +144,9 @@ def user_loader(token):
         return None
 
 token_auth = TokenAuthBackend(user_loader=user_loader)
-auth_middleware = FalconAuthMiddleware(token_auth)
+auth_middleware = FalconAuthMiddleware(token_auth, exempt_routes=['/thompson-probs/'])
 api = application = falcon.API(middleware=[auth_middleware])
+api.add_route('/thompson-probs/', ThompsonResource())
 api.add_route('/job-openings/', JobOpeningResource())
 api.add_route('/job-seekers/', JobSeekerResource())
 api.add_route('/firms/', FirmResource())

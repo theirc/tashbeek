@@ -20,6 +20,6 @@ class User(DynamicDocument):
     user_id = StringField(required=True, unique=True)
     username = StringField(required=True, unique=True)
 
-class Probabilities(Document):
+class ThompsonProbability(Document):
     date = DateTimeField(required=True)
     probs = StringField(required=True)

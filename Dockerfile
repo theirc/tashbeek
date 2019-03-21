@@ -10,8 +10,17 @@ COPY ./api/ /app
 WORKDIR "/app/"
 
 # Install tools needed for cron and supervisor
+
 RUN apt-get update
-RUN apt-get install -y cron supervisor openssh-server
+RUN apt-get install -y software-properties-common
+RUN echo 'deb http://cran.rstudio.com/bin/linux/debian stretch-cran34/' >> /etc/apt/sources.list
+RUN apt-key adv --no-tty --keyserver keys.gnupg.net --recv-key 'E19F5F87128899B192B1A2C2AD5F960A256A04AF'
+RUN apt-get update
+RUN apt-get install -y cron supervisor openssh-server r-base
+
+# Set up R environment
+RUN Rscript /app/scripts/ThompsonHierarchicalApp/install_packages.R
+
 RUN mkdir -p /var/log/supervisor
 # Below is the file for daemons we will be starting in this container
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf

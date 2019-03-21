@@ -1,0 +1,3 @@
+[submodule "api/scripts/ThompsonHierarchicalApp"]
+	path = api/scripts/ThompsonHierarchicalApp
+	url = git@github.com:maxkasy/ThompsonHierarchicalApp.git
