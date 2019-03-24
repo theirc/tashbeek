@@ -10,7 +10,7 @@ from mongoengine.errors import NotUniqueError
 import sys
 sys.path.append("..")
 
-from models import JobOpening, JobSeeker, Firm, Match, User
+from models import JobOpening, JobSeeker, Firm, Match, User, Cron
 from const import connect_db, disconnect_db
 
 
@@ -106,15 +106,25 @@ def import_users() -> None:
 
 
 if __name__ == '__main__':
+    cron = Cron(date=datetime.now(), status='processing')
     connect_db()
-    # print("Creating users...")
-    # import_users()
-    print("Creating job openings...")
-    import_cases('job-opening', JobOpening)
-#    print("Creating job seekers...")
-#    import_cases('job-seeker', JobSeeker)
-    print("Creating firms")
-    import_cases('firm', Firm)
-#    print("Creating matches")
-#    import_cases('match', Match)
-    disconnect_db()
+    try:
+        cron.save()
+        print("Creating users...")
+        import_users()
+        print("Creating job openings...")
+        import_cases('job-opening', JobOpening)
+        print("Creating job seekers...")
+        import_cases('job-seeker', JobSeeker)
+        print("Creating firms")
+        import_cases('firm', Firm)
+        print("Creating matches")
+        import_cases('match', Match)
+        cron.satus = 'finished'
+        cron.save()
+    except Exception as e:
+        cron.status = 'error'
+        cron.error = e.message
+        cron.save()
+    finally:
+        disconnect_db()

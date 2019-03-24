@@ -3,7 +3,6 @@ from const import connect_db, disconnect_db
 from utils import create_match_object
 
 def run_matches():
-    connect_db()
     print("Calculating optimal matches...")
     open_jobs = JobOpening.objects(closed=False)
     for job in open_jobs:
@@ -12,8 +11,19 @@ def run_matches():
             create_match_object(job.job_id)
         else:
             print(f'Skipping {job.job_id} already exists')
-    disconnect_db()
 
 
 if __name__ == '__main__':
-    run_matches()
+    cron = Cron(date=datetime.now(), status='processing')
+    connect_db()
+    try:
+        cron.save()
+        run_matches()
+        cron.satus = 'finished'
+        cron.save()
+    except Exception as e:
+        cron.status = 'error'
+        cron.error = e.message
+        cron.save()
+    finally:
+        disconnect_db()

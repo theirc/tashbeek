@@ -72,6 +72,16 @@ def run_thompson() -> None:
     prob.save()
 
 if __name__ == '__main__':
+    cron = Cron(date=datetime.now(), status='processing')
     connect_db()
-    run_thompson()
-    disconnect_db()
+    try:
+        cron.save()
+        run_thompson()
+        cron.satus = 'finished'
+        cron.save()
+    except Exception as e:
+        cron.status = 'error'
+        cron.error = e.message
+        cron.save()
+    finally:
+        disconnect_db()

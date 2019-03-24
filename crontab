@@ -3,4 +3,5 @@ SHELL=/bin/bash
 
 1 1 * * * cd /app/ && source .env && python3 -m scripts.populate_mongo >> /dev/stdout 2>&1
 45 1 * * * cd /app/ && source .env && python3 -m scripts.update_matches >> /dev/stdout 2>&1
+50 1 * * * cd /app/ && source .env && python3 -m scripts.run_thompson >> /dev/stdout 2>&1
 

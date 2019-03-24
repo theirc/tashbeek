@@ -23,3 +23,8 @@ class User(DynamicDocument):
 class ThompsonProbability(Document):
     date = DateTimeField(required=True)
     probs = StringField(required=True)
+
+class Cron(Document):
+    date = DateTimeField(required=True)
+    status = StringField(required=True)
+    error = StringField(default='')
