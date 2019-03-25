@@ -134,6 +134,7 @@ class ThompsonResource(object):
     def on_get(self, req, resp):
         t_prob = ThompsonProbability.objects.order_by('-date').first()
         resp.append_header('Content-Type', 'text/csv')
+        resp.append_header('Access-Control-Allow-Origin', '*')
         resp.body = t_prob.probs
 
 def user_loader(token):
