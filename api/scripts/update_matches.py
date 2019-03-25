@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from models import JobOpening, JobMatch
 from const import connect_db, disconnect_db
 from utils import create_match_object

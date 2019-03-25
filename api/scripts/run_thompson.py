@@ -35,6 +35,8 @@ def format_input(job_seekers: pd.DataFrame) -> pd.DataFrame:
                                           args=('information',), axis=1)
     new['treatment3'] = job_seekers.apply(has_intervention,
                                           args=('psychological',), axis=1)
+    new['treatment4'] = job_seekers.apply(has_intervention,
+                                          args=('control',), axis=1)
 
     new['outcome'] = job_seekers['employed_6_week']
     new['outcome'].replace(['0'], 'FALSE', inplace=True)
