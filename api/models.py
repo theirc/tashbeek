@@ -27,4 +27,6 @@ class ThompsonProbability(Document):
 class Cron(Document):
     date = DateTimeField(required=True)
     status = StringField(required=True)
+    cron_type = StringField(required=True)
     error = StringField(default='')
+    thompson_output = StringField(default='')

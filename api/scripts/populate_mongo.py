@@ -107,7 +107,7 @@ def import_users() -> None:
 
 
 if __name__ == '__main__':
-    cron = Cron(date=datetime.now(), status='processing')
+    cron = Cron(date=datetime.now(), status='processing', cron_type='populate_mongo')
     connect_db()
     try:
         cron.save()
@@ -121,7 +121,7 @@ if __name__ == '__main__':
         import_cases('firm', Firm)
         print("Creating matches")
         import_cases('match', Match)
-        cron.satus = 'finished'
+        cron.status = 'finished'
         cron.save()
     except Exception as e:
         cron.status = 'error'

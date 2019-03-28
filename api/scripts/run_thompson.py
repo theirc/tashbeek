@@ -4,7 +4,7 @@ import subprocess
 from datetime import datetime
 
 from const import connect_db, disconnect_db
-from models import JobSeeker, ThompsonProbability
+from models import JobSeeker, ThompsonProbability, Cron
 
 def has_intervention(j, i):
     return 1 if j['actual_intervention_received'] == i else 0
@@ -90,16 +90,17 @@ def run_thompson() -> None:
     subprocess.run(['rm', input_file_name])
 
 if __name__ == '__main__':
-    cron = Cron(date=datetime.now(), status='processing')
+    cron = Cron(date=datetime.now(), status='processing', cron_type='run_thompson')
     connect_db()
     try:
         cron.save()
         run_thompson()
-        cron.satus = 'finished'
+        cron.status = 'finished'
         cron.save()
     except Exception as e:
+        print(str(e))
         cron.status = 'error'
-        cron.error = e.message
+        cron.error = str(e)
         cron.save()
     finally:
         disconnect_db()

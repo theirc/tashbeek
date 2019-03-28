@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from models import JobOpening, JobMatch
+from models import JobOpening, JobMatch, Cron
 from const import connect_db, disconnect_db
 from utils import create_match_object
 
@@ -16,12 +16,12 @@ def run_matches():
 
 
 if __name__ == '__main__':
-    cron = Cron(date=datetime.now(), status='processing')
+    cron = Cron(date=datetime.now(), status='processing', cron_type='update_matches')
     connect_db()
     try:
         cron.save()
         run_matches()
-        cron.satus = 'finished'
+        cron.status = 'finished'
         cron.save()
     except Exception as e:
         cron.status = 'error'
