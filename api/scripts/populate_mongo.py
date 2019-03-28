@@ -56,7 +56,7 @@ def create_cases(next_params: str, n: int, CaseClass: DynamicDocument) -> Tuple:
     return (resp, n)
 
 def import_cases(case_type: str, CaseClass: DynamicDocument) -> None:
-    limit_offset = '?limit=20&offset=0'
+    limit_offset = '?limit=70&offset=0'
     case_type = f"&type={case_type}&format=json"
     n = 0
     resp, n = create_cases(limit_offset + case_type, n, CaseClass)
