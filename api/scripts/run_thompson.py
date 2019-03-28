@@ -41,37 +41,53 @@ def format_input(job_seekers: pd.DataFrame) -> pd.DataFrame:
     new['outcome'] = job_seekers['employed_6_week']
     new['outcome'].replace(['0'], 'FALSE', inplace=True)
     new['outcome'].replace(['1'], 'TRUE', inplace=True)
+    # new.to_csv('./outcomes.csv')
     return new
 
 def exec_r_script() -> str:
     p = subprocess.Popen(
-        ['Rscript', '/app/scripts/ThompsonHierarchicalApp/command_line_app.R'],
-        cwd='/app/scripts/ThompsonHierarchicalApp/'
+        ['Rscript', '/app/scripts/ThompsonHierarchicalApp/command_line_app.R',
+        '/app/scripts/ThompsonHierarchicalApp/priordata_test_missings.csv'],
+        cwd='/app/scripts/ThompsonHierarchicalApp/',
     )
+    stdout,stderr = p.communicate()
     p.wait()
 
+    print(stdout, stderr)
     probs_text = ''
     now = datetime.now().strftime('%Y-%m-%d')
     probs_file_name = f'/app/scripts/ThompsonHierarchicalApp/{now}_treatmentprobabilities.csv'
     with open(probs_file_name) as probs:
         probs_text = ''.join(probs.readlines())
 
-    subprocess.run(['rm', probs_file_name])
     return probs_text
 
 
 def run_thompson() -> None:
+    print('hello world')
     js_models = JobSeeker.objects(year2="1")
     job_seekers = pd.DataFrame([js.to_mongo() for js in js_models])
     job_seekers = job_seekers[job_seekers['employed_6_week'].isin(['0', '1'])]
+    job_seekers = job_seekers[job_seekers['actual_intervention_received'].isin(
+        ['control', 'information', 'psychological', 'cash']
+    )]
     thompson_input = format_input(job_seekers)
+    now = datetime.now().strftime('%Y-%m-%d')
+    probs_file_name = f'/app/scripts/ThompsonHierarchicalApp/{now}_treatmentprobabilities.csv'
+    imput_file_name = '/app/scripts/ThompsonHierarchicalApp/priordata_test_missings.csv'
     thompson_input.to_csv(
-        '/app/scripts/ThompsonHierarchicalApp/priordata_test_missings.csv',
+        input_file_name,
         index=False
     )
     probs_text = exec_r_script()
+    print(probs_file_name)
+    with open(probs_file_name) as probs:
+        probs_text = ''.join(probs.readlines())
     prob = ThompsonProbability(date=datetime.now(), probs=probs_text)
+    print(probs_text)
     prob.save()
+    subprocess.run(['rm', probs_file_name])
+    subprocess.run(['rm', input_file_name])
 
 if __name__ == '__main__':
     cron = Cron(date=datetime.now(), status='processing')
