@@ -30,6 +30,14 @@ COPY crontab /etc/cron.hourly/crontab
 RUN chmod 0644 /etc/cron.hourly/crontab
 RUN crontab /etc/cron.hourly/crontab
 
+# ------------------------
+# SSH Server support
+# ------------------------
+RUN apt-get update \
+&& apt-get install -y --no-install-recommends openssh-server \
+&& echo "root:Docker!" | chpasswd
+
+COPY sshd_config /etc/ssh/
 EXPOSE 2222 80
 
 COPY startup.sh /startup.sh
