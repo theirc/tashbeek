@@ -14,7 +14,7 @@ def set_strata(j, stratum):
     return stratum[(stratum['nationality'] == test[0]) &
             (stratum['gender'] == test[1]) &
             (stratum['above_secondary_edu'] == test[2]) &
-            (stratum['ever_employed'] == test[3])].index[0]
+            (stratum['ever_employed'] == test[3])].index[0] + 1
 
 def format_input(job_seekers: pd.DataFrame) -> pd.DataFrame:
     nationality = ['syrian', 'jordanian']
