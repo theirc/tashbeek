@@ -74,11 +74,12 @@ def run_thompson() -> None:
     thompson_input = format_input(job_seekers)
     now = datetime.now().strftime('%Y-%m-%d')
     probs_file_name = f'/app/scripts/ThompsonHierarchicalApp/{now}_treatmentprobabilities.csv'
-    imput_file_name = '/app/scripts/ThompsonHierarchicalApp/priordata_test_missings.csv'
+    input_file_name = '/app/scripts/ThompsonHierarchicalApp/priordata_test_missings.csv'
     thompson_input.to_csv(
         input_file_name,
         index=False
     )
+    print(thompson_input)
     probs_text = exec_r_script()
     print(probs_file_name)
     with open(probs_file_name) as probs:
