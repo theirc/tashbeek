@@ -26,10 +26,17 @@ headers = {
 def create_cases(next_params: str, n: int, CaseClass: DynamicDocument) -> Tuple:
     print(f"Getting cases from {CASES_URL}{next_params}")
     headers = {'Authorization': f"ApiKey {COMMCARE_USERNAME}:{COMMCARE_PASSWORD}"}
-    resp = requests.get(
-        CASES_URL + next_params,
-        headers=headers
-    )
+    tries = 0
+    try:
+        resp = requests.get(
+            CASES_URL + next_params,
+            headers=headers
+        )
+    except:
+        tries += 1
+        if tries >= 3:
+            request_url = CASES_URL + next_params
+            raise Exception(f"Issue getting url {request_url}")
     cases = json.loads(resp.content)
     for c in cases['objects']:
         params = {
