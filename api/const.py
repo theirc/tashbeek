@@ -10,6 +10,7 @@ DB_HOST = os.environ.get('DB_HOST')
 DB_PORT = int(os.environ.get('DB_PORT'))
 DB_SSL = os.environ.get('DB_SSL') == "True"
 REPLICA_SET = os.environ.get('DB_REPLICA_SET', None)
+DROPBOX_KEY = os.environ.get('DROPBOX_KEY')
 
 def connect_db():
     connect(

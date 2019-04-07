@@ -1,9 +1,10 @@
-import pandas as pd
+import dropbox
 import itertools
+import pandas as pd
 import subprocess
 from datetime import datetime
 
-from const import connect_db, disconnect_db
+from const import connect_db, disconnect_db, DROPBOX_KEY
 from models import JobSeeker, ThompsonProbability, Cron
 
 def has_intervention(j, i):
@@ -41,7 +42,19 @@ def format_input(job_seekers: pd.DataFrame) -> pd.DataFrame:
     new['outcome'] = job_seekers['employed_6_week']
     new['outcome'].replace(['0'], 'FALSE', inplace=True)
     new['outcome'].replace(['1'], 'TRUE', inplace=True)
-    # new.to_csv('./outcomes.csv')
+    new['intake_interview_date'] = job_seekers['intake_interview_date']
+
+    # Upload prior data to dropbox
+    dbx = dropbox.Dropbox(DROPBOX_KEY)
+    now = datetime.now().strftime('%Y-%m-%d')
+    filename = f'{now}_priordata.csv'
+    filepath = f'/app/scripts/ThompsonHierarchicalApp/{filename}'
+    new.to_csv(filepath)
+    with open(filepath, 'rb') as f_in:
+        dbx.files_upload(f_in.read(), f'/{filename}')
+    subprocess.run(['rm', filepath])
+
+    new.drop(['intake_interview_date'], inplace=True, axis=1)
     return new
 
 def exec_r_script() -> str:
@@ -79,6 +92,8 @@ def run_thompson() -> None:
         input_file_name,
         index=False
     )
+
+    # Save to database
     print(thompson_input)
     probs_text = exec_r_script()
     print(probs_file_name)
@@ -87,6 +102,16 @@ def run_thompson() -> None:
     prob = ThompsonProbability(date=datetime.now(), probs=probs_text)
     print(probs_text)
     prob.save()
+
+    # Upload probabilities to dropbox
+    dbx = dropbox.Dropbox(DROPBOX_KEY)
+    now = datetime.now().strftime('%Y-%m-%d')
+    filename = f'{now}_treatmentprobabilities.csv'
+    filepath = f'/app/scripts/ThompsonHierarchicalApp/{filename}'
+    with open(filepath, 'rb') as f_in:
+        dbx.files_upload(f_in.read(), f'/{filename}')
+
+    # Clean up local files
     subprocess.run(['rm', probs_file_name])
     subprocess.run(['rm', input_file_name])
 
