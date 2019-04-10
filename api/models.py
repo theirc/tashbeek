@@ -30,3 +30,4 @@ class Cron(Document):
     cron_type = StringField(required=True)
     error = StringField(default='')
     thompson_output = StringField(default='')
+    imported_information = StringField(default='')

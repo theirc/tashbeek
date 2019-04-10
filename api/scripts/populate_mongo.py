@@ -115,22 +115,40 @@ def import_users() -> None:
 
 if __name__ == '__main__':
     cron = Cron(date=datetime.now(), status='processing', cron_type='populate_mongo')
+    cron_id = None
     connect_db()
     try:
         cron.save()
+        cron_id = cron.id
         print("Creating users...")
         import_users()
+        cron = Cron.objects.get(id=cron_id)
+        cron.imported_information = 'users'
+        cron.save()
         print("Creating job openings...")
         import_cases('job-opening', JobOpening)
+        cron = Cron.objects.get(id=cron_id)
+        cron.imported_information = 'users+job_openings'
+        cron.save()
         print("Creating job seekers...")
         import_cases('job-seeker', JobSeeker)
+        cron = Cron.objects.get(id=cron_id)
+        cron.imported_information = 'users+job_openings+job_seekers'
+        cron.save()
         print("Creating firms")
         import_cases('firm', Firm)
+        cron = Cron.objects.get(id=cron_id)
+        cron.imported_information = 'users+job_openings+job_seekers+firms'
+        cron.save()
         print("Creating matches")
         import_cases('match', Match)
+        cron = Cron.objects.get(id=cron_id)
+        cron.imported_information = 'users+job_openings+job_seekers+firms+match'
+        cron.save()
         cron.status = 'finished'
         cron.save()
     except Exception as e:
+        cron = Cron.objects.get(id=cron_id)
         cron.status = 'error'
         cron.error = e.message
         cron.save()
