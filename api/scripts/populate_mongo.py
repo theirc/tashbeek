@@ -3,7 +3,7 @@ import requests
 import os
 
 from typing import Tuple
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from requests.auth import HTTPBasicAuth
 from mongoengine import connect, DynamicDocument
@@ -63,8 +63,10 @@ def create_cases(next_params: str, n: int, CaseClass: DynamicDocument) -> Tuple:
     return (resp, n)
 
 def import_cases(case_type: str, CaseClass: DynamicDocument) -> None:
+    old_date = datetime.now() - timedelta(days=2)
+    date_str = old_date.strftime("%Y-%m-%d")
     limit_offset = '?limit=70&offset=0'
-    case_type = f"&type={case_type}&format=json"
+    case_type = f"&type={case_type}&format=json&date_modified_start={date_str}"
     n = 0
     resp, n = create_cases(limit_offset + case_type, n, CaseClass)
 
