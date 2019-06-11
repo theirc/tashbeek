@@ -13,7 +13,7 @@ pipeline {
             }
             steps {
                 echo "Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'b1a075ef-ec65-4c28-994c-9a64f6a8dfb1', url: 'https://github.com/theirc/tashbeek']]])
+                //checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'b1a075ef-ec65-4c28-994c-9a64f6a8dfb1', url: 'https://github.com/theirc/tashbeek']]])
                 sh "docker --version"
                 sh "docker build -t theircregistry1.azurecr.io/tashbeek:stage ."
             }

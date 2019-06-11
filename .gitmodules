@@ -1,3 +1,4 @@
 [submodule "api/scripts/ThompsonHierarchicalApp"]
 	path = api/scripts/ThompsonHierarchicalApp
-	url = git@github.com:maxkasy/ThompsonHierarchicalApp.git
+	#url = git@github.com:maxkasy/ThompsonHierarchicalApp.git
+	url = https://github.com/maxkasy/ThompsonHierarchicalApp.git
