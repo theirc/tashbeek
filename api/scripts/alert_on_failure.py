@@ -23,28 +23,43 @@ def failure():
 
 
 def send_mail():
-    print('Sending Email ..')
+    hostname = os.environ.get('EMAIL_HOST')
+    port = int(os.environ.get('EMAIL_PORT'))
+    mail_user = os.environ.get('EMAIL_USERNAME')
+    mail_password = os.environ.get('EMAIL_PASSWORD')
+    mail_from = os.environ.get('EMAIL_FROM')
+    mail_from = 'IRC Souktel <%s>' % mail_from
+    mail_to = os.environ.get('EMAIL_TO')
 
     now = datetime.now().strftime('%Y-%m-%d')
+    subject = 'Error with thompson file'
+    body = f'An error occurred while running Thompson application for {now}\n\r' \
+           f'Can\'t find the file {now}_treatmentprobabilities.csv in the Dropbox folder\n\r' \
+           f'https://www.dropbox.com/sh/qwh4b6e7vvqes6x/AADd3Pd6ZEPhUMeVOd50lWhva/IRC-Thompson'
 
-    msg = f'''\\
-             ... From: {os.environ.get('EMAIL_FORM')}
-             ... Subject: Error with thompson file'...
-             ...
-             ... Error in run thompson script [Can\'t find {now}_treatmentprobabilities.csv file'''
-    server = smtplib.SMTP_SSL(os.environ.get('EMAIL_HOST'), int(os.environ.get('EMAIL_PORT')))
+    mail_text = """\
+    Subject: %s
+    From: %s
+    To: %s
+    
+    %s
+    """ % (subject, mail_from, mail_to, body)
 
     try:
+        server = smtplib.SMTP(hostname, port)
+        # server.set_debuglevel(1)
         server.ehlo()
-        server.login(os.environ.get('EMAIL_USERNAME'), os.environ.get('EMAIL_PASSWORD'))
-        server.sendmail(
-            os.environ.get('EMAIL_FORM'),
-            os.environ.get('EMAIL_TO'),
-            msg)
-        server.close()
+        server.starttls()
+        server.ehlo()
+        server.login(mail_user, mail_password)
+        server.sendmail(mail_from, mail_to.split(","), mail_text)
+        server.quit()
 
-    except:
-        print('Something went wrong...')
+        print('Email sent')
+
+    except Exception as e:
+        print('something went wrong...')
+        print(e)
 
 
 if __name__ == '__main__':
