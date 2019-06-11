@@ -3,9 +3,19 @@ import itertools
 import pandas as pd
 import subprocess
 from datetime import datetime
-
+import os
 from const import connect_db, disconnect_db, DROPBOX_KEY
 from models import JobSeeker, ThompsonProbability, Cron
+
+
+def get_last_treatment_probabilities_file_in_dropbox():
+    dbx = dropbox.Dropbox(DROPBOX_KEY)
+    all_files = dbx.files_list_folder('').entries
+    all_files = list(filter(lambda file: 'treatmentprobabilities.csv' in file.name, all_files))
+    last_file = all_files[-1].name
+    print(last_file)
+    return all_files[-1]
+
 
 def has_intervention(j, i):
     return 1 if j['actual_intervention_received'] == i else 0
@@ -13,9 +23,9 @@ def has_intervention(j, i):
 def set_strata(j, stratum):
     test = [j['nationality'], j['gender'], j['above_secondary_edu'], j['ever_employed']]
     return stratum[(stratum['nationality'] == test[0]) &
-            (stratum['gender'] == test[1]) &
-            (stratum['above_secondary_edu'] == test[2]) &
-            (stratum['ever_employed'] == test[3])].index[0] + 1
+                   (stratum['gender'] == test[1]) &
+                   (stratum['above_secondary_edu'] == test[2]) &
+                   (stratum['ever_employed'] == test[3])].index[0] + 1
 
 def format_input(job_seekers: pd.DataFrame) -> pd.DataFrame:
     nationality = ['syrian', 'jordanian']
@@ -50,8 +60,12 @@ def format_input(job_seekers: pd.DataFrame) -> pd.DataFrame:
     filename = f'{now}_priordata.csv'
     filepath = f'/app/scripts/ThompsonHierarchicalApp/{filename}'
     new.to_csv(filepath)
-    with open(filepath, 'rb') as f_in:
-        dbx.files_upload(f_in.read(), f'/{filename}')
+    try:
+        with open(filepath, 'rb') as f_in:
+            dbx.files_upload(f_in.read(), f'/{filename}')
+    except:
+        pass
+
     subprocess.run(['rm', filepath])
 
     new.drop(['intake_interview_date'], inplace=True, axis=1)
@@ -60,19 +74,26 @@ def format_input(job_seekers: pd.DataFrame) -> pd.DataFrame:
 def exec_r_script() -> str:
     p = subprocess.Popen(
         ['Rscript', '/app/scripts/ThompsonHierarchicalApp/command_line_app.R',
-        '/app/scripts/ThompsonHierarchicalApp/priordata_test_missings.csv'],
+         '/app/scripts/ThompsonHierarchicalApp/priordata_test_missings.csv'],
         cwd='/app/scripts/ThompsonHierarchicalApp/',
     )
-    stdout,stderr = p.communicate()
+    stdout, stderr = p.communicate()
     p.wait()
 
     print(stdout, stderr)
     probs_text = ''
     now = datetime.now().strftime('%Y-%m-%d')
     probs_file_name = f'/app/scripts/ThompsonHierarchicalApp/{now}_treatmentprobabilities.csv'
-    with open(probs_file_name) as probs:
-        probs_text = ''.join(probs.readlines())
-
+    try:
+        with open(probs_file_name) as probs:
+            probs_text = ''.join(probs.readlines())
+    except:
+        last_file = get_last_treatment_probabilities_file_in_dropbox()
+        last_file_path = last_file.path_display
+        dbx = dropbox.Dropbox(DROPBOX_KEY)
+        dbx.files_download_to_file(f'scripts/ThompsonHierarchicalApp/{now}_treatmentprobabilities.csv', last_file_path)
+        with open(probs_file_name) as probs:
+            probs_text = ''.join(probs.readlines())
     return probs_text
 
 
@@ -96,9 +117,8 @@ def run_thompson() -> None:
     # Save to database
     print(thompson_input)
     probs_text = exec_r_script()
-    print(probs_file_name)
-    with open(probs_file_name) as probs:
-        probs_text = ''.join(probs.readlines())
+    print(probs_text)
+
     prob = ThompsonProbability(date=datetime.now(), probs=probs_text)
     print(probs_text)
     prob.save()
