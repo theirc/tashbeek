@@ -6,10 +6,13 @@ import json
 import requests
 import os
 import operator
+import dropbox
 
 from requests.auth import HTTPBasicAuth
 from mongoengine import connect, DoesNotExist
 from falcon_auth import FalconAuthMiddleware, TokenAuthBackend
+from const import DROPBOX_KEY
+from datetime import datetime
 
 from models import (JobOpening, JobSeeker, Firm, Match, User, JobMatch,
                     ThompsonProbability)
@@ -144,9 +147,28 @@ def user_loader(token):
     else:
         return None
 
+class CheckTreatmentCSV(object):
+    auth = {
+        'auth_disabled': True
+    }
+    def on_get(self, req, resp):
+        try:
+            dbx = dropbox.Dropbox(DROPBOX_KEY)
+            all_files = dbx.files_list_folder('').entries
+            all_files = list(filter(lambda file: 'treatmentprobabilities.csv' in file.name, all_files))
+            last_file = all_files[-1].name
+            today = datetime.now().strftime('%Y-%m-%d')
+            if last_file == f'{today}_treatmentprobabilities.csv':
+                resp.body = 'pass'
+            else:
+                resp.body = 'fail'
+        except DoesNotExist:
+            resp.body = 'fail'
+
 token_auth = TokenAuthBackend(user_loader=user_loader)
-auth_middleware = FalconAuthMiddleware(token_auth, exempt_routes=['/thompson-probs/'])
+auth_middleware = FalconAuthMiddleware(token_auth, exempt_routes=['/thompson-probs/','/check-treatmentcsv/'])
 api = application = falcon.API(middleware=[auth_middleware])
+api.add_route('/check-treatmentcsv/', CheckTreatmentCSV())
 api.add_route('/thompson-probs/', ThompsonResource())
 api.add_route('/job-openings/', JobOpeningResource())
 api.add_route('/job-seekers/', JobSeekerResource())
