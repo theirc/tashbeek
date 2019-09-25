@@ -152,6 +152,10 @@ class CheckTreatmentCSV(object):
         'auth_disabled': True
     }
     def on_get(self, req, resp):
+        resp.append_header('Content-Type', 'text/plain')
+        resp.append_header('Access-Control-Allow-Headers', 'Content-Type')
+        resp.append_header('Access-Control-Allow-Methods', 'GET')
+        resp.append_header('Access-Control-Allow-Origin', '*')
         try:
             dbx = dropbox.Dropbox(DROPBOX_KEY)
             all_files = dbx.files_list_folder('').entries
