@@ -12,13 +12,33 @@ from sklearn.feature_selection import chi2
 from const import connect_db, disconnect_db, categorical_columns, all_columns, scalar_columns
 from models import JobSeeker, Firm, JobOpening, Match, JobMatch
 
+
+"""
+Utility function for formatting a column into an array vector
+
+@input: pandas series object
+@output: numpy vector
+"""
 def array_vector(col):
     # Split all values in the cell on space
     return np.array(str(col).split(' '), dtype=object)[0]
+
+
 arrayerize = np.vectorize(array_vector)
+
 
 """
 Helper function for outputting csv with information on our model
+
+Specifically the files output are below:
+    rfe-coefs.csv -     This is the correlation coefficients for each independent 
+                        variable in the model.
+    rfe-pvalues.csv -   This is the p-values for each independent variable in
+                        the model.
+    rfe-combined.csv -  This is a nicely formatted version of the two above 
+                        files.
+    X.csv -             This is the independent variables.
+    Y.csv -             This is the dependent variables.
 """
 def output_coefs(model, X, y):
     coef_dict = {}
@@ -56,9 +76,10 @@ def output_coefs(model, X, y):
     y.to_csv('y.csv')
 
 
+
 """
-Prep our X training set to be used. Normalize and fill in any blank
-data. Remove DVs from training set.
+Prep our X training set to be used in our model. Normalize and fill in any
+blank data. Remove DVs from training set.
 """
 def preformat_X(merged):
     formatted = pd.DataFrame()
@@ -152,18 +173,19 @@ def get_x_y(job_seekers, firms, matches, jobs):
     merged['hired_yes_no'] = merged['hired_yes_no'].astype(bool)
     merged['quit'] = merged['quit'].astype(bool)
     merged['fired'] = merged['fired'].astype(bool)
-    outcomes = pd.DataFrame()
-    outcomes['retained'] = merged['hired_yes_no'] & ~(merged['quit'] | merged['fired'])
-    outcomes['hired'] = merged['hired_yes_no']
     y = pd.DataFrame()
-    o = []
-    for index, row in outcomes.iterrows():
-        if row['hired'] and row['retained']:
-            o.append(2)
-        elif not row['hired'] and not row['retained']:
-            o.append(0)
-        elif row['hired'] and not row['retained']:
-            o.append(1)
+    outcomes = pd.DataFrame()
+    # No longer using retained variable in the algorithm
+    # outcomes['retained'] = merged['hired_yes_no'] & ~(merged['quit'] | merged['fired'])
+    outcomes['hired'] = merged['hired_yes_no']
+    # o = []
+    # for index, row in outcomes.iterrows():
+    #     if row['hired'] and row['retained']:
+    #         o.append(2)
+    #     elif not row['hired'] and not row['retained']:
+    #         o.append(0)
+    #     elif row['hired'] and not row['retained']:
+    #         o.append(1)
     y['outcomes'] = outcomes['hired']
     y = y.astype(int)
 
@@ -182,7 +204,7 @@ def train_model(X, y):
     # output_coefs(model, X, y)
     return model, X
 """
-Run our criteria filters to remove unqualified candidates
+Run our criteria filters to remove unqualified candidates.
 """
 def filter_job_seekers(job_seekers, firm, job):
     print(job_seekers.shape)
@@ -288,6 +310,8 @@ def filter_job_seekers(job_seekers, firm, job):
 
 """
 Helper function to get job_seeker ranks for a given job opening
+
+This is the entrypoint into the "matching algorithm"
 """
 def get_match_scores(job_id):
     job_seeker_models = JobSeeker.objects.all()
@@ -358,8 +382,9 @@ def get_match_scores(job_id):
     output['probs'] = probs.T[1]
     output['case_id'] = merged['case_id'].values
     output = output.round({'probs': 5})
-    test_X.to_csv('test_X.csv')
-    output.to_csv('output.csv')
+    # The following lines is for debugging and analysis of output and test data.
+    # test_X.to_csv('test_X.csv')
+    # output.to_csv('output.csv')
     return output
 
 """
