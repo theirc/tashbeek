@@ -12,13 +12,44 @@ from sklearn.feature_selection import chi2
 from const import connect_db, disconnect_db, categorical_columns, all_columns, scalar_columns
 from models import JobSeeker, Firm, JobOpening, Match, JobMatch
 
+
+"""
+Utility function for formatting a column into an array vector based on spaces
+in the cell value
+
+@param {Series} col - Any pandas series object
+
+@return {np.array} - numpy vector of the column now split
+"""
 def array_vector(col):
     # Split all values in the cell on space
     return np.array(str(col).split(' '), dtype=object)[0]
+
+
 arrayerize = np.vectorize(array_vector)
+
 
 """
 Helper function for outputting csv with information on our model
+
+Specifically the files output are below:
+    rfe-coefs.csv -     This is the correlation coefficients for each independent 
+                        variable in the model.
+    rfe-pvalues.csv -   This is the p-values for each independent variable in
+                        the model.
+    rfe-combined.csv -  This is a nicely formatted version of the two above 
+                        files.
+    X.csv -             This is the independent variables.
+    Y.csv -             This is the dependent variables.
+
+@param {LogisticRegressionCV} model - This is the model we want the information
+                                      from
+@param {DataFrame} X - This is the DataFrame containing the independent vars
+                       to train the model on.
+@param {DataFrame} y - This contains the dependent (outcome) variables to train
+                       the model on.
+
+@return void
 """
 def output_coefs(model, X, y):
     coef_dict = {}
@@ -56,9 +87,15 @@ def output_coefs(model, X, y):
     y.to_csv('y.csv')
 
 
+
 """
-Prep our X training set to be used. Normalize and fill in any blank
-data. Remove DVs from training set.
+Prep our X training set to be used in our model. Normalize and fill in any
+blank data. Remove DVs from training set.
+
+@param {DataFrame} merged - This is the X training data set
+
+@return {DataFrame} formatted - The X training data set now formatted to be fed
+                                in to the model.
 """
 def preformat_X(merged):
     formatted = pd.DataFrame()
@@ -92,8 +129,13 @@ def preformat_X(merged):
 
 """
 Helper function for one hot encoding a dataframe column
+
+@param {DataFrame} df - The frame to one-hot encode
+@param {string} column - The name of the column to encode
+
+@return {DataFrame} df - The dataframe with the column now encoded
 """
-def one_hot_encode(df, column, labels_column=None, whitelist=[]):
+def one_hot_encode(df, column):
     # This is gross but since strings are iterable, we have to wrap them in a list
     # in order for the binarizer to parse the labels as strings and not chars
     labels = arrayerize(pd.DataFrame(df[column]))
@@ -111,6 +153,10 @@ def one_hot_encode(df, column, labels_column=None, whitelist=[]):
 
 """
 Cast float or NaN on exception
+
+@param {any} v - Any variable
+
+@return {float} - either float(v) or NaN if it can't be casted.
 """
 def try_float(v):
     try:
@@ -121,6 +167,16 @@ def try_float(v):
 """
 Given database of job_seekers, firms, matches, and job openings, return
 the relevant X and y dataframes
+
+
+@param {DataFrame} job_seekers - DataFrame representing all job seekers &
+                                 properties pulled from CommCare.
+@param {DataFrame} firms - DataFrame representing the firms from CommCare.
+@param {DataFrame} matches - DataFrame representing matches from CommCare.
+@param {DataFrame} job - Dataframe representing the jobs from CommCare.
+
+@param {tuple(X, y)} X, y - Both the X and y portion of the training data
+                            formatted to be used correctly by our model.
 """
 def get_x_y(job_seekers, firms, matches, jobs):
     job_seekers.drop(['quit', 'hired_yes_no', 'fired'], axis=1, inplace=True)
@@ -152,18 +208,19 @@ def get_x_y(job_seekers, firms, matches, jobs):
     merged['hired_yes_no'] = merged['hired_yes_no'].astype(bool)
     merged['quit'] = merged['quit'].astype(bool)
     merged['fired'] = merged['fired'].astype(bool)
-    outcomes = pd.DataFrame()
-    outcomes['retained'] = merged['hired_yes_no'] & ~(merged['quit'] | merged['fired'])
-    outcomes['hired'] = merged['hired_yes_no']
     y = pd.DataFrame()
-    o = []
-    for index, row in outcomes.iterrows():
-        if row['hired'] and row['retained']:
-            o.append(2)
-        elif not row['hired'] and not row['retained']:
-            o.append(0)
-        elif row['hired'] and not row['retained']:
-            o.append(1)
+    outcomes = pd.DataFrame()
+    # No longer using retained variable in the algorithm
+    # outcomes['retained'] = merged['hired_yes_no'] & ~(merged['quit'] | merged['fired'])
+    outcomes['hired'] = merged['hired_yes_no']
+    # o = []
+    # for index, row in outcomes.iterrows():
+    #     if row['hired'] and row['retained']:
+    #         o.append(2)
+    #     elif not row['hired'] and not row['retained']:
+    #         o.append(0)
+    #     elif row['hired'] and not row['retained']:
+    #         o.append(1)
     y['outcomes'] = outcomes['hired']
     y = y.astype(int)
 
@@ -171,7 +228,17 @@ def get_x_y(job_seekers, firms, matches, jobs):
     return X, y
 
 """
-Train our model
+Train our model using a Logistic Regression with Cross Validation and Lasso
+method.
+
+@param {DataFrame} X - This is the DataFrame containing the independent vars
+                       to train the model on.
+@param {DataFrame} y - This contains the dependent (outcome) variables to train
+                       the model on.
+
+@return {tuple(LogisticRegressionCV, DataFrame)} (model, X) - A tuple
+        containing a copy of the X training set, as well as the newly trained
+        model
 """
 def train_model(X, y):
     X.to_csv('./X.csv')
@@ -182,7 +249,16 @@ def train_model(X, y):
     # output_coefs(model, X, y)
     return model, X
 """
-Run our criteria filters to remove unqualified candidates
+Run our criteria filters to remove unqualified candidates.
+
+@param {DataFrame} job_seekers - DataFrame representing all job seekers &
+                                 properties pulled from CommCare.
+@param {DataFrame} firm - DataFrame representing the firm which is being matched
+                          in to.
+@param {DataFrame} job - Dataframe representing the job which is being matched
+                         in to.
+
+@return {DataFrame} job_seekers - This is the newly filtered job_seekers dataframe
 """
 def filter_job_seekers(job_seekers, firm, job):
     print(job_seekers.shape)
@@ -288,6 +364,13 @@ def filter_job_seekers(job_seekers, firm, job):
 
 """
 Helper function to get job_seeker ranks for a given job opening
+
+This is the entrypoint into the "matching algorithm"
+
+@param {int} job_id - This is the UID of the job to perform matching on
+
+@return {DataFrame} output - Dataframe containing case_id's and corresponding
+                             match scores
 """
 def get_match_scores(job_id):
     job_seeker_models = JobSeeker.objects.all()
@@ -358,12 +441,17 @@ def get_match_scores(job_id):
     output['probs'] = probs.T[1]
     output['case_id'] = merged['case_id'].values
     output = output.round({'probs': 5})
-    test_X.to_csv('test_X.csv')
-    output.to_csv('output.csv')
+    # The following lines is for debugging and analysis of output and test data.
+    # test_X.to_csv('test_X.csv')
+    # output.to_csv('output.csv')
     return output
 
 """
 Create match database object and get scores
+
+@param {int} job_id - This is the UID of the job to perform matching on
+
+@return void
 """
 def create_match_object(job_id):
     print('create match object')
