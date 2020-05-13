@@ -53,6 +53,7 @@ def format_input(job_seekers: pd.DataFrame) -> pd.DataFrame:
     new['outcome'].replace(['0'], 'FALSE', inplace=True)
     new['outcome'].replace(['1'], 'TRUE', inplace=True)
     new['intake_interview_date'] = job_seekers['intake_interview_date']
+    new['case_id'] = job_seekers['case_id']
 
     # Upload prior data to dropbox
     dbx = dropbox.Dropbox(DROPBOX_KEY)
