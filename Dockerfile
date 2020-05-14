@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:3
+FROM python:3.7
 
 RUN pip install -U pip
 
@@ -10,10 +10,10 @@ COPY ./api/ /app
 WORKDIR "/app/"
 
 # Install tools needed for cron and supervisor
-
+#RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FCAE2A0E115C3D8A
 RUN apt-get update
 RUN apt-get install -y dirmngr apt-transport-https ca-certificates software-properties-common gnupg2
-RUN add-apt-repository 'deb https://cloud.r-project.org/bin/linux/debian stretch-cran35/'
+#RUN add-apt-repository 'deb https://cloud.r-project.org/bin/linux/debian stretch-cran35/'
 RUN apt-get update
 RUN apt-get install -y --allow-unauthenticated cron supervisor openssh-server r-base
 
